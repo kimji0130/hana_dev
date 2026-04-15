@@ -1,0 +1,42 @@
+@CHARSET "EUC-KR";
+
+.step1 {
+	width:33px;
+	height:33px;
+	background:url(../../../../resource/images/common/ajax-loader.gif) 0 0;
+}
+.step2 {
+	width:33px;
+	height:33px;
+	background:url(../../../../resource/images/common/ajax-loader.gif) -33px 0;
+}
+.step3 {
+	width:33px;
+	height:33px;
+	background:url(../../../../resource/images/common/ajax-loader.gif) -66px 0;
+}
+.step4 {
+	width:33px;
+	height:33px;
+	background:url(../../../../resource/images/common/ajax-loader.gif) -99px 0;
+}
+.step5 {
+	width:33px;
+	height:33px;
+	background:url(../../../../resource/images/common/ajax-loader.gif) -132px 0;
+}
+.step6 {
+	width:33px;
+	height:33px;
+	background:url(../../../../resource/images/common/ajax-loader.gif) -165px 0;
+}
+.step7 {
+	width:33px;
+	height:33px;
+	background:url(../../../../resource/images/common/ajax-loader.gif) -198px 0;
+}
+.step8 {
+	width:33px;
+	height:33px;
+	background:url(../../../../resource/images/common/ajax-loader.gif) -231px 0;
+}

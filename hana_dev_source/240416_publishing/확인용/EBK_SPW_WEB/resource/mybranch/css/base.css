@@ -1,0 +1,45 @@
+@charset 'utf-8';
+ 
+/*-------------------------------------------------------------------
+    @Fonts
+-------------------------------------------------------------------*/
+@font-face {font-family:"notokrDL"; font-weight:300; src:url('/resource/mybranch/fonts/eot/NotoSans-Light.eot'); src:local('※'), url('/resource/mybranch/fonts/eot/NotoSans-Light.eot?#iefix') format('embedded-opentype'), url('/resource/mybranch/fonts/woff/NotoSans-Light.woff') format('woff');}
+@font-face {font-family:"notokrDL"; font-weight:400; src:url('/resource/mybranch/fonts/eot/NotoSans-Regular.eot'); src:local('※'), url('/resource/mybranch/fonts/eot/NotoSans-Regular.eot?#iefix') format('embedded-opentype'), url('/resource/mybranch/fonts/woff/NotoSans-Regular.woff') format('woff');}
+@font-face {font-family:"notokrDL"; font-weight:500; src:url('/resource/mybranch/fonts/eot/NotoSans-Medium.eot'); src:local('※'), url('/resource/mybranch/fonts/eot/NotoSans-Medium.eot?#iefix') format('embedded-opentype'), url('/resource/mybranch/fonts/woff/NotoSans-Medium.woff') format('woff');}
+@font-face {font-family:"notokrDL"; font-weight:700; src:url('/resource/mybranch/fonts/eot/NotoSans-Bold.eot'); src:local('※'), url('/resource/mybranch/fonts/eot/NotoSans-Bold.eot?#iefix') format('embedded-opentype'), url('/resource/mybranch/fonts/woff/NotoSans-Bold.woff') format('woff');}
+@font-face {font-family:"Roboto"; font-weight:300; src:url('/resource/mybranch/fonts/eot/Roboto-Light.eot'); src:local('※'), url('/resource/mybranch/fonts/eot/Roboto-Light.eot?#iefix') format('embedded-opentype'), url('/resource/mybranch/fonts/woff/Roboto-Light.woff') format('woff');}
+@font-face {font-family:"Roboto"; font-weight:400; src:url('/resource/mybranch/fonts/eot/Roboto-Regular.eot'); src:local('※'), url('/resource/mybranch/fonts/eot/Roboto-Regular.eot?#iefix') format('embedded-opentype'), url('/resource/mybranch/fonts/woff/Roboto-Regular.woff') format('woff');}
+@font-face {font-family:"Roboto"; font-weight:500; src:url('/resource/mybranch/fonts/eot/Roboto-Medium.eot'); src:local('※'), url('/resource/mybranch/fonts/eot/Roboto-Medium.eot?#iefix') format('embedded-opentype'), url('/resource/mybranch/fonts/woff/Roboto-Medium.woff') format('woff');}
+
+/*-------------------------------------------------------------------
+    @Reset
+-------------------------------------------------------------------*/
+#content, #content div, .sub-content div,  #content ul, #content li, #content  p, #content  span, #content em , #content h1, #content h2,  #content h3,  #content h4,  #content h5,  
+#content h6,  #content a,  #content strong,  #content small, .pualugin-modal, .pualugin-modal .modal  p, .pualugin-modal .modal div,  .pualugin-modal .modal ul,  
+.pualugin-modal .modal ol, .pualugin-modal .modal li,  .pualugin-modal .modal span, .pualugin-modal .modal h1, .pualugin-modal .modal h2,  .pualugin-modal .modal button,
+.pop-btn-wrap button, .btn-wrap__basic button, .modal-full__header h1,  .modal-full__content div, .modal-full__content h3, .modal-full__content p, .modal-full__content li,
+.compt-footer__wrap footer, .compt-footer__wrap p, .compt-footer__wrap span, .compt-footer__wrap small, .compt-footer__wrap ul, .compt-footer__wrap li,
+.modal-full div, .modal-full p, .modal-full li, .modal-full ul, .modal-full span, .modal-full h2
+{line-height: 1.3; width: auto;}
+#content button, #content a, .btn-bottom__fixed > button
+{height: auto; line-height: 1;}
+
+/*-------------------------------------------------------------------
+    @FontSize
+-------------------------------------------------------------------*/
+.h1 {font-size: 1.8rem;}
+.h2 {font-size: 1.8rem;}
+.h3 {font-size: 1.8rem; font-weight: 500;}
+
+/*-------------------------------------------------------------------
+    @FontWeight
+-------------------------------------------------------------------*/
+.fw-sm {font-weight: 300;}
+.fw-md {font-weight: 400;}
+.fw-lg {font-weight: 500;}
+.fw-xlg {font-weight: 700;}
+
+/*-------------------------------------------------------------------
+    @FontFamily
+-------------------------------------------------------------------*/
+.font-roboto {font-family: 'Roboto', sans-serif;}

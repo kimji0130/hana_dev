@@ -1,0 +1,978 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta charset="EUC-KR" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>영업용 메인</title>
+	<!--2021.04.12 : Mata 태그 추가 및  이미지 경로 확인 요청 : 개발에서는 주석 제거  -->
+	<meta name="robots" content="index,nofollow">
+	<meta name="description" content="손님과 더 가까워지는 모바일 영업점 My브랜치,지점 연계로 간편한 대출을 경험해 보세요." />
+	<meta property="og:url" content="https://m.kebhana.com/myb/index.do">
+	<meta property="og:title" content="하나은행 My브랜치 (구 모바일브랜치)">
+	<meta property="og:type" content="website">
+	<meta property="og:image" content="/cont/mybranch/common/icons/sns-logo.png">
+	<meta property="og:description" content="손님과 더 가까워지는 모바일 영업점 My브랜치,지점 연계로 간편한 대출을 경험해 보세요.">
+	<meta name="keyword" content="하나은행, 마이브랜치, 모바일브랜치, MY브랜치, 하나은행 모바일브랜치, 하나은행 My브랜치, 하나은행 대출, 하나은행 신용대출, 하나은행 영업점">
+	<meta name="twitter:title" content="하나은행 My브랜치 (구 모바일브랜치)" />
+	<meta name="twitter:image" content="/cont/mybranch/common/icons/sns-logo.png" />
+	<meta name="twitter:card" content="summary" />
+	<meta name="twitter:description" content="손님과 더 가까워지는 모바일 영업점 My브랜치,지점 연계로 간편한 대출을 경험해 보세요." />
+	<!--2021.04.12 : favicon-->
+	<link rel="shortcut icon" sizes="32x32" href="../../../../cont/mybranch/common/icons/favicon32.ico">
+	<link rel="icon" type="image/png" sizes="16x16" href="../../../../cont/mybranch/common/icons/favicon16x16.png">
+	<link rel="apple-touch-icon" sizes="180x180" href="../../../../cont/mybranch/common/icons/favicon-180x180.png"> 
+	<link rel="icon" type="image/png" sizes="192x192" href="../../../../cont/mybranch/common/icons/favicon-192x192.png"> 
+	<!--js-->
+	<script src="../../../../cont/mybranch/common/library/jquery-1.8.0.min.js"></script>
+	<script src="../../../../cont/mybranch/common/library/browser.min.js"></script>
+	<script src="../../../../cont/mybranch/common/library/swiper.min.js"></script>
+	<script src="../../../../cont/mybranch/common/library/aos.min.js"></script>
+	<script src="./mybranch/js/mybUI.js"></script>	
+	<!--css-->
+	<link rel="stylesheet" href="./mybranch/css/import.css" />
+	<script>
+		$(document).ready(function () {
+			initMybUI(); 
+			initMybComponents(); 
+			AOS.init({ easing: 'ease-out', duration: 650 }); 
+		});
+    </script>
+</head>
+<body>
+<div class="app">
+	<!-- main -->
+	<main id="content" class="main main-branch" role="main">
+
+		<!-- header components wrap -->
+		<section class="compt-header__wrap">
+			<!-- compt header -->
+			<section class="compt-header">
+				<div class="compt-header__logo">
+					<img src="../../../../cont/mybranch/common/icons/icon-logo.png" alt="마이브랜치"/> <!-- 2021.04.02 : 아이콘 변경 -->
+					<!--h1>삼성전자 모바일연구소 R5 출장소 지점</h1--><h1>영업부</h1>
+        		</div>
+			</section>
+			<!--// compt header -->
+      
+			<!-- compt sns -->
+			<section class="compt-sns">
+				<div class="sns-wrap">
+					<button type="button"><i class="icon icon-like"></i></button>
+					<button type="button" data-element="modal__open" data-target="#combobox_1"><i class="icon icon-share"></i></button>
+	
+					<!-- Modal Layer -->
+					<div id="combobox_1" class="modal modal--slide modal--select-value" data-element="modal__element">
+						<div class="modal__container" data-element="modal__element-container">
+							<div class="modal__header modal__header--border">
+								<h1 class="modal__header--title">공유하기</h1>
+							</div>
+							<div class="modal__contents">
+								<div class="modal-sns">
+									<a href="#">
+										<i class="icon icon-talk"></i>
+										<p>카카오톡</p>
+									</a>
+									<a href="#">
+										<i class="icon icon-sms"></i>
+										<p>문자</p>
+									</a>
+									<a href="#">
+										<i class="icon icon-url"></i>
+										<p>URL복사</p>
+									</a>
+								</div>
+							</div>
+							<button type="button" class="modal__btn--close" data-element="modal__close" title="닫기"></button>
+						</div>
+					</div>
+					<!--// Modal Layer -->
+	
+				</div>
+			</section>
+			<!--// compt sns -->
+	
+			<!-- compt skin-->
+			<section class="skin-wrap branch">
+				<div class="skin">
+					<div class="skin-inner" style="background-image: url('../../../../cont/mybranch/common/photo/bg-branch.png');"></div>
+				</div>
+			</section>
+			<!--// compt skin-->
+		</section>
+		<!--// header components wrap -->
+
+		<!-- compt product -->
+		<section class="section compt-product__wrap">
+			<a href="#" class="compt-product" data-aos="fade-up">
+				<div class="compt-product__image"><img src="../../../../cont/mybranch/common/photo/photo-branch01.png" alt="하나원큐전세대출"/></div>
+				<div class="compt-product__info">
+					<h4>하나원큐전세대출</h4>
+					<p>어디서나 5분이면 한도조회 OK!<br>최대 5억원</p>
+				</div>
+			</a>
+
+			<a href="#" class="compt-product" data-aos="fade-up">
+				<div class="compt-product__image"><img src="../../../../cont/mybranch/common/photo/photo-branch02.png" alt="주택청약종합저축"/></div>
+				<div class="compt-product__info">
+					<h4>주택청약종합저축</h4>
+					<p>어디서나 5분이면 한도조회 OK!<br>최대 5억원</p>
+				</div>
+			</a>
+
+			<a href="#" class="compt-product" data-aos="fade-up">
+				<div class="compt-product__image"><img src="../../../../cont/mybranch/common/photo/photo-branch03.png" alt="프리미엄직장인론"/></div>
+				<div class="compt-product__info">
+					<h4>프리미엄직장인론</h4>
+					<p>공무원, 교사, 대기업 임직원<br>최대 1억 5천만원</p>
+				</div>
+			</a>
+		</section>
+		<!--// compt product -->
+
+		<!-- compt loan : 2021.03.22 분리 -->
+		<section class="section compt-loan__wrap" data-aos="fade-up">
+			<div class="section-title">
+				<h3>대출</h3> 
+			</div>
+			<div class="section-desc">
+				<p>대출 신청부터 실행까지!<br>지점 방문없이 편리하게 이용하세요.</p>
+			</div>
+			<div class="compt-loan">
+				<ul>
+				<li>
+					<a href="#" class="compt-loan__anchor">
+					<img src="../../../../cont/mybranch/common/photo/photo-loan01.jpg" alt="대출 신청">
+					<!-- <span>대출 신청</span> --> <!-- 2021.04.02 : 삭제 -->
+					</a>
+				</li>
+				<li>
+					<a href="#" class="compt-loan__anchor">
+					<img src="../../../../cont/mybranch/common/photo/photo-loan02.jpg" alt="대출금 받기">
+					<!-- <span>대출금 받기</span> --> <!-- 2021.04.02 : 삭제 -->
+					</a>
+				</li>
+				</ul>
+			</div>
+		</section>
+		<!-- //compt loan : 2021.03.22 분리 -->
+
+		<!-- compt-banner__wrap : 2021.03.22 분리 -->
+		<section class="section compt-banner__wrap"> 
+			<div class="compt-slide__banner swiper-container">
+				<div class="swiper-wrapper">
+					<a href="#" class="swiper-slide">
+						<img src="../../../../cont/mybranch/common/photo/photo-roll.png" alt="신용동의 / 신용평점 확인하고 대출 상담 받아보세요." />
+					</a>
+					<a href="#" class="swiper-slide">
+						<img src="../../../../cont/mybranch/common/photo/photo-roll01.png" alt="사업자 신용동의 / 개인사업자 대출 상담을 위한 신용동의" />
+					</a>
+					<a href="#" class="swiper-slide">
+						<img src="../../../../cont/mybranch/common/photo/photo-roll02.png" alt="마케팅동의 / 다양한 금융정보와 혜택을 위한 동의절차입니다." />
+					</a>
+				</div>
+				<div class="swiper-pagination"></div>
+			</div>
+		</section>
+		<!-- compt-banner__wrap : 2021.03.22 분리 -->
+
+		<!-- compt financial : 2021.03.22 분리 -->
+		<section class="section" data-aos="fade-up">
+			<div class="compt-slide__financial swiper-container">
+				<ul class="swiper-wrapper">
+					<li class="compt-slide__financial__item swiper-slide">
+						<a href="#"><img src="../../../../cont/mybranch/common/photo/photo-bank01.png" alt="카드신청">
+							<p>카드신청</p>
+						</a>
+					</li>
+					<li class="compt-slide__financial__item swiper-slide">
+						<a href="#"><img src="../../../../cont/mybranch/common/photo/photo-bank02.png" alt="통장개설">
+						<p>통장개설</p>
+						</a>
+					</li>
+				</ul>
+			</div>
+		</section>
+		<!-- compt financial : 2021.03.22 분리 -->
+
+		<!-- compt-information : 2021.03.22 분리 -->
+		<section class="section compt-information__wrap" data-aos="fade-up">
+			<div class="compt-information">
+				<a href="#" class="compt-information__item">
+				<div class="compt-information__left">
+					<h4 class="title faq">FAQ</h4>
+					<span>궁금한 사항을 빠르게 확인하실 수 있습니다.</span>
+				</div>
+				<div class="compt-information__right image">
+					<img src="../../../../cont/mybranch/common/icons/icon-question.png" alt="궁금한 사항">
+				</div>
+				</a>
+				<a href="#" class="compt-information__item">
+				<div class="compt-information__left image">
+					<img src="../../../../cont/mybranch/common/icons/icon-area.png" alt="영업점 안내">
+				</div>
+				<div class="compt-information__right">
+					<h4 class="title">영업점 안내</h4>
+					<span>영업점의 위치와 연락처를 안내해 드립니다.</span>
+				</div>
+				</a>
+			</div>
+		</section>
+		<!-- //compt-information : 2021.03.22 분리 -->
+
+		<!-- compt-slide__news--branch -->
+		<section class="section compt-slide__news--branch" data-aos="fade-up">
+			<div class="compt-slide__news--branch__title">
+				<h3>새소식</h3> 
+				<a href="" class="compt-slide__news--more">
+				<span>더보기</span>
+				<i class="icon icon-arrow__right"></i>
+				</a>
+			</div>
+			<div class="compt-slide__news swiper-container">
+				<div class="swiper-wrapper">
+					<a href="#" class="swiper-slide">하나원큐 얼굴인증 이모티콘 공모전1</a>
+					<a href="#" class="swiper-slide">하나원큐 얼굴인증 이모티콘 공모전2</a>
+					<a href="#" class="swiper-slide">하나원큐 얼굴인증 이모티콘 공모전3</a>
+				</div>
+			</div>
+		</section>
+		<!--// compt-slide__news--branch -->
+
+		<!-- compt exchangeInfo -->
+			<section class="section" data-aos="fade-up">
+				<div class="compt-exchangeInfo">
+					<div class="compt-exchangeInfo__title">
+						<h3>실시간 환율 동향</h3> <!-- 2021-04-19 : target="_blank" 삭제 -->
+						<a href="https://m.kebhana.com/exr/exrGate.do?MEWL_AFCR_CD=AG&LD=Y" class="compt-exchangeInfo__rate">
+							<span id="pbldDtTm">환율계산하기</span>
+							<i class="icon icon-arrow__right"></i>
+						</a>
+					</div>
+					<div class="swiper-container compt-exchangeInfo__slide-wrap">
+			<ul class="compt-exchangeInfo__slide swiper-wrapper">
+				<li class="swiper-slide">
+				<img src="../../../../cont/mybranch/common/icons/exchange_nation01.png" alt="USD">
+				<span>USD</span>
+				<span id="usdDealBascRt">2,001.00</span>
+				</li>
+				<li class="swiper-slide">
+				<img src="../../../../cont/mybranch/common/icons/exchange_nation02.png" alt="JPY">
+				<span>JPY</span>
+				<span id="jpyDealBascRt">1,100.05</span>
+				</li>
+				<li class="swiper-slide">
+				<img src="../../../../cont/mybranch/common/icons/exchange_nation03.png" alt="EUR">
+				<span>EUR</span>
+				<span id="eurDealBascRt">1,000.00</span>
+				</li>
+				<li class="swiper-slide">
+				<img src="../../../../cont/mybranch/common/icons/exchange_nation04.png" alt="CNY">
+				<span>CNY</span>
+				<span id="cnyDealBascRt">1,245,00</span>
+				</li>
+			</ul>
+			</div>
+			<p class="compt-exchangeInfo__additional">2020.12.12 10:55 매매기준</p>
+				</div>
+			</section>
+			<!--// compt exchangeInfo -->
+
+		<!-- compt-slide__banner--> <!-- 2021-03-02 : 배너 추가 -->
+		<section class="section compt-banner__wrap"> <!-- 2021-03-03 : 클래스 변경 -->
+			<div class="compt-slide__banner swiper-container">
+				<div class="swiper-wrapper">
+					<a href="#" class="swiper-slide">
+						<img src="../../../../cont/mybranch/common/photo/ban-roll1.png" alt="My브랜치 손님을 위한 추천카드 / 하나카드" />
+					</a>
+					<a href="#" class="swiper-slide">
+						<img src="../../../../cont/mybranch/common/photo/ban-roll2.png" alt="쉽다. 빠르다. 돈이 된다 직관적인 금융생활 / 하나원큐" />
+					</a>
+					<a href="#" class="swiper-slide">
+						<img src="../../../../cont/mybranch/common/photo/ban-roll3.png" alt="다양한 혜택을 누릴 수 있는 생활금융플랫폼 / 하나멤버스" />
+					</a>
+				</div>
+				<div class="swiper-pagination"></div>
+			</div>
+		</section>
+		<!--// compt-slide__banner-->
+
+		<!-- compt-branchInfo -->
+		<section class="section compt-branchInfo__wrap"> <!-- 2021-03-03 : 클래스 변경 -->
+			<div class="section-title">
+				<h3>우리 지점 이야기</h3> <!-- 2021-04-02 : 문구 변경 -->
+			</div>
+			<div class="compt-branchInfo">
+				<div class="compt-branchInfo__item"><img src="../../../../cont/mybranch/common/photo/photo-branchInfo.jpg" alt="우리 지점 이야기"></div> <!-- 2021-04-02 : alt 문구 변경 -->
+			</div>
+		</section>
+		<!-- //compt-branchInfo -->
+
+	  <!-- compt footer -->
+		<section class="compt-footer__wrap">
+			<footer class="myb-footer">
+				<div class="logo-box">
+					<span class="branch-logo">My브랜치</span>
+					<span class="branch-name">내자동지점</span>
+				</div>
+				<div class="info">
+					<ul>
+						<li><a href="tel:1599-1111">1599-1111</a></li>
+						<li><a href="tel:1588-1111">1588-1111</a></li>
+					</ul>
+				</div>
+				<small>ⓒ 2021 하나은행 My브랜치</small>
+			</footer>
+		</section>
+		<!-- // compt footer -->
+
+		<!-- compt-bottomNav -->
+		<section class="compt-bottom-nav__wrap">
+			<div class="bottom-nav">
+				<ul>
+					<li><a href="">대출</a></li>
+					<li><a href="">통장개설</a></li>
+					<li><a href="">카드신청</a></li>
+					<li><span class="divider-menu"><i class="icon icon-divide" aria-label="전체메뉴"></i></span></li>
+				</ul>
+			</div>
+		</section>
+		<!--// bottom-nav -->
+
+		<!-- compt divider -->
+		<section id="divider" class="compt-divider__wrap">
+			<div class="mobile-nav hide">
+				<div class="mobile-nav__visual">
+					<i class="icon icon-map"></i>
+					<h2>본점 을지로센터 브랜치
+						<!-- <a href="#"><i class="icon icon-branch"></i></a> --><!--2021.04.12 : 브랜치 링크-->
+					</h2>
+					<div class="mobile-nav__mybranch__wrap">
+						<a href="#" class="mobile-nav__mybranch" data-element="modal__open" data-target="#modalInfoUse" aria-controls="#modalInfoUse">
+							<span>My브랜치가 처음이신가요?</span>
+						</a>
+					</div>
+				</div>
+				<ul class="mobile-nav__list">
+					<li>
+						<a href="#" class="depth01-item">
+							<span>대출</span>
+							<i class="icon icon-arrow_down"></i>
+						</a>
+						<ul class="depth02-wrap">
+							<li><a href="#" class="depth02-item">대출 신청하기</a></li>
+							<li><a href="#" class="depth02-item">진행조회 및 서류제출(촬영)</a></li>
+							<li><a href="#" class="depth02-item">대출금받기</a></li>
+						</ul>
+					</li>
+					<li>
+						<a href="#" class="depth01-item">
+							<span>신용동의</span>
+							<i class="icon icon-arrow_down"></i>
+						</a>
+						<ul class="depth02-wrap">
+							<li><a href="#" class="depth02-item">개인대출용 신용동의</a></li>
+							<li><a href="#" class="depth02-item">사업자대출용 신용동의</a></li>
+						</ul>
+					</li>
+					<li>
+						<a href="#" class="depth01-item">
+							<span>개인정보 이용 동의</span>
+						</a>
+					</li>
+					<li>
+						<a href="#" class="depth01-item">
+							<span>분실/변경</span>
+							<i class="icon icon-arrow_down"></i>
+						</a>
+						<ul class="depth02-wrap">
+							<li><a href="#" class="depth02-item">내 정보변경</a></li>
+							<li><a href="#" class="depth02-item">통장/인감 분실</a></li>
+							<li><a href="#" class="depth02-item">통장 비밀번호 재등록</a></li>
+						</ul>
+					</li>
+					<li>
+						<a href="#" class="depth01-item">
+							<span>비대면계좌개설</span>
+						</a>
+					</li>
+					<li>
+						<a href="#" class="depth01-item">
+							<span>신용카드</span>
+						</a>
+					</li>
+				</ul>
+				<button class="divide-close"><i class="icon icon-close__white">닫기</i></button>
+			</div>
+		</section>
+		<!--// compt divider -->
+
+	</main>
+	<!--// main -->
+
+	<!-- 이용안내팝업 -->
+	<div class="pop-wrap modal" id="modalInfoUse" data-element="modal__element" role="dialog" aria-modal="true" aria-hidden="false">
+		<div class="dim"></div>
+		<div class="pop-inner__basic" data-element="modal__element-container">
+			<div class="pop-head">
+				<p class="pop-head--title">My 브랜치 이용안내</p>
+				<button class="pop--btn-close" type="button" data-element="modal__close" title="닫기"></button>
+			</div>
+			<div class="pop-body is-scroll">
+				<h2 class="pop-body__title">사/전/준/비</h2>
+				<p class="pop-body__exp">본인 명의 핸드폰을 준비해 주세요.</p>
+
+				<h2 class="pop-body__title">이/용/안/내</h2>
+				<ol class="pop-body__list">
+					<li><span>영업점 선택(필요시)</span>
+						<div class="pop-body__list_exp">거래 영업점 변경을 원하시면 [전체메뉴]의 [다른 영업점 찾기]를 터치</div>
+					</li>
+					<li><span>신청하기</span>
+						<p>가계대출</p>
+						<ul>
+							<li>① 신청하기</li>
+							<li>② 본인인증(SMS, ARS인증)</li>
+							<li>③ 신청정보 입력</li>
+							<li>④ 증빙서류 촬영하여 제출</li>
+						</ul>
+						<p>신용카드</p>
+						<ul>
+							<li>① 신청하기</li>
+							<li>② 하나카드 페이지로 이동되어 신청</li>
+						</ul>
+						<p>계좌개설</p>
+						<ul>
+							<li>① 입출금통장 또는 전자금융신규</li>
+							<li>② 비대면 계좌 개설 페이지로 이동되어 신청</li>
+						</ul>
+						
+					</li>
+					<li><span>약정/실행하기</span>
+						<p>신용대출 및 오토론</p>
+						<ul>
+							<li>① 약정/실행하기</li>
+							<li>② 본인인증(SMS, ARS인증)</li>
+							<li>③ 대출실행내역확인</li>
+							<li>④ 전자서명 비밀번호 6자리 설정 및 확인</li>
+							<li>⑤ 약정/실행 완료</li>
+						</ul>
+					</li>
+				</ol>
+				<ul class="pop-body__additional">
+					<li><em>※</em>서비스 이용시 이동통신사에 가입하신 요금제에 따라 데이터 이용요금이 부과될 수 있습니다.</li>
+					<li><em>※</em>특허출원 <span>10-2017-0029097</span><span class="newline">10-2018-0022208</span></li>
+					<li><em>※</em>상표등록출원 <span>40-2017-0024202-4</span></li>
+				</ul>
+			</div>
+			<div class="pop--btn-wrap btn-wrap__basic">
+				<button type="button" class="btn btn-basic__round primary full md" data-element="modal__close">확인</button>
+			</div>
+		</div>
+	</div>
+ 	<!--// 이용안내팝업 -->
+
+	<!-- 2022-04-21 스타일 선언 모두 수정 -->
+	<style>
+		.myBrMainPop {transform:initial; top:0; left:0;}
+		.myBrMainPop .pop-inner__fix {position:absolute; top:50%; left:25px; right:25px; transform:translateY(-50%); width:auto; max-width:360px; margin:0 auto;}
+		.myBrMainPop .pop-head {position:relative; height:auto; padding:0}
+		.myBrMainPop .pop--btn-close {top:12px; left:auto; right:12px; border:0; padding:0 !important; z-index:10; width:2.6rem; height:2.6rem;}
+		.myBrMainPop .pop--btn-close:before {content:""; display: block; width:2.6rem; height:2.6rem; background:url(../../../../resource/mybranch/images/icon-btn-close_03.png) 0 0 no-repeat; background-size:100% auto;}
+		.myBrMainPop .btn-wrap__fix {display:flex; align-items:center; border-top:1px solid #d1dbe1; background-color:#fefefe;}/* 2022-06-30 닫기버튼 margin-top:1px 제거  */
+		.myBrMainPop .btn-wrap__fix .btn {border:none; flex:1; color:#333; height:45px; line-height:45px; border-radius:0; font-size:14px; border-left:1px solid #d1dbe1; padding:0; letter-spacing:0; background-color:transparent;} /* 2022-04-22 현재 줄 전체 수정해주세요 */
+		.myBrMainPop .btn-wrap__fix .btn:first-child {border-left:none;}
+		.myBrMainPop .pop-body-imgbox {position:relative;}
+		.myBrMainPop .pop-body-imgbox .pop-body-img-link {position:absolute; z-index:2;}
+		.myBrMainPop .pop-body-imgbox .blind {visibility:hidden; font-size:0;text-indent:-20000px;}
+		.myBrMainPop .myBrEvt220421 .pop-body-img-link {left:17%; bottom:5%; width:66.4%; height:10%;}
+		.myBrMainPop .pop-body-imgbox img {vertical-align:top;} /* 2022-04-22 이미지 스타일 한 줄 추가 */
+
+	</style>
+	<!-- // 2022-04-21 스타일 선언 모두 수정 -->
+
+	<!-- 2023-05-16 My브랜치 이벤트 팝업 -->
+	<style type="text/css">
+		.myBrMainPop {overflow-y:scroll;}
+		.myBrMainPop .pop-accodian-wrap {width:100%; background:#0b9562;}
+		.myBrMainPop .productdetail-cont__wrap {display:block; position:relative; padding:0; overflow:hidden;}
+		.myBrMainPop .productdetail div {line-height:1.3;}
+		.myBrMainPop .product-accodian {border:0; border-radius:0; margin-bottom:2.5rem;}
+		.myBrMainPop .product-accodian>li {padding:0 1.5rem; border:none;}
+		.myBrMainPop .product-accodian>li:last-child {border-bottom:0;}
+		.myBrMainPop .product-accodian__tit {display:block; position:relative; top:0; left:0; width:100%; padding:2.5rem 0.7rem 1rem 0rem; font-size:1.5rem; font-weight:500; color:#fff; line-height:1.1; border-bottom:1px solid #a1d6c2;}
+		.myBrMainPop .product-accodian__tit:after {content:''; position:absolute; top:50%; right:10px; width:1rem; height:1rem; border-right:2px solid #fff; border-top:2px solid #fff; transform:rotate(135deg); transition:all .2s ease-in-out;}
+		.myBrMainPop .product-accodian__tit.active:after {top:calc(50% + 5px); right:10px; border-right:2px solid #fff; border-top:2px solid #fff; transform: rotate(-45deg);}
+		.myBrMainPop .product-accodian__cont {padding:1.5rem 0rem 0rem; border:none; display:none;}
+		.myBrMainPop .product-dataList .fc_564 {color:#fce564;}
+		.myBrMainPop .product-dataList>dt {color:#fff; font-size:1.4rem; font-weight:500; width:100%; display:flex; justify-content:space-between; align-items:center;}
+		.myBrMainPop .product-dataList>dd {color:#fff; font-size:1.3rem; line-height:1.4; font-weight:300}
+		.myBrMainPop .product-dataList>dd div {margin-top:0.5rem; font-size:1.3rem;}
+		.myBrMainPop .product-dataList>dt + dd {margin-top:1rem;}
+		.myBrMainPop .product-dataList>dd div + ul {margin-top:0.7rem;}
+		.myBrMainPop .product-dataList>dd + dt {margin-top:2rem;}
+		.myBrMainPop .product-dataList>dt + dt {margin-top:1.5rem;}
+		.myBrMainPop ul>li>ul {margin:0.5rem 0 0.7rem 0;}
+		.myBrMainPop .list-dot, .myBrMainPop .list-dash {font-size:1.3rem; color:#fff;}
+		.myBrMainPop .list-hr {margin-top:1.5rem; padding-top:1.4rem; border-top:1px dashed #a1d6c2;}
+		.myBrMainPop .product-dataList>dd p + ul {margin-top:0.7rem;}
+		.myBrMainPop .product-dataList>dd p.p-sub_tit {margin-top:1rem; font-size:1.3rem; font-weight:500;}
+		.myBrMainPop .list-dot>li {position:relative; top: 0; left: 0; margin-bottom: 0.5rem;padding-left:0.6rem;}
+		.myBrMainPop .list-dot>li:before {content:''; position:absolute; top:0.7rem; left:0; width:3px; height:3px; background:#fff; border-radius:50%;}
+		.myBrMainPop .list-dash>li {position:relative; top:0; left:0; margin-bottom:0.5rem; padding-left:0.7rem;}
+		.myBrMainPop .list-dash>li:before {content:''; position:absolute; top:0.8rem; left:0; width:4px; height:1px; background:#fff; border-radius:50%;}
+		.myBrMainPop .pop--btn-close.myBrEvt_btn_230405:before {background:url(../../../../resource/mybranch/images/readytogo_btn_close.png) 0 0 no-repeat; background-size:100% auto;}
+		.myBrMainPop .pop-inner__fix {max-height:100%; overflow:auto; -webkit-overflow-scrolling:none;}/* 2023-05-22 'dim' 배경 길이 수정*/
+		@media screen and (max-height:568px){
+			.myBrMainPop .pop-inner__fix {max-height:415px; overflow:auto;}
+		}
+		@media screen and (max-height:320px){
+			.myBrMainPop .pop-inner__fix {max-height:300px; overflow:auto;}
+		}
+	</style>
+
+	<div class="pop-wrap modal modal--alert myBrMainPop is-open" id="myBrPop" data-element="modal__element" role="dialog" aria-modal="true" aria-hidden="false" style="z-index:1000025; display:block;">
+		<div class="dim"></div>
+		<div class="pop-inner__fix" data-element="modal__element-container">
+			
+			<!-- 2024-02-29 대한항공 이벤트 팝업 -->
+			<style type="text/css">
+			.myBrMainPop .product-dataList>dt {color:#eff5f3; font-size:1.4rem; font-weight:500; width:100%; display:flex; justify-content:space-between; align-items:center;}
+			.myBrMainPop .product-dataList>dd {color:#eff5f3; font-size:1.3rem; line-height:1.4; font-weight:300}
+			/* .myBrMainPop .product-dataList>dd .p-sub_tit {margin-top:1rem; font-size:1.3rem; font-weight:500;} */
+			/* .myBrMainPop .pop--btn-close.myBrEvt_btn_240229:before {background:url(../../../../resource/mybranch/images//readytogo_btn_close.png) 0 0 no-repeat; background-size:100% auto;} 버튼 삭제*/
+			.myBrMainPop .pop-accodian-wrap.myBrEvt_cont_240229 {width:100%; background:#008566;}
+			.myBrMainPop .myBrEvt_cont_240229 .product-accodian__tit {display:block; position:relative; top:0; left:0; width:100%; padding:1.5rem 0.7rem 1rem 0rem; font-size:1.5rem; font-weight:500; color:#fff; line-height:1.1; border-bottom:1px solid #339d85;}
+			.myBrMainPop .product-accodian__cont {padding:0rem; border:none; display:none;}
+			.myBrMainPop .myBrEvt_cont_240229 .product-dataList{background:#008566;}
+			.myBrMainPop .myBrEvt_cont_240229 .product-dataList .img_alt_content{opacity: 0; z-index: -99998; position:absolute; top:-9999; color:transparent; }
+			.myBrMainPop .myBrEvt_cont_240229 .product-dataList .fc_point {color:#fda0a4;}
+			.myBrMainPop .myBrEvt_cont_240229 .list-hr {margin-top:1.5rem; padding-top:1.4rem; border-top:1px dashed rgba(255, 255, 255, .4);}
+			</style>
+			<div class="pop-head"> 
+				<!-- <button onclick="ice_goBrPop(2)" class="pop--btn-close right myBrEvt_btn_240229" data-element="modal__close" title="닫기" type="button"></button>2024-02-29 이미지 변경으로 인한 클래스 "myBrEvt_btn_240229" 네이밍 버튼 삭제-->
+			</div>
+			<div class="pop-body__fix">
+				<!-- 2024-02-29 이미지 추가 및 클래스 "myBrEvt240229" 네이밍 변경 -->
+				<div class="pop-body-imgbox myBrEvt242029">
+					<img src="../../../../resource/mybranch/images/popup_evt_koreanair_240229.png" alt="대한항공 임직원 하나은행 혜택안내 제휴카드프로모션:발렛파킹 5회 지원, 급여이체 신규손님:5만원 캐시백, 해외체류비 계좌 개설:5만원 캐시백, 첫 거래 신용대출:최대 1억 6천만원">
+				</div>
+				<!-- // 2024-02-29 이미지 추가 및 클래스 "myBrEvt240229" 네이밍 변경 -->
+			</div>
+			<div class="pop-accodian-wrap productdetail myBrEvt_cont_240229"><!-- 2024-02-29 스타일변경을 위한 클래스 "myBrEvt_cont_240229" 추가 -->
+				<div class="productdetail-cont__wrap">
+					<ul class="product-accodian" id="PopProduct">
+						<li>
+							<a class="product-accodian__tit" href="javascript:void(0)">제휴카드 프로모션</a>
+							<div class="product-accodian__cont" id="PopProductCont">
+								<dl class="product-dataList">
+									<div>
+										<img src="../../../../resource/mybranch/images/popup_evt_first_benefit.png" alt="제휴카드 프로모션 혜택 및 대상카드">
+									</div>
+									<!-- 2024-02-29 image 대체 텍스트를 위한 클래스 "img_alt_content" 추가-->
+									<div class="img_alt_content">
+										<h1>프로모션 혜택</h1>
+										<h2>하나</h2>
+										<ul>
+											<li>1) 혜택 : 인천국제공항 발렛서비스 연간 최대 5회 제공(월1회/년5회)</li>
+											<li>2) 카드이용기간 : 2024.2.15 ~ 2024.11.30 </li>
+											<li>3) 서비스이용기간 : 2024.3.1 ~ 2024.12.31</li>
+											<li>4) 제공 조건 : 대상 신용카드로 전월 50만원 이상 사용 시</li>
+											<li>5) 제공 방법: 인천국제공한 T1, T2 발렛서비스 이용 시</li>
+										</ul>
+										<h2>둘</h2>
+										<ul>
+											<li>1) 혜택 : 대상카드로 아래 월 사용금액 이용 시 하나머니 지급
+												<ul>
+													<li>- 밀리언달러 카드 : 월 15천원 이상 이용 시 최대 15천 하나머니 지급</li>
+													<li>- 원더카드 원더 FREE+ : 월 19.9천원 이상 이용 시 최대 19.9천 하나머니 지급</li>
+												</ul>
+											</li>
+											<li>2) 카드이용기간 : 2024.2.15 ~ 2024.12.31</li>
+											<li>3) 제공 방법 : 하나머니 적립, 익월 10영업일 이내 (기간 내 1회 지급)<br>
+												※2개 카드 대상 중복 지급 안됨
+											</li>
+										</ul>
+										<h1>프로모션 대상 카드</h1>
+										<h2>가. 밀리언달러 하나카드</h2>
+										<ul>
+											<li>?? 연회비 : 국내외 겸용(VISA) 15,000원</li>
+											<li>?? 주요혜택
+												<ul>
+													<li>국제브랜드수수료(1.1%) 면제</li>
+													<li>해외서비스수수료(0.2%) 면제</li>
+													<li>해외ATM출금수수료($3) 면제</li>
+													<li>해외 이용 시 0.7% 하나머니적립(월 5만원 한도)</li>
+													<li>기타 국내 서비스(커피, 디지털구독, 편의점, 대중교통)</li>
+												</ul>
+											</li>
+										</ul>
+										<h2>나. 원더카드 원더 FREE+</h2>
+										<ul>
+											<li>?? 연회비 : 국내전용/국내외 겸용(VISA/MASTER/AMEX)
+												<ul>
+													<li>기본 연회비 12,000원 + 제휴연회비 7,900원</li>
+													<li>* 제휴 연회비는 혜택 플러스 선택 시 추가 부과</li>
+												</ul>
+											</li>
+											<li>?? 추천혜택조합 : 원더 FREE+(국내, 국내외겸용) 19,900원</li>
+											<li>?? 주요혜택 : 전 가맹점 0.8%, 간편결제 1.02% 청구할인</li>
+											<li>※ 할인 제외 대상은 상품양관 등을 통해 확인</li>
+											<li>※ 원카드 서비스 변경은 하나페이 앱에서 월1회 가능하며, 변경 즉시 적용됩니다.</li>
+										</ul>
+									</div>
+									<!-- // 2024-02-29 image 대체 텍스트를 위한 클래스 "img_alt_content" 추가-->
+									<dt>[이벤트 유의사항]</dt>
+									<dd>
+										<ul class="list-dot">
+											<li>이벤트 혜택은 온라인 채널을 통한 카드보유 시에만 제공됩니다.<br>
+												하나은행 및 하나금융그룹 계열사, 직원 추천(URL, QR 포함), 하나은행 홈페이지/App 제외)
+											</li>
+											<li>본 이벤트는 본인회원 1인 1회 참여 가능하며 대상카드의 가족카드는 대상이 아닙니다.</li>
+											<li>상품권(모바일상품권 포함) 구매, 포인트 충전(기프티콘, 스타벅스 충전, 카카오톡 선물하기 포함), 선불카드 충전 및 구매, 공과금, 수도/전기요금, 도시가스 요금, 아파트 관리비, 국세, 지방세, 4대 보험료, LH/SH/JD공사 임대료, 초중고교 납입금, 단기카드 대출(현금서비스), 장기카드대출(카드론), 연회비, 해외 인출금액은 이용금액에 포함되지 않습니다. (업종구분은 하나카드에 등록된 가맹점 기준에 따르며 홈페이지에서 확인할 수 있습니다.)</li>
+											<li>당첨 시 경품 안내 및 수령을 위해 하나은행에 등록된 손님의 개인정보를 이벤트 종료 전까지 업데이트 해주시기 바랍니다.</li>
+											<li>결제금액이 이용기간 내 전표 미매입, 승인거절, 승인취소, 부분취소, 매입취소, 반품/환불 등의 사유로 정상처리되지 않을 경우 합산 금액에 포함되지 않습니다. 단, 무승인 매입건은 이용기간 내 매입완료된 건은 포함됩니다.</li>
+											<li>
+												금융상품 판매대리 고지의무
+												<div>* 하나은행은 하나카드의 신용카드 회원모집 업무를 대리·중개 합니다.</div>
+												<div>* 하나은행은 하나카드의 금융상품만을 대리하거나 중개하지 않습니다. (다른 회사의 금융상품 대리, 중개 시 → * 하나은행은 다수의 신용카드사를 대리하거나 중개합니다.)</div>
+												<div>* 하나은행은 하나카드의 금융상품에 대한 계약체결 권한이 없습니다.</div>
+												<div>* 하나은행은 금융관계법률에 따라 하나카드사와 위탁계약을 체결한 금융상품 판매 대리·중개업자입니다.</div>
+											</li>
+											<li>계약 체결 전 상품설명서 및 상품약관을 반드시 확인하시기 바랍니다.</li>
+											<li>신용카드 발급이 부적정한 경우(개인신용평점 낮음 등) 카드 발급이 제한될 수 있습니다.</li>
+											<li>카드이용대금과 이에 수반되는 모든 수수료를 지정된 대금 결제일에 상환하여야 합니다.</li>
+											<li>금융소비자는 해당 상품 또는 서비스에 대하여 설명을 받을 권리가 있습니다.</li>
+											<li><p class="p-sub_tit">상환능력에 비해 신용카드 사용액이 과도할 경우, 귀하의 개인신용평점이 하락할 수 있습니다.</p></li>
+											<li><p class="p-sub_tit">개인신용평점 하락 시 금융거래와 관련된 불이익이 발생할 수 있습니다.</p></li>
+											<li><p class="p-sub_tit">일정기간 원리금을 연체할 경우, 모든 원리금을 변제할 의무가 발생할 수 있습니다.</p></li>
+											<li><p class="p-sub_tit">연체이자율(약정이율+최대3%)은 회원별·이용상품별로 차등 적용되며, 법정 최고금리(20%)를 초과하지 않습니다.</p>
+												<p class="p-sub_tit">※ 단, 연체 발생 시점에 약정이율이 없는 경우 아래와 같이 적용함</p>
+												<ul class="list-dash">
+													<li><p class="p-sub_tit">일시불 거래 연체 시 : 거래 발생 시점의 최소 기간(2개월) 유이자 할부금리</p></li>
+													<li><p class="p-sub_tit">무이자 할부 거래 연체 시 : 거래 발생 시점의 동일한 할부 계약기간의 유이자 할부금리</p></li>
+												</ul>													
+											</li>
+										</ul>
+									</dd>
+								</dl>
+							</div>
+						</li>
+						<li>
+							<a class="product-accodian__tit" href="javascript:void(0)">첫 거래 신용대출</a>
+							<div class="product-accodian__cont" id="PopProductCont">
+								<dl class="product-dataList">
+									<div>
+										<img src="../../../../resource/mybranch/images/popup_evt_second_benefit.png" alt="첫 거래 신용대출 내 프리이멈 직장인론">
+									</div>
+									<div class="img_alt_content">
+										<h1>프리미엄 직장인론 (2024.2.27 ~ 2024.12.31)</h1>
+										<ul>
+											<li>대출대상 : 대한항공 재직 임직원</li>
+											<li>대출한도 : 최대 1억 6천만원</li>
+											<li>대출금리 : 최저 연 4.219% ~ 최고 연 6.319%</li>
+										</ul>
+										<ul>
+											<li>- 기준일자 : 2024.02.28 현재 </li>
+											<li>- 금리 : 연이율 / 대출기간 1년 기준
+												<ul>
+													<li>최저금리 : 현재 내부신용등급 (ASS) 1등급, 일시대, 부수거래 감면금리 최대 적용시</li>
+													<li>최고금리 : 현재 내부신용등급 (ASS) 8등급. 통장대, 부수거래 감면금리 미적용시</li>
+												</ul>
+											</li>
+										</ul>												
+										<table aria-label="프리미엄 직장인론 기준 금리 금융채 6개월물">
+											<caption>프리미엄 직장인론 기준 금리 주2) 금융채 6개월물에 관한 테이블</caption>
+											<colgroup>
+												<col style="width: 30%;">
+												<col style="width: auto;">
+											</colgroup>
+											<tr>
+												<th rowspan="2" scope="col">기준 금리 주2) 금융채 6개월물</th>
+												<td rowspan="2">3.704%</td>
+												<td>
+													<ul>
+														<li>최저 가산금리 주3) : 1.600%</li>
+														<li>부수거래 감면금리 주4) : 0.900%</li>
+													</ul>
+												</td>
+											</tr>
+											<tr>
+												<td>
+													<ul>
+														<li>최고 가산금리 주3) : 2.800%</li>
+														<li>부수거래 감면금리 주 4) : 0.000%</li>
+													</ul>
+												</td>
+											</tr>
+										</table>
+										<table aria-label="부수거래 항목별 감면금리 및 최대감면 조건">
+											<caption>부수거래 항목별 감면금리 주4) 및 최대감면 조건</caption>
+											<colgroup>
+												<col style="width: 30%;">
+												<col style="width: auto;">
+											</colgroup>
+											<tr>
+												<th rowspan="3" scope="col">부수거래 항목별 감면금리 주4)</th>
+												<td >
+													0.4% 급여이체<br>
+													등록급여일 & 건당 50만원이상 & 타인에 의해 입금된 급여 지급 
+												</td>
+											</tr>
+											<tr>
+												<td >
+													0.2% 적립식상품납입<br>
+													주택청약종합저축 월 5만원 또는 적금 월 10만원 납입
+												</td>
+											</tr>
+											<tr>
+												<td>
+													0.2% &#91;기본&#93; 제휴카드결제<br>
+													0.1% &#91;cnrk&#93; 제휴카드결제<br>
+													<ul>
+														<li>하나은행계좌에서 인출되는 제휴카드결제금액기준 (제휴카드:하나카드)</li>
+														<li>월 30만원이상 인출된 경우 &#91;기본&#93;감면금리 적용</li>
+														<li>월 70만원이상 인출된 경우 &#91;기본&#93; 및 &#91;추가&#93;감면금리 모두 적용</li>
+													</ul>
+												</td>
+											</tr>
+											<tr>
+												<th scope="col">최대감면 조건</th>
+												<td>부수거래 항목 최대 0.9%</td>
+											</tr>
+										</table>
+										<ul>
+											<li>주1) 적용금리 : 기준금리 + 가산금리 - 부수거래 감면금리</li>
+											<li>주2) 기준금리 : 대출개시일에 결정되며, 금리변동주기에 따라 적용금리가 변동됩니다. (변동주기 : 6개월)</li>
+											<li>주3) 가산금리 : 대출 신청조건 (신용등급, 대출기간 등)에 따라 차등 적용 됩니다. ※ 통장대출 시 0.3%가산</li>
+											<li>주4) 부수거래 항목별 감면금리 : 대출 실행 시 선택한 부수 거래 항목의 감면 금리가 적용되며, 이후에는 선택하지 않은 항목을 포함하여 모든 항목에 대해서 매월 감면 조건을 충족하는 경우 1개월 단위로 금리가 감면되고, 매월 조건을 충족하지 않을 경우 감면 받은 금리가 자동으로 인상됩니다. 항목별 감면조건 세부기준은 추가약정서(가계대출 금리감면용) 및 대출금리산정내역서를 참조해 주세요.</li>
+											<li>- 대부업 등의 등록 및 금웅이용자 보호에 관한 법률에 따른 법정 최고 금리는 연 20%입니다.</li>
+											<li>- 연체이자율&#91;대출 이자율+연체가산이자율(연3%)&#93; : 최고 연 15%입니다. 상품에 따라 연체이자율이 일부 달라지는 경우가 있으므로 세부적인 사항은 대출거래약정서 등을 참고하시기 바랍니다.</li>
+											<li>- 이자의 부과 시기 : 후취 방식 징구를 원칙으로 1개월 이내의 기간을 단위로 징수합니다.</li>
+										</ul>
+										<div>
+											<p>대출기간 및 상환 방식 : 만기일시상환(일시대출,통장대출), 1년이내</p>
+											<p>대출비용 : 대출금액 50백만원 초과시 손님 및 은행 각각 인지세 50% 부담 (5천만원이하 면제, 5천만원 초과 1억원이하 35,000원, 1억원초과 75,000원)</p>
+											<p>중도상환 해약금 : 중도상환대출금액 X 중도상환해약금률 0.7%(단, e-신용대출은 0.5%) X (중도상환약정잔여일수 ÷ 중도상환약정기간)으로 하며, 최초 대출일로부터 3년(기한연장 포함)까지 적용합니다. (단, 통장대출과 대출잔여기간 3개월 이내 상환 시 면제)</p>
+											<p>금리인하요구권 : 본인의 신용상태가 개선되었다고 판단되는 경우(예 : 취업, 재산증가, 개인신용평점 상승) 증빙자료를 첨부한 금리인하신청서를 은행에 제출하여 금리인하를 요구할 수 있습니다. 금리인하 요구를 받은 날부터 10영업일 이내(고객에게 자료의 보완을 요구하는 날부터 자료가 제출되는 날까지의 기간은 포함되지 않습니다)에 금리인하요구 수용 여부를 통지해드립니다. ※신용상태가 금리에 영향을 미치지 않는 상품은 금리인하요구 대상에서 제외되며 CSS(개인신용평가시스템) 평가결과, 은행 내부 정책 등에 따라 금리인하요구가 수용되지 않을 수 있습니다.</p>
+											<p>대출계약철회권 : 대출받은 손님께서 대출 실행일(대출금수령일)로부터 14일(기간의 말일이 휴일인 경우 다음 영업일) 이내 서면,전화,컴퓨터 통신으로 대출 계약 철회의사를 표시하고, 원금 및 이자(부대비용 포함)를 전액 반환한 경우, 본 대출계약을 철회할 수 있습니다. - 대출 계약 철회권 남용 시 불이익 : 당행에서 최근 1개월내 2회 이상 대출계약을 철회하는 경우, 신규대출· 만기연장 거절, 대출한도 축소, 금리우대 제한 등 불이익이 발생할 수 있습니다.</p>
+											<p>위법계약해지권 : 은행이 「금융소비자보호에 관한 법률」에서 정하는 적합성 원칙, 적정성 원칙 및 설명의무를 위반하였거나, 불공정영업행위 혹은 부당권유행위를 하여 대출계약을 체결한 경우, '법 위반사실을 안 날'부터 1년(계약체결일로부터 5년 이내의 범위에 있어야 합니다.) 이내에 해당 계약의 해지를 요구할 수 있습니다. - 은행은 해지를 요구 받은 날부터 10일 이내에 고객에게 수락여부를 통지하며, 거절할 때에는 그 사유를 함께 통지합니다 ※ 금융상품에 관한 계약을 체결하기 전에 금융상품 설명서 및 약관을 읽어 보시기 바랍니다.</p>
+										</div>
+									</div>
+									<dt>유의사항</dt>
+									<dd>
+										<div>※ 금융소비자는 해당 상품 또는 서비스에 대하여 설명 받을 권리가 있습니다.</div>
+										<div>※ 상환능력에 비해 대출금이 과도할 경우 손님의 신용 점수가 하락할 수 있습니다. </div>
+										<div>※ 신용등급 또는 개인신용평점의 하락으로 금융거래 관련 불이익을 받을 수 있습니다.</div>
+										<div>※ 원리금 연체 시 계약만료 기한 전에 모든 원리금을 변제 해야할 의무가 발생될 수 있습니다.</div>
+										<div>※ 자세한 사항은 상품 설명서 및 하나은행 홈페이지(www.kebhana.com)를 참조하시거나 하나은행 고객센터(1599-2222)또는 영업점에 문의하시기 바랍니다.</div>
+										<br>
+										<div>※ 본 홍보물은 2025년 1월 31일까지 유효합니다.<br>
+											[하나은행] 준법감시인 심의필 제2024-광고-00000호(2024.02.00)
+										</div>
+									</dd>
+								</dl>
+							</div>
+						</li>
+						<li>
+							<a class="product-accodian__tit" href="javascript:void(0)">EVENT1) 해외 체류비 계좌 개설</a>
+							<div class="product-accodian__cont" id="PopProductCont">
+								<dl class="product-dataList">
+									<div>
+										<img src="../../../../resource/mybranch/images/popup_evt_third_benefit.png" alt="event1) 해외 체류비 계좌 개설을 위한 이벤트">
+									</div>
+									<div class="img_alt_content" >
+										<h1>5만원 캐시백</h1>
+										<ul>
+											<li>이벤트 기간 : 2024.2.15 ~ 2024.6.30</li>
+											<li>이벤트 대상 : 대한항공 객실/운항 승무원</li>
+											<li>이벤트 조건(필수) : 
+												<ul>
+													<li>
+														? 원화 요구불 통장 신규
+													</li>
+													<li>
+														? 밀리언달러 통장(외화) 신규
+													</li>
+													<li>
+														? 대한항공승무원전용 제휴카드 보유<br>
+														※ ?, ? 모두 카드 결제계좌(원화/외화) 등록
+													</li>
+													<li>
+														? 마케팅 동의
+													</li>
+												</ul>
+											</li>
+										</ul>
+										<h2>참여방법</h2>
+											- ?, ?, ? ,? 모두 해당되는 손님이 &#39;24.6.30까지 ?계좌로 해외 체류비 이체 완료시, 이체 다음달 20일 보유하신 ? 원화통장으로 5만원 캐시백!
+										<h2>유의사항</h2>
+										<ul>
+											<li>- EVENT2 『급여이체 신규손님 이벤트』 와 중복 참여 불가</li>
+											<li>- 계좌개설 완료 후 회사에 직접 ?계좌로 체류비 변경신청하셔야 합니다.</li>
+											<li>
+												- ? 카드와 신분증 함께 지참하시어 하나은행 영업점 방문 외화ATM 이용위한 외화출금계좌 등록<br>
+												(전영업점 창구 및 인천공항 내 외화 ATM USD인출수수료면제)
+											</li>
+										</ul>
+										<div>
+											<h3>기간 한정추가혜택 (&#39;24.2.15 ~ 3.31)</h3>											
+											<table aria-label="기간 한정 추가혜택 (&#39;24.2.15 ~ 3.31)">
+												<caption>기간 한정 추가혜택 (&#39;24.2.15 ~ 3.31)에 관한 테이블</caption>
+												<colgroup>
+													<col style="width: 30%;">
+													<col style="width: auto;">
+												</colgroup>
+												<tr>
+													<th scope="col">300명</th>
+													<th scope="col">500명</th>
+													<th scope="col">1,000명</th>
+												</tr>
+												<tr>
+													<td>신세계상품권 5만원(20명)</td>
+													<td>+ 생로랑 카드슬롯(2명)</td>
+													<td>+ LG스탠바이미(1명)</td>
+												</tr>
+											</table>
+										</div>
+										<h2>[상품안내]</h2>
+										<ul>
+											<li>- 상품명 : 하나 밀리언달러 통장/ 상품유형: 외화 입출금 통장 </li>
+											<li>- 가입대상 : 실명의 개인 및 개인사업자 (증권계좌 연계는 국민인 거주자에 한함)</li>
+											<li>- 가입금액 : 제한없음</li>
+											<li>- 예치통화 : 아래의 27개국 통화 중 최대 10개까지 예치 가능 (USD, EUR, JPY, GBP, CHF, CAD, AUD, NZD, HKD, SGD, DKK, NOK, SEK ,THB, IDR, SAR, AED, KWD, BHD, RUB, ZAR, HUF, PLN, MXN, CNY, TRY , CZK)</li>
+											<li>- 적용이율 : 가입일 당시 하나은행 홈페이지 고시된 통화별 외화보통예금 이율 *USD 연0.01%(2023.11.27일 기준, 세전, 연이율)</li>
+											<li>- 이자지급 : 이자는 평균잔액에 대하여 부리, 매년 3,6,9,12월 셋째주 금요일에 셈하여 기준일의 익일에 원금에 가산</li>
+											<li>- 특징 : 제휴 증권사를 통한 해외주식 매매, 달러(USD)로 바로 결제되는 외화카드 결제계좌, 여러 통화 거래 USD 80%, JPY/ EUR 50% 환율(Spread) 우대(~2024.12.31) 비대면채널(인터넷, 스마트폰뱅킹) 거래에 한함</li>
+										</ul>
+									</div>
+									
+									<dt>[유의사항]</dt>
+									<dd>
+										<div>※ 이 예금은 예금자보호법에 따라 원금과 소정의 이자를 합하여 1인당 “5천만원까지”(본 은행의 여타 보호상품과 합산) 보호됩니다.</div>
+										<!-- 2024-02-29 문구 컬러 변경을 위한 클래스 'fc_point' -->
+										<div class="fc_point">※ 계좌에 압류, 가압류, 질권설정 등이 등록될 경우 원금 및 이자지급 제한될 수 있습니다.</div>
+										<div class="fc_point">※ 민사집행법에 따라 최저생계비 이하 등 압류금지채권에 해당하는 경우에는 법원에  압류금지채권 변경 신청 등을 통해 압류를 취소할 수 있습니다.</div>
+										<div class="fc_point">※ 예금잔액증명서 발급 당일에는 잔액 변동 불가합니다.</div>
+										<div>※ 금융상퓸에 대한 계약을 체결하기 전에 금융상품 설명서 및 약관을 읽어보시기 바랍니다.</div>
+										<div>※ 금융소비자는 해당 상품 또는 서비스에 대해 설명을 받을 권리가 있습니다.</div>
+										<div>※ 본 홍보물은 법령 및 내부통제기준에 따른 절차를 거쳐 제공됩니다.</div>
+									</dd>
+								</dl>
+							</div>
+						</li>
+						<li>
+							<a class="product-accodian__tit" href="javascript:void(0)">EVENT2) 급여이체 신규 손님</a>
+							<div class="product-accodian__cont" id="PopProductCont">
+								<dl class="product-dataList">
+									<div>
+										<img src="../../../../resource/mybranch/images/popup_evt_fourth_benefit.png" alt="event2) 급여이체 신규 손님을 위한 이벤트">
+									</div>
+									<div class="img_alt_content">
+										<h1>5만원 캐시백</h1>
+										<ul>
+											<li>이벤트 기간 : 2024.2.27 ~ 2024.6.30</li>
+											<li>이벤트 대상 : 대한항공 전 임직원</li>
+											<li>이벤트 조건(필수) : 
+												<ul>
+													<li>
+														① 하나은행으로 첫 급여 주1)
+													</li>
+													<li>
+														② 대한항공임직원전용 제휴카드 보유<br>
+														(하나은행 결제계좌)
+													</li>
+													<li>
+														③ 마케팅 동의<br>
+														주1) 첫 급여 : 신용키드 발급 3개월 전까지 하나은행으로 급여를 받은 적이 없는 손님
+													</li>
+												</ul>
+											</li>
+										</ul>
+										<h2>참여방법</h2>
+											-이벤트 조건 ①,②,③에 모두 해당되신 손님께는 첫 급여 받으신 다음달 20일까지 결제계좌로 5만원 캐시백!
+										<h2>유의사항</h2>
+										<ul>
+											<li>- EVENT1 (객실/운항 승무원) 『해외 체류비 계좌개설 이벤트』 와 중복 참여 불가</li>
+											<li>※ 하나은행 급여이체 인정 기준
+												<ul>
+													<li>
+														① 급여를 의미하는 문구가 포함된 적요*로 입금된 경우<br>
+														(적요* : 급여, 월급, 봉급, 연봉, 상여, 성과, 보너스, SALARY, PAY 등 / 등록직장명)
+													</li>
+													<li>② 손님이 '급여일'을 지정(등록)하고, 해당일 포함 전후 1영업일 사이에 입금된 경우</li>
+													<li>③ 회사에 의한 '급여코드'로 입금된 경우</li>
+													<li>※ 건별 50만원 이상만 인정, 본인거래 및 비급여성 (카드대금, 보험료 등)거래 제외</li>
+												</ul>
+											</li>
+										</ul>
+									</div>
+									<dt>[EVENT1,2 공통 유의사항]</dt>
+									<dd>
+										<div>※ 본 이벤트는 당행의 사정으로 조기 종료 또는 변경될 수 있으며, 경품은 동일 금액대의 다른 상품으로 변경될 수 있습니다. (단, 기 조건 충족 손님 제외)</div>
+										<div>※ 이벤트 경품 증정 시점에 이벤트 조건을 유지한 고객을 대상으로 추첨하며, 혜택(경품)이 제공됩니다.</div>
+										<div>※ 5만원을 초과하는 경품에 대한 제세공과금은 은행 부담이며, 해당 소득은 기타소득세에 포함되어 연간 합계 300만원 초과시 종합과세에 포함됩니다.</div>
+										<div>※ 당첨시 경품 안내 및 수령을 위해 하나은행에 등록된 손님의 개인정보를 이벤트 종료 전까지 업데이트 해주시기 바랍니다.</div>
+										<div>※ 경품 당첨된 손님의 통보 시점에 휴대폰번호 불명, 수취인 부재, 수신거부 등의 사유 발생시 당첨은 무효처리 됩니다.</div>
+										<div>※ 당첨 사실에 대해 당첨자가 거부 의사를 밝힌 경우 또는 당첨 취소시, 차 순위 추첨은 진행하지 않습니다.</div>
+										<div>※ 마케팅동의 손님에 한하여 경품 지급됩니다.</div>
+										<div>※ 이 예금은 예금자보호법에 따라 원금과 소정의 이자를 합하여 1인당 “5천만원까지”(본 은행의 여타 보호상품과 합산) 보호됩니다.</div>
+										<div class="fc_point">※ 계좌에 압류, 가압류, 질권설정 등이 등록될 경우 원금 및 이자지급 제한될 수 있습니다.</div>
+										<div class="fc_point">※ 민사집행법에 따라 최저생계비 이하 등 압류금지채권에 해당하는 경우에는 법원에  압류금지채권 변경 신청 등을 통해 압류를 취소할 수 있습니다.</div>
+										<div class="fc_point">※ 예금잔액증명서 발급 당일에는 잔액 변동 불가합니다.</div>
+										<div>※ 금융상퓸에 대한 계약을 체결하기 전에 금융상품 설명서 및 약관을 읽어보시기 바랍니다.</div>
+										<div>※ 금융소비자는 해당 상품 또는 서비스에 대해 설명을 받을 권리가 있습니다.</div>
+										<div>※ 본 홍보물은 법령 및 내부통제기준에 따른 절차를 거쳐 제공됩니다.</div>
+									</dd>
+								</dl>
+							</div>
+						</li>
+					</ul>
+				</div>
+			</div>
+			<!-- // 2024-02-29 대한항공 이벤트 팝업 -->
+
+			<script type="text/javascript">
+				document.addEventListener("DOMContentLoaded", function(){
+					popupMybBrProduct();
+				});
+		
+				function popupMybBrProduct() { 
+					myBrproduct.productAccodian('#PopProduct>li');	
+				};
+					
+				const myBrproduct = {
+					productAccodian: function(obj) {
+						var $el = $(obj);
+						var $target= $('#PopProduct>li>a');
+						var $active=$('#PopProduct>li>a.active');
+						var $elCon = '#PopProductCont';
+						function event(){
+							$active.next($elCon).slideDown(100); 
+							$target.on({
+								'click' : function(e){
+									if($(this).hasClass('active')){
+										$(this).removeClass('active');
+										// $(this).next($elCon).css('display', 'none');
+										$(this).next($elCon).slideUp(100);                 
+									}else{
+										$(this).addClass('active');
+										// $(this).next($elCon).css('display', 'block');
+										$(this).next($elCon).slideDown(100);   
+									}
+								}
+							});
+						}       
+						event();           
+					}	
+				};
+			</script>
+
+			<div class="btn-wrap__fix">
+				<button class="btn" onclick="ice_goBrPop(2)" data-element="modal__close" type="button">확인</button>
+			</div>	
+		</div>
+	</div>
+	
+</div>
+</body>
+</html>

@@ -1,0 +1,396 @@
+<!doctype html>
+<html lang="ko">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+	<meta name="format-detection" content="telephone=no address=no, email=no">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>모바일 브랜치</title>
+	
+	<link rel="stylesheet" type="text/css" href="../../../../../resource/mybranch/css/mybranch.css">
+
+	<script type="text/javascript" src="../js/jquery-1.8.0.min.js"></script>
+	<script type="text/javascript" src="../js/common_ui.js"></script>
+	<script type="text/javascript" src="../include/inc.js"></script>
+
+	<script type="text/javascript" src="../../../../../resource/mybranch/js/aos/aos.min.js"></script>
+	<script type="text/javascript" src="../../../../../resource/mybranch/js/myb-ui-pub.js"></script>
+
+	<link rel="stylesheet" type="text/css" href="../../../../../resource/mybranch/css/base.css">
+	<link rel="stylesheet" type="text/css" href="../../../../../resource/mybranch/css/ui.css">
+	<link rel="stylesheet" type="text/css" href="../../../../../resource/mybranch/css/swiper.css">
+	<link rel="stylesheet" type="text/css" href="../../../../../resource/mybranch/css/aos.css">
+	<link rel="stylesheet" type="text/css" href="../../../../../resource/mybranch/css/product.css">
+
+	<script>
+		$(document).ready(function(){
+			let allAgreebtn = true;
+			const txtArea = $('.allAgreebtn .st-02 span')
+			const inputs = $('.clauseTit input:checkbox')
+			const labels = $('.clauseTit label')
+			$('.allAgreebtn').click(function(){
+				if(allAgreebtn === true){
+					txtArea.text('전체 동의 완료');
+					inputs.attr({'checked':true})
+					allAgreebtn = false;
+					$(this).addClass('on')
+					$('.clauseList > li').removeClass('check').addClass('checkOn')
+					$('.clauseCon').css({'overflow':'hidden'}).animate({'height':0})
+				}else{
+					txtArea.text('전체 동의하기')
+					allAgreebtn = true;
+					inputs.attr({'checked':false})
+					$(this).removeClass('on')
+					$('.clauseList > li').removeClass()
+				}
+			});
+			labels.each(function(){
+				$(this).click(function(){
+					const checklength = $('.clauseTit input:checked').length
+					const inputlength = $('.clauseTit input').length
+					if($('.clauseList li').is('.checkOn') && checklength >= inputlength) {
+						$('.allAgreebtn').addClass('on')
+						txtArea.text('전체 동의 완료');
+						allAgreebtn = false;
+					}else if($('.clauseList li').is('.checkOn') && checklength < inputlength) {
+						$('.allAgreebtn').removeClass('on')
+						txtArea.text('전체 동의하기')
+						allAgreebtn = true;
+					}
+				})
+			});
+		});
+	</script>
+</head>
+<body>
+	<div class="wrap">
+		<!-- Header -->
+		<script>include.header('삼성전자 모바일 연구소')</script> 
+		<!-- //Header -->
+		<div class="contents">
+			<div class="cont_header">
+					<!-- Step -->
+					<script>include.step4Result('done','done','on','');</script> 
+					<!-- //Step -->
+	
+					<div class="h3_area">
+						<h3>대출신청하기</h3>
+					</div>
+					
+					<!-- <div class="step_area step04">
+						<ol>
+							<li class="on"><span>현재진행단계</span>본인인증</li>
+							<li><span></span>동의서 제출</li>
+							<li><span></span>손님정보 입력</li>
+							<li><span></span>결과안내</li>
+						</ol>
+					</div> -->
+				</div>
+		
+			<!-- Content -->
+			<div class="content_box1">
+				<div class="view_form">
+					<dl>
+						<dt class="fc_2">성명</dt>
+						<dd>박준현</dd>
+						<dt class="fc_2">주민번호</dt>
+						<dd>851225-1******</dd>
+						<dt>휴대폰번호</dt>
+						<dd>010-1111-1111</dd>
+						<!-- <dt>최대한도</dt>
+						<dd class="f_sym f_notom">3,000,000원</dd> -->
+					</dl>
+				</div>
+
+				<div class="h4_area">
+					<h4>신청정보</h4>
+				</div>
+				<div class="write_form flex">
+					<dl>
+						<dt>대출기간</dt>
+						<dd>취급 후 12개월</dd> <!-- 2023-09-21 한화오션㈜ 대출기간 -->
+					</dl>
+				</div>
+				<div class="write_form">
+					<dl>
+						<dt class="dt_group_01"><label for="inp03_02">주식청약정보</label>
+						<dd>
+							<div class="inp_box">
+								<input type="tel" id="inp01_02" class="inp" placeholder="주식수 입력">
+								<span class="won">주</span>
+							</div>
+						</dd>
+						<dt><label for="opt01_01">자금용도</label></dt>
+						<dd><select id="opt01_01" class="opt">
+								<option>투자자금</option> <!-- 2022-04-21 수정 -->
+							</select>
+						</dd>
+						<dt>대출종류 <a href="#" class="btn_question layer_open">대출종류란?</a>
+							<!-- 대출종류 Layer Popoup -->
+							<div class="layer_popup" style="display:none;">
+								<div class="dimm"></div>
+								<div class="pop_container">
+									<div class="pop_wrap vtop">
+										<div class="pop_header">
+											<a href="#" class="pop_btn_close">닫기</a>
+											<span class="pop_tit">대출종류</span>
+										</div>
+										<div class="pop_cont_wrap">
+											<div class="pop_cont2">
+												<p><span class="tit01">개별거래</span></p>
+												<p>대출금을 일시에 수령하고 만기일자에 일시에 상환하거나 정해진 날짜에 분할하여 상환할 수 있는 방식으로 한번 상환한 금액은 재사용할 수 없습니다.</p>
+												<p class="mt20"><span class="tit01">한도거래</span></p>
+												<p>일정 한도를 약정하고 약정한 금액 범위내에서 실행과 상환을 반복하여 사용할 수 있는 방식으로 일반적으로 ‘마이너스통장’이라고 불리는 방식입니다.</p>
+											</div>
+										</div>
+										<!-- Button -->
+										<div class="btn_area">
+											<a href="#" class="btn st01">확인</a>
+										</div>
+										<!-- //Button -->
+									</div>
+								</div>
+							</div>
+							<!-- //대출종류 Layer Popoup -->
+						</dt>
+						<dd>
+							<ul class="cont_tab tab_2 tab">
+								<li class="on"><a href="#">대출금을 일시에 수령<br>(일시대출)</a></li> <!-- 2022-04-21 수정 -->
+								<li><a href="#">마이너스 통장 <br>(통장대출)</a></li>
+							</ul>
+						</dd>
+						<dt>상환방법<a href="#" class="btn_question layer_open">상환방법이란?</a>
+							<!-- 상환방법 Layer Popoup -->
+							<div class="layer_popup" style="display:none;">
+								<div class="dimm"></div>
+								<div class="pop_container">
+									<div class="pop_wrap vtop">
+										<div class="pop_header">
+											<a href="#" class="pop_btn_close">닫기</a>
+											<span class="pop_tit">상환방법</span>
+										</div>
+										<div class="pop_cont_wrap">
+											<div class="pop_cont2">
+												<p><span class="f_point">만기일시상환(원금은 만기에 상환, 이자는 매월 납부)</span></p>
+												<p>일시대출의 경우 대출기간 만료일에 전액상환하는 방식입니다. 단, 통장대출의 경우 자유로이 상환하되 대출기간 만료일에 전액상환하는 방식입니다.</p>
+												<p class="mt20"><span class="f_point">원리금균등분할상환(원금과 이자를 매월 상환)</span></p> <!-- 2022-04-21 수정 -->
+												<p>대출원금과 이자를 만기일까지 매월 분할하여 상환하는 방식입니다.</p>
+											</div>
+										</div>
+										<!-- Button -->
+										<div class="btn_area">
+											<a href="#" class="btn st01">확인</a>
+										</div>
+										<!-- //Button -->
+									</div>
+								</div>
+							</div>
+							<!-- //상환방법 Layer Popoup -->
+						</dt>
+						<dd>
+							<ul class="cont_tab tab_2 tab">
+								<li class="on"><a href="#">원금은 만기에 상환, <br>  <!-- 2022-04-21 수정 -->
+									이자는 매월 납부 <br> (만기일시상환)</a></li>
+								<li><a href="#" >원금과 이자를 <br>매월 상환<br>
+								(원리금균등분할상환)</a></li>  <!-- 2022-04-21 수정 -->
+							</ul>
+						</dd>
+					</dl>
+				</div>
+
+				<!-- <div id="gold" class="write_form mt20"> 
+					<dl>
+						<dt>금리감면 항목</dt>
+						<dd class="mt5">* 중복선택 가능합니다.</dd>
+						<dd class="mt5">* 선택하신 금리감면 항목은, 대출금을 받은 후 다음월 말일까지는 신청완료 하셔야 합니다.</dd>
+					</dl>
+					<dl class="list_st04 mt30 radio">
+						<dd>
+							<p>모바일브랜치를 통한 신청으로 우대금리 제공</p>
+						</dd>
+						<dt>
+							<a href="#none">
+								<input type="checkbox" id="chk02">
+								<label for="chk02">
+									<span>자동이체 유실적 감면</span>
+								</label>
+								<span></span>
+							</a>
+							<span>-0.1%</span>
+						</dt>
+						<dd>
+							<p>월 3건 이상: 지로, 도시가스, 전기료, 전화료, CMS, 국민연금, 펌뱅킹, 아파트관리비</p>
+						</dd>
+						<dt>
+							<a href="#none">
+								<input type="checkbox" id="chk03">
+								<label for="chk03">
+									<span>급여이체 유실적 감면</span>
+								</label>
+								<span></span>
+							</a>
+							<span>-0.3%</span>
+						</dt>
+						<dd>
+							<p>급여이체 인정기준에 부합하는 실적 월 1회</p>
+						</dd>
+
+						<dt>
+							<a href="#none">
+								<input type="checkbox" id="chk04">
+								<label for="chk04">
+									<span>적금월납입액 유실적감면</span>
+								</label>
+								<span></span>
+							</a>
+							<span>-0.1%</span>
+						</dt>
+						<dd>
+							<p>월 10만원 이상 적금상품에 납입(외화, 펀드, 신탁, 퇴직연금 제외)</p>
+						</dd>
+
+						<dt>
+							<a href="#none">
+								<input type="checkbox" id="chk05">
+								<label for="chk05">
+									<span>제휴카드 결제실적감면(하나카드 30만원)</span>
+								</label>
+								<span></span>
+							</a>
+							<span>-0.1%</span>
+						</dt>
+						<dd>
+							<p>본인계좌에서 결제하는 조건이며 통장에서 인출되는 금액 30만원 이상</p>
+						</dd>
+
+						<dt>
+							<a href="#none">
+								<input type="checkbox" id="chk06">
+								<label for="chk06">
+									<span>1Q Bank 이체 유실적 감면</span>
+								</label>
+								<span></span>
+							</a>
+							<span>-0.1%</span>
+						</dt>
+						<dd>
+							<p>본인계좌에서 결제하는 조건이며 통장에서 인출되는 금액 30만원 이상</p>
+						</dd>
+
+						<dt>
+							<a href="#none">
+								<input type="checkbox" id="chk07">
+								<label for="chk07">
+									<span>주택청약종합저축월납입액 유실적 감면</span>
+								</label>
+								<span></span>
+							</a>
+							<span>-0.2%</span>
+						</dt>
+						<dd>
+							<p>월 10만원이상 주택청약종합저축상품에 납입</p>
+						</dd>
+					</dl>
+					<ul class="list_st04 sum mt20">
+						<li>감면금리 합계<span>-0.2%</span></li>
+					</ul>
+				</div> 2022-01-18 주석처리 -->
+				<div class="btn_area mt30">
+					<p><a href="#none" class="btn st01">확인</a></p>
+				</div>
+			</div>
+
+		</div>
+		<!-- Footer -->
+		<script>include.footer()</script> 
+		<!-- //Footer -->
+
+	</div>
+	<div class="layer_popup">
+		<div class="dimm"></div>
+		<div class="pop_container">
+			<div class="pop_wrap">
+				<div class="pop_header">
+					<a href="#" class="pop_btn_close">닫기</a>
+					<span class="pop_tit">입력정보 확인</span>
+				</div>
+				<div class="pop_cont_wrap">
+					<div class="pop_cont p-scroll">
+						<!-- <div class="h4_area r_btn">
+							<h4>기본정보</h4>
+							<a href="" class="btn">수정하기</a>
+						</div>
+						<ul class="list_st03">
+							<li class="txt2">
+								<p class="tit">성명</p>
+								<p class="cont">
+									<select class="opt type2" disabled="">
+										<option>김하나</option>
+									</select>
+								</p>
+							</li>
+							<li class="txt4">
+								<p class="tit">주민번호</p>
+								<p class="cont">
+									<select class="opt type2" disabled="">
+										<option>123456-1******</option>
+									</select>
+								</p>
+							</li>
+							<li class="txt5">
+								<p class="tit">휴대폰번호</p>
+								<p class="cont">010-5555-****</p>
+							</li>
+							<li class="txt4">
+								<p class="tit">자택주소</p>
+								<p class="cont">(001-01) 서울동내문구 답십리 1동 100-130<br>래미안 위브 1단기 아파트<br>123동 1231</p>
+							</li>
+						</ul> -->
+						<div class="h4_area r_btn">
+							<h4>신청정보</h4>
+						</div>
+						<ul class="list_st03">
+							<li class="txt4">
+								<p class="tit">대출상품</p>
+								<p class="cont ta_r">우리사주 취득자금대출</p>  <!-- 2022-04-21 수정 -->
+							</li>
+							<li class="txt4">
+								<p class="tit">대출기간</p>
+								<p class="cont ta_r">취급 후 12개월</p> <!-- 2023-09-21 한화오션㈜ 대출기간 -->
+							</li>
+							<li class="txt6">
+								<p class="tit">주식청약정보</p>
+								<p class="cont ta_r">000주</p>
+							</li>
+							<li class="txt4">
+								<p class="tit">자금용도</p>
+								<p class="cont ta_r">투자자금</p>  <!-- 2022-04-21 수정 -->
+							</li>
+							<li class="txt4">
+								<p class="tit">대출종류</p>
+								<p class="cont ta_r">대출금을 일시에 수령(일시대출)</p>
+							</li>
+							<li class="txt4">
+								<p class="tit">상환방법</p>
+								<p class="cont ta_r">만기일시상환</p>
+							</li>
+							<li class="txt6">
+								<p class="tit">금리감면 항목</p>
+								<p class="cont ta_r">적용 비대상</p>  <!-- 2022-04-21 수정 -->
+							</li>
+
+						</ul>
+					</div>
+
+				</div>
+				<!-- Button -->
+				<div class="btn_area btn_2">
+					<p><a href="" class="btn st02">취소</a></p>
+					<p><a href="" class="btn st01">확인완료</a></p>
+				</div>
+				<!-- //Button -->
+			</div>
+		</div>
+	</div>
+</body>
+</html>

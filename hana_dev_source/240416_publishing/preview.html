@@ -1,0 +1,104 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8" />
+<title> 작업내역 </title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<style type="text/css">
+    * {margin:0; padding:0; box-sizing:border-box;}
+    ul,ol {list-style:none;}
+    html, body {height:100%;}
+    body {font-family:'Malgun Gothic', '맑은 고딕', dotum, sans-serif;}
+    .wrap {display:flex; height:100%; letter-spacing:-1px;}
+    .boxview {width:400px; flex-shrink:0;}
+    .boxview iframe {width:100%; height:100%; border:0; display:block;}
+    .boxlist {width:100%; border-left:3px solid #ddd; overflow:auto;}
+    .boxlist .content {padding:20px;}
+
+    .page_top_txt {font-size:16px;}
+    .page_tit {font-size:25px; margin-top:3px;}
+
+    .table_list {width:100%; border-collapse:collapse; margin-top:20px;}
+    .table_list tr th,
+    .table_list tr td {padding:8px 6px; border:1px solid #fff; font-size:14px;}
+    .table_list tr th {text-align:center; background-color:#1d96b2; color:#fff;}
+    .table_list tr td {background-color:#5e5d521a; color:#333;}
+
+    .table_list tr td.col-category {text-align:center;}
+    .table_list tr td.col-link a {display:block; color:#333;}
+    .table_list tr td.col-link a:hover {color:#fb667a;}
+    .table_list tr td a.on {color:#fb667a;}
+    .table_list tr td.col-url {text-align:center;}
+    .table_list tr td.col-url a {display:block; color:#333;}
+    .table_list tr td.col-url a:hover {color:#fb667a;}
+</style>
+
+</head>
+<body>
+
+    <div class="wrap">
+        <div class="boxview">
+            <iframe src="./확인용/EBK_SPW_WEB/resource/html/mybranch/BRPD/BRPD-04040000.html" frameborder="0"></iframe>
+        </div>
+        <div class="boxlist">
+            <div class="content">
+                <p class="page_top_txt">[작업현황]</p>
+                <h1 class="page_tit">css대출</h1>
+                <table class="table_list">
+                    <colgroup>        
+                        <col style="width:12%;">
+                        <col style="width:22%;">
+                        <col style="width:18%;">
+                        <col style="width:auto;">
+                        <col style="width:18%;">
+                        <col style="width:10%;">
+                    </colgroup>
+                    <thead>
+                        <tr>
+                            <th scope="col">구분</th>
+                            <th scope="col">depth1</th>
+                            <th scope="col">depth2</th>
+                            <th scope="col">파일명</th>
+                            <th scope="col">비고</th>
+                            <th scope="col">새창열기</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td rowspan="2" class="col-category">금융상품</td>
+                            <td rowspan="2" class="col-depth1">대출</td>
+                            <td rowspan="2" class="col-depth2">상품 자세히보기</td>
+                            <td rowspan="2" class="col-link"><a href="./확인용/EBK_SPW_WEB/resource/html/mybranch/BRPD/BRPD-04040000.html" class="on">BRPD-04040000.html</a></td>
+                            <td class="col-noti">수정 (2023-09-27)</td>
+                            <td rowspan="2" class="col-url"><a href="https://dev11-m.kebhana.com:18680/resource/html/mybranch/BRPD/stockLoan_00_hanwhaocean.html" target="_blank">열기</a></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <script type="text/javascript">
+        var el = document.querySelectorAll(".col-link a");
+        var iframebox = document.querySelector(".boxview iframe");
+        for (var index=0; index<el.length; index++) {
+            el[index].addEventListener("click", htmlFrameView, false);
+        }
+        function htmlFrameView() {
+            var e = event;
+            var targetlink = e.target.href;
+            iframebox.src = targetlink;
+
+            el.forEach(element => {
+                element.classList.remove('on');
+                if( !e.target.classList.contains('on') ) {
+                    e.target.classList.add('on');
+                }
+            })
+            e.preventDefault();
+        }
+    </script>
+
+</body>
+</html>

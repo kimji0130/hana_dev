@@ -1,0 +1,83 @@
+#ui-datepicker-div{display:none;width:85%; position: fixed !important; top:50% !important; left:50% !important; margin:0; z-index:100 !important; background:#FFF; text-align:center; font-size:1.5rem; line-height:2.2rem; box-sizing:border-box; -webkit-box-sizing:border-box;  -webkit-tap-highlight-color:rgba(0,0,0,0);transform: translateX(-50%) translateY(-50%)}
+.ui-datepicker-header{padding:25px 0; color:#FFF; background:#008c8c;position: relative;}
+.ui-datepicker-calendar{width:70%; font-size:1.5rem; color:#444; margin:20px 15%;}
+.ui-datepicker-calendar thead th{font-size:1.5rem; font-weight:normal; color:#444;text-align: center}
+.ui-datepicker-calendar th:first-child{padding:6px 0;}
+.ui-datepicker-calendar td{text-align:center; color:#444; padding:3px 0;}
+.ui-datepicker-calendar tr td:first-child, .ui-datepicker-calendar tr th:first-child{color:#da3070;}
+.ui-datepicker-calendar tr td:last-child, .ui-datepicker-calendar tr th:last-child{color:#007c7c;}
+/*.date-holiday{background:url(../images/common/datepicker_holiday_bg.png) center bottom no-repeat;}*/
+.ui-state-default{display:inline-block; width:36px; height:35px; padding-top:0.6rem; box-sizing:border-box; -webkit-box-sizing:border-box;text-align: center}
+.ui-datepicker-today>a{color:#020000;}/*today*/
+.choice_date_d>a{color:#222;}/*selected date*/
+.selected_today{color:#020000;}/*today selected*/
+.ui-datepicker-close{width:135px; height:45px; padding-top:0; background:#4c6c8d; font-size:1.5rem; font-weight:bold; color:#FFF;}/*확인버튼*/
+.seleted_date_header{width:100%; padding:15px 0; margin-bottom:20px; text-align:center; border-top:1px solid #c8c8c8; border-bottom:1px solid #999;}/*선택한 날짜 text*/
+.ui-state-active{color: #007c7c !important;font-weight: bold;}
+#ui-datepicker-div select{background:none !important}
+.ui-datepicker-current{display:none}
+.close_d{position:absolute; top:25px; right:15%; z-index:999}/*닫기 버튼*/
+.close_d>img{width:16px; height:16px;}
+.ui-datepicker-title{position:relative; top:0; font-size:1.9rem; font-weight:bold; color:#FFF; z-index:90;}
+.ui-datepicker-year{position:absolute; top:0; left:15%; margin-left:35px; font-size:1.9rem; font-weight:bold; color:#FFF;}/*year select*/
+.ui-datepicker-month{position:absolute; top:0; left:15%; margin-left:168px; }/*month*/
+.yearbtnwrap{clear:both; position:absolute;; top:25px; left:15%; padding:10px 0; z-index:93;}
+a.pbtn{position:absolute; z-index:200; top:0; left:10px;  width:20px; height:20px;  text-indent:-9999px; background:url(../images/datepicker/pre_month.png) left center no-repeat;  background-size:10px 14px}/*year prev btn*/
+a.nbtn{position:absolute; z-index:300; top:0; left:85px; width:20px; height:20px;  text-indent:-9999px; background:url(../images/datepicker/next_month.png) right center no-repeat;  background-size:10px 14px}/*year next btn*/
+.ui-datepicker-prev{position:absolute; z-index:100; top:25px; left:15%; margin-left:140px;  width:20px; height:20px; text-indent:-9999px; background:url(../images/datepicker/pre_month.png) left center no-repeat; background-size:10px 14px}/*month prev btn*/
+.ui-datepicker-next{position:absolute; z-index:110; top:25px; left:15%; margin-left:195px; width:20px; height:20px; text-indent:-9999px; background:url(../images/datepicker/next_month.png) right center no-repeat; background-size:10px 14px}/*month next btn*/
+.ui-datepicker-buttonpane{padding-bottom:50px;}
+
+.ui-datepicker-trigger{width:20px; height:22px;}
+
+
+@media screen and (min-width:300px) and (max-width:415px){
+.ui-datepicker-calendar{width:100%; font-size:1.5rem; color:#444; margin:20px 0;}
+.close_d{position:absolute; top:25px; right:10px; z-index:999}/*닫기 버튼*/
+.ui-datepicker-year{position:absolute; top:0; left:35px; margin-left:0; font-size:1.9rem; font-weight:bold; color:#FFF;}/*year select*/
+.ui-datepicker-month{position:absolute; top:0; left:168px; margin-left:0;}/*month*/
+.yearbtnwrap{clear:both; position:absolute;; top:25px; left:0; padding:10px 0; z-index:93;}
+a.pbtn{position:absolute; z-index:200; top:0; left:10px; width:20px; height:20px;  text-indent:-9999px; background:url(../images/datepicker/pre_month.png) left center no-repeat;  background-size:10px 14px}/*year prev btn*/
+a.nbtn{position:absolute; z-index:300; top:0; left:85px; width:20px; height:20px;  text-indent:-9999px; background:url(../images/datepicker/next_month.png) right center no-repeat;  background-size:10px 14px}/*year next btn*/
+.ui-datepicker-prev{position:absolute; z-index:100; top:50%; left:140px; transform: translateY(-50%); margin-left:0; width:20px; height:20px; text-indent:-9999px; background:url(../images/datepicker/pre_month.png) left center no-repeat; background-size:10px 14px}/*month prev btn*/
+.ui-datepicker-next{position:absolute; z-index:110; top:50%; left:205px; transform: translateY(-50%); margin-left:0; width:20px; height:20px; text-indent:-9999px; background:url(../images/datepicker/next_month.png) right center no-repeat; background-size:10px 14px}/*month next btn*/
+}
+
+@media screen and (min-width:416px) and (max-width:740px){/*모바일 세로 아이폰 6+  414*736*/
+.ui-datepicker-calendar{width:90%; font-size:1.5rem; color:#444; margin:20px 5%;}
+.close_d{position:absolute; top:25px; right:5%; z-index:999}/*닫기 버튼*/
+.ui-datepicker-year{position:absolute; top:0; left:5%; margin-left:35px; font-size:1.9rem; font-weight:bold; color:#FFF;}/*year select*/
+.ui-datepicker-month{position:absolute; top:0; left:5%; margin-left:168px;}/*month*/
+.yearbtnwrap{clear:both; position:absolute;; top:25px; left:5%; padding:10px 0; z-index:93;}
+a.pbtn{position:absolute; z-index:200; top:0; left:10px; width:20px; height:20px;  text-indent:-9999px; background:url(../images/datepicker/pre_month.png) left center no-repeat;  background-size:10px 14px}/*year prev btn*/
+a.nbtn{position:absolute; z-index:300; top:0; left:85px; width:20px; height:20px;  text-indent:-9999px; background:url(../images/datepicker/next_month.png) right center no-repeat;  background-size:10px 14px}/*year next btn*/
+.ui-datepicker-prev{position:absolute; z-index:100; top:50%; transform: translateY(-50%); left:5%;  margin-left:140px; width:20px; height:20px; text-indent:-9999px; background:url(../images/datepicker/pre_month.png) left center no-repeat; background-size:10px 14px}/*month prev btn*/
+.ui-datepicker-next{position:absolute; z-index:110; top:50%; transform: translateY(-50%); left:8%;  margin-left:195px; width:20px; height:20px; text-indent:-9999px; background:url(../images/datepicker/next_month.png) right center no-repeat; background-size:10px 14px}/*month next btn*/
+}
+
+.datepicker-dim{display: none; position: fixed; width: 100%; height: 100%; top:0; left: 0; background-color: rgba(0,0,0,0.5); z-index: 99;}
+
+/* 2024-05-08 오류 수정 및 날짜 부분조정 추가 s */
+.ui-datepicker-title {text-align:center;}
+.ui-datepicker-month {display:inline-block; position:relative; left:unset; width:unset; margin:0 0 0 50px; padding:0 2px; font-size:1.5rem; border-bottom:1px solid #fff; font-weight:bold; color:#fff;}
+.ui-datepicker-year {display:inline-block; position:relative; left:unset; width:unset; margin:0; padding:0 2px; font-size:1.5rem; border-bottom:1px solid #fff; font-weight:bold; color:#fff;}
+.ui-datepicker-year option {color:#333;}
+.ui-datepicker-prev {left:20px; margin:0;}
+.ui-datepicker-next {left:unset; right:20px; margin:0;}
+@media screen and (min-width:300px) and (max-width:415px){
+.ui-datepicker-title {text-align:center;}
+.ui-datepicker-month {display:inline-block; position:relative; left:unset; width:unset; margin:0 0 0 50px; padding:0 2px; font-size: 1.5rem; border-bottom:1px solid #fff; font-weight:bold; color:#fff;}
+.ui-datepicker-year {display:inline-block; position:relative; left:unset; width:unset; margin:0; padding:0 2px; font-size:1.5rem; border-bottom:1px solid #fff; font-weight:bold; color:#fff;}
+.ui-datepicker-year option {color:#333;}
+.ui-datepicker-prev {left:20px; margin:0;}
+.ui-datepicker-next {left:unset; right:20px; margin:0;}
+}
+@media screen and (min-width:416px) and (max-width:740px){/*모바일 세로 아이폰 6+  414*736*/
+.ui-datepicker-title {text-align:center;}
+.ui-datepicker-month {display:inline-block; position:relative; left:unset; width:unset; margin:0 0 0 50px; padding:0 2px; font-size:1.5rem; border-bottom:1px solid #fff; font-weight:bold; color:#fff;}
+.ui-datepicker-year {display:inline-block; position:relative; left:unset; width:unset; margin:0; padding:0 2px; font-size:1.5rem; border-bottom:1px solid #fff; font-weight:bold; color:#fff;}
+.ui-datepicker-year option {color:#333;}
+.ui-datepicker-prev {left:20px; margin:0;}
+.ui-datepicker-next {left:unset; right:20px; margin:0;}
+}
+/* 2024-05-08 오류 수정 및 날짜 부분조정 추가 e */
