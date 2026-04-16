@@ -3129,7 +3129,6 @@ a:visited{color:#444;}
 /* 2024-03-28 table의 width값 고정 풀기 위한 css */
 .product_t_fs13 th{width:auto !important;}
 
-
 /* 2024-04-02 집단대출 2종 프로세스 개발 */
 .register_phone_wrap {position:relative; display:flex; justify-content:center;}
 .register_phone_cont {width:100% !important; border:1px solid #b7b7b7; border-radius:8px; padding:20px 10px;}
@@ -3159,11 +3158,13 @@ a:visited{color:#444;}
 .year_sum > .inp_box > .inp {display:inline-flex; align-content:center; justify-content:space-around; align-items:stretch; padding:0 0 2px 0; width:100%; height:auto; background:#f7f7f7; border:0; border-radius: 6px; color:#444; text-align:right;}
 .year_sum .sum_won {display:inline-flex; align-content:center; justify-content:center; align-items:center; text-align:right; width:10%;}
 .year_sum .sum_won_kr {display:inline-flex; justify-content:flex-start; align-content:center; align-items:center; padding-left:10px;}
+.year_sum .year_sum_list {display:flex;}
 
+.inp_box .rfix{position:absolute; right:0;}
+.inp_box + .btn_area {padding-left:4px;}
 .inp_box_half {display:inline-flex;}
 .inp_box_half .inp_box .inp{padding-right:40px;}
-.inp_box_half div.inp_box + div.inp_box {padding-left:4px;}
-.inp_box + .btn_area {padding-left:4px;}
+.inp_box_half div.inp_box + div.inp_box {padding-left:4px;}}
 .inp_box_half .btn_area {width:50%;}
 .btn.btn_apt_search {background:#004680; color:#fff; height:45px; border-radius:6px; line-height:45px;}
 
@@ -3190,11 +3191,23 @@ a:visited{color:#444;}
 .write_form_mt .list_st04.radio dd ul li{margin-top:5px; font-size:14px;}
 
 /* 2024-04-11 checkbox 설명버전 및 추가소스 */
-.selectDes--wrap .selectDes__checkbox{padding-bottom: 12px;}
-.selectDes--wrap .selectDes__des{padding: 12px 0 12px 0;border-top:1px solid #edeef3}
-.selectDes--wrap .selectDes__des-p{font-size:15px} 
+.selectDes--wrap {padding:15px 0;}
+.selectDes--wrap .selectDes__checkbox {padding:0 15px 14px 15px;}
+.selectDes--wrap .selectDes__des {padding:15px 15px 8px 15px; border-top:1px solid #edeef3;}
+.selectDes--wrap .selectDes__des-p{font-size:15px;}
 .selectDes--wrap .selectDes__des-f15{font-size: 15px;}
 .loan_detail_wrap .table-type1.bdrTop{border-top: 1px solid #000;}
+
+.talk_area {display:flex; margin:0; padding:15px 10px; text-align:center; border:1px solid #f7f7f7; border-radius:6px; background:#f7f7f7;}
+.talk_area .kakao img, .talk_area .lms img {width:55px; height:auto;}
+.talk_area .kakao > a, .talk_area .lms > a, .talk_area .lms span, .talk_area .kakao span {display:inline-block; flex-wrap:wrap; align-content:center; justify-content:center; align-items:center;}
+.talk_area .lms span, .talk_area .kakao span {padding-top:15px; font-size:13px; color:#333; font-family:'notokrM';}
+
+.pop-body-list {display:flex; margin:10px 0 0; padding:15px 0 5px 0;}
+.pop-body-list li {display:flex;}
+.pop-body-list li+li {margin-top:20px;}
+.pop-body-list .pop-blist-tit {display:flex; align-items:flex-start; justify-content:flex-end; flex-shrink:2; text-align:center; padding-right:30px;}
+.pop-body-list .pop-blist-cont + dd {margin-top:5px; font-size:14px;}
 
 /* 2024-04-26 체크박스 디자인 추가 */
 .multi_area.isco .checkbox_box01 input[type="checkbox"] {width:0; height:0; background:0; display:none;}
@@ -3228,3 +3241,64 @@ a:visited{color:#444;}
 @media screen and (min-width:416px) and (max-width:740px){/*모바일 세로 아이폰 6+  414*736*/
 .radio_box01 input[type="radio"]:checked + label:after, .multi_area.isco .checkbox_box01 input[type="checkbox"]:checked + label:after {left:-2px;}
 }
+
+/* 2024-06-03 신용대출 이자 캐시백 이벤트 페이지 */
+.h4_area.no_line {position:relative;}
+.h4_area-img__cont {vertical-align:middle;}
+.h4_area-img__cont::before {content:''; display:inline-block; position:absolute; top:2px; left:0; background:url('../../../resource/mybranch/images/bg_question_white.png') center no-repeat; background-size:100%; width:20px; height:20px;}
+.h4_area-img__cont strong {font-size:18px; font-family:'notokrM'; color:#cf5c78; padding-left:24px; vertical-align:baseline;}
+.bul_mark--color_type1 {color:#666;}
+.txt_agree01--inform {font-size:16px; font-family:'notokrM'; line-height:20px;}
+
+/* 2024-06-10 중도금대출_진행상태조회 */
+.loanCont--wrap {padding:10px 0 20px 0; border-bottom:1px solid #000;}
+.loanCont--wrap + .loanCont--wrap {margin-top:10px;}
+.loanCont--wrap_btn {position:relative; margin-top:10px; padding:10px 0;}
+.loanCont--wrap_btn .btn-ty01 {position:absolute; bottom:0; right:0; font-size:1.2rem; width:auto; height:20px; line-height:20px; padding:0 20px; background:#4c6c8d; border-radius:1rem; color:#fff;}
+
+/* 2024-07-29 이주비대출 프로세스 */
+.backColorOnly {background-color: #f7f7f7 !important;}
+.loanCont--wrap-box .loancont--wrap:last-of-type {border-bottom:0;}
+
+/* 2024-08-08 한국평가데이터 프리미엄 직장인론 추가 */
+.productdetal-info__item__text .productdetal-info__modtext {color:#fff; font-size:1.2rem;}
+
+/* 2024-08-12 이주비대출 프로세스 - 검색결과 도출시 라인 추가 */
+.loanCont--wrap-box + .loanCont--wrap-box {border-top:1px solid #000;}
+.year_sum.select_wrap01 .chk_box01 input[type="checkbox"] + label {cursor: pointer;}
+.year_sum.select_wrap01 .chk_box01 input[type="checkbox"] + label:after {top: calc(50% - 15px);}
+
+/* 2024-08-19 이주비대출 프로세스 -체크박스 disabled 경우 */
+.chk_disabled {position:relative; display:flex; padding:15px 10px; width:100%; height:auto; border:1px solie #dddee4; border-radius:6px; color:#444; background:#ececec;}
+.chk_disabled .chk_box01 input[type="checkbox"] + label {position:relative; display:inline-block; padding-left:36px; color:#333; font-size:15px; line-height:22px; cursor:pointer;}
+.chk_disabled input[type="checkbox"]:disabled {background:#ececec; border:1px solid #9f9f9f;}
+.dhk_disabled input[type="checkbox"]:disabled + label {color:#9f9f9f;}
+
+/* 2024-09-04 법인예금담보대출 추가 스타일 css 추가 */
+.select_wrap01.select_type02 {padding:15px 15px;}
+.select_wrap01.select_type02 .chk_box01 input[type="checkbox"] + label {font-family:'notokrM';}
+.selectDes--wrap.select_type02 .selectDes__checkbox {padding:5px 0 13px 0;} 
+.chk_box01 .chk_pdl {padding-left:36px;}
+.chk_box01 .chkpdl p {font-family:'notokrM';}
+.selectDes--wrap .selectDes__des.form_type02 { padding:15px 0 0 36px;}
+.selectDes--wrap .selectDes__des.form_type02 .write_form dl dt p {font-family:'notokrM';}
+.selectDes--wrap .selectDes__des.form_type02 .write_form dl dt.dt_group_01 label {width:100% !important;}
+.loanamount--wrap {position:relative; padding:15px 15px 0; border:1px solid #d9d9d9; border-radius:12px; background:#f7f7f7;}
+.loanamount--wrap .loanamount__apply {padding:10px 5px 5px 0; border-top:1px solid #d9d9d9;}
+.loanamount__apply-p {font-size:15px;}
+.loanamount__apply-f_sym, .loanamount__apply-f_sym > span {font-size:18px; color:#004680; font-family:'notokrM'; font-weight:bold;} 
+.year_sum .won, .year_sum .won > span {font-size:18px;}
+
+/* 2024-09-10 이주비대출 프로세스 점 제거 css 수정 */
+.chk_disabled input[type="checkbox"]:disabled {background: #ececec; border:0;}
+
+/* 2024-10-08 법인예금담보대출프로세스 인지세 - iphone 테이블 레이아웃 대응 */
+.tbl-align th, .tbl-align td {width:auto; border-left:1px solid #e7e9ee;}
+.table-type1.tbl-align thead tr th, .table-type1.tbl-align tbody tr th {border-left:1px solid #e7e9ee !important;}
+.table-type1.tbl-align thead tr:first-child th:first-child {border-left:0 !important;}
+
+/* 2024-11-27 상품3종 상세페이지 퍼블 - 하나인테리어 대출 f_red타입 추가 */
+.list-dash.f_red > li:before, .text-dash.f_red:before {background:#ff0000;}
+
+/* 2025-01-06 법인예금담보 임직원대출 프로세스 - 디바이스 해상도에 따른 수정 */
+.list_st03 li.txt10 .cont {padding-left:155px;}
