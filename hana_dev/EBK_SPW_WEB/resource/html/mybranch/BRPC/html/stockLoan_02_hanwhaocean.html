@@ -1,0 +1,1434 @@
+<!doctype html>
+<html lang="ko">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+	<meta name="format-detection" content="telephone=no address=no, email=no">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>모바일 브랜치</title>
+	
+	<link rel="stylesheet" type="text/css" href="../../../../../resource/mybranch/css/mybranch.css">
+
+	<script type="text/javascript" src="../js/jquery-1.8.0.min.js"></script>
+	<script type="text/javascript" src="../js/common_ui.js"></script>
+	<script type="text/javascript" src="../include/inc.js"></script>
+
+	<script type="text/javascript" src="../../../../../resource/mybranch/js/aos/aos.min.js"></script>
+	<script type="text/javascript" src="../../../../../resource/mybranch/js/myb-ui-pub.js"></script>
+
+	<link rel="stylesheet" type="text/css" href="../../../../../resource/mybranch/css/base.css">
+	<link rel="stylesheet" type="text/css" href="../../../../../resource/mybranch/css/ui.css">
+	<link rel="stylesheet" type="text/css" href="../../../../../resource/mybranch/css/swiper.css">
+	<link rel="stylesheet" type="text/css" href="../../../../../resource/mybranch/css/aos.css">
+	<link rel="stylesheet" type="text/css" href="../../../../../resource/mybranch/css/product.css">
+
+	<script>
+		$(document).ready(function(){
+			$(window).load(function(){
+				var lists = $('a.agree_txt').length // class 갯수
+				var listsTop = $('.agreeTop').length // class 갯수
+				var sum = 0; // 높이 값 합계 변수
+				var total = [0]; // 배열로 합계 정렬 0은 첫번째 높이
+				for(var i = 0; i < listsTop; i++){
+					var tops = $('.agreeTop').eq(i).outerHeight(); // .agreeTop 높이 값
+					sum = sum + tops; // past agreeTop + present agreeTop
+					total.push(sum); // 배열추가
+				}
+
+				var noActionMarketing = $('#optAgreeAll').next('.content_box_gruop').find('.agree_txt'); // 마케팅 동의 영역 셀렉터
+				$('a.agree_txt').not(noActionMarketing).click(function(e){
+					var agreeNum = $('a.agree_txt').index(this) // 클릭한 인덱스 값
+					$('.agree.sec01').scrollTop(total[agreeNum]);
+					return false;
+				});
+			});
+		});
+
+		// 마케팅 동의영역 바로가기
+		var contentNth_opt = new Array();
+		$(window).load(function(){
+			var tempOffsetTop_opt = $('.agree.list_none').offset().top; 
+			var objCnt = $('[id^=content_opt]').length; 
+			for(var i=0; i<objCnt; i++){
+				contentNth_opt[i] = $("#content_opt"+ (i+1) +"").offset().top - tempOffsetTop_opt;
+			}
+		});
+		function moveContent_opt(a){
+			var temp = a-1;
+			$('.agree.list_none').scrollTop(contentNth_opt[temp]);
+		}
+	</script>
+
+</head>
+<body>
+	<div class="wrap">
+		<!-- Header -->
+		<script>include.header('삼성전자 모바일 연구소')</script>
+		<!-- //Header -->
+
+		<div class="contents">
+			<div class="cont_header">
+				<!-- Step -->
+				<script>include.step4('done','on', '', '')</script>
+				<!-- //Step -->
+
+				<div class="h3_area">
+					<h3>대출신청하기</h3>
+				</div>
+			</div>
+			
+			<!-- Content -->
+			<div class="content_box1">
+				<div class="chk_wrap_all">전체 동의하기</div>
+				<div class="chk_wrap termsChkTy" name="termsChk4">
+					<p class="st-02 ta_c"><span class="allChk" style="text-decoration:none;">필수 동의</span></p> 
+					<a class="btn_chk"></a>
+				</div>
+
+				<div class="content_box_gruop on">	
+					<ul class="list_dot_01">
+						<li><span class="agree_txt"><a class="agree_txt" href="#"><em>&#91;필수&#93; 개인(신용)정보 조회 동의서</em></a></span></li>
+						<li class="mt5"><span class="agree_txt"><a class="agree_txt" href="#"><em>&#91;필수&#93; 개인(신용)정보 수집&middot;이용&middot;제공 동의서[가계여신 금융거래]</em></a></span></li>
+						<li class="mt5"><span class="agree_txt"><a class="agree_txt" href="#"><em>&#91;필수&#93; 개인(신용)정보 조회&middot;수집&middot;이용 동의서&#91;대안정보&#93;</em></a></span></li>
+						<li class="mt5"><span class="agree_txt"><a class="agree_txt" href="#"><em>&#91;필수&#93; 개인(신용)정보 수집 이용 동의서[적합성적정성판단용_대출성상품]</em></a></span></li>
+						<li class="mt5"><span class="agree_txt"><a class="agree_txt" href="#"><em>&#91;필수&#93; 개인(신용)정보 제3자 제공동의서</em></a></span></li>
+						<li class="mt5"><span class="agree_txt"><a class="agree_txt" href="#"><em>손님 정보 등록/변경 동의</em></a></span></li>
+						<li class="mt5"><span class="agree_txt"><a class="agree_txt" href="#"><em>대출 승인 및 실행(약정) 관련 문자메세지 통지 동의</em></a></span></li>
+					</ul>
+
+					<div class="agree sec01"> 
+						<div class="agreeTop">					
+							<div class="agree_wrap">
+								<p class="tit">[필수] 개인(신용)정보 조회 동의서</p>
+								<p class="cont">
+									<strong class="font_bold">(주)하나은행</strong> 귀중<br>
+									귀 행과의 (금융)거래와 관련하여 귀 행이 본인의 개인(신용)정보를 조회하고자 하는 경우에는 「신용정보의 이용 및 보호에 관한 법률」, 「개인정보보호법」등 관계 법령에 따라 본인의 동의가 필요합니다.
+								</p>
+							</div>
+							<div class="agree_wrap">
+								<div class="agree_box">
+									<p class="tit">1. 수집&middot;이용에 관한 사항</p>
+									<div class="tbl_01 mt10">
+										<table>
+											<colgroup>
+												<col style="width:30%">
+												<col style="*">
+											</colgroup>
+											<tbody>
+												<tr>
+													<th scope="row">수집·이용 목적</th>
+													<td class="ta_l" style="padding:5px 10px;border-right:none;">(금융)거래와 관련한 개인(신용)정보 조회</td>
+												</tr>
+												<tr>
+													<th scope="row">보유 및 이용기간</th>
+													<td class="ta_l" style="padding:5px 10px;border-right:none;">
+														수집·이용에 관한 동의일로부터 신용정보 제공·조회 동의의 효력 기간까지 보유·이용됩니다.<br>
+														단, 신용정보 제공·조회 동의의 효력 기간 종료 후에는 금융사고 조사, 분쟁 해결, 민원처리 및 법령상 의무이행을 위한 목적으로만 보유·이용 됩니다.
+													</td>
+												</tr>
+												<tr>
+													<th scope="row">거부 권리 및 불이익</th>
+													<td class="ta_l" style="padding:5px 10px;border-right:none;">
+														귀하는 동의를 거부하실 수 있습니다. 다만, 위 개인(신용)정보 수집·이용에 관한 동의는 “(금융)거래계약의 체결 및 이행을 위한” 필수적 사항이므로, 위 사항에 동의하셔야만 (금융)거래관계의 설정 및 유지가 가능합니다.
+													</td>
+												</tr>
+											</tbody>
+										</table>
+									</div>
+
+									<dl class="agree_dl">
+										<dt>수집·이용 항목</dt>
+										<dd>
+											<div class="tbl_01 mt10">
+												<table>
+													<colgroup>
+														<col style="width:30%">
+														<col style="*">
+													</colgroup>
+													<tbody>
+														<tr>
+															<th scope="row">고유식별정보</th>
+															<td class="ta_l" style="padding:5px 10px;border-right:none;">
+																<span class="font_bold">주민등록번호, 외국인등록번호, 여권번호, 운전면허번호</span>
+																<p class="cont">
+																	위 <span class="agree_txt"><em class="font_bold">고유식별정보</em> 수집·이용</span>에 동의하십니까?
+																	<p class="agree_cont inline">동의하지 않음 <span class="neamo"></span></p>
+																	<p class="agree_cont inline">동의함 <span class="neamo"></span></p>
+																</p>
+															</td>
+														</tr>
+														<tr>
+															<th scope="row">개인(신용)정보</th>
+															<td class="ta_l" style="padding:5px 10px;border-right:none;">
+																■ 일반개인정보<br>
+																국내거소신고번호, 성명, 주소, 전화번호
+																<p class="cont">
+																	위 개인(신용)정보 <span class="agree_txt"><em>수집·이용</em></span>에 동의하십니까?
+																	<p class="agree_cont inline">동의하지 않음 <span class="neamo"></span></p>
+																	<p class="agree_cont inline">동의함 <span class="neamo"></span></p>
+																</p>
+															</td>
+														</tr>
+													</tbody>
+												</table>
+											</div>
+										</dd>
+									</dl>
+								</div>
+							</div>
+
+							<div class="agree_wrap">
+								<div class="agree_box">
+									<p class="tit">2. 제공에 관한 사항</p>
+									<div class="tbl_01 mt10">
+										<table>
+											<colgroup>
+												<col style="width:30%">
+												<col style="*">
+											</colgroup>
+											<tbody>
+												<tr>
+													<th scope="row">제공받는 자</th>
+													<td class="ta_l" style="padding:5px 10px;border-right:none;">
+														<span class="font_bold">
+															다음과 같은 기관에 귀하의 개인(신용)정보를 제공하여 귀하의 개인(신용)정보를 조회합니다.<br>
+															- 종합신용정보집중기관 : (사)한국신용정보원<br>
+															- 신용정보회사 : 코리아크레딧뷰로(주), NICE평가정보(주), SCI평가정보(주), 한국기업데이터(주), 나이스디앤비(주), 이크레더블(주) 등
+														</span>
+													</td>
+												</tr>
+												<tr>
+													<th scope="row">제공받는 자의 이용 목적</th>
+													<td class="ta_l" style="padding:5px 10px;border-right:none;">
+														<span class="font_bold">(금융)거래와 관련한 개인(신용)정보 조회</span>
+													</td>
+												</tr>
+												<tr>
+													<th scope="row">거부 권리 및 불이익</th>
+													<td class="ta_l" style="padding:5px 10px;border-right:none;">
+														귀하는 동의를 거부하실 수 있습니다. 다만, 위 개인(신용)정보 제공에 관한 동의는 “(금융)거래계약의 체결 및 이행을 위한” 필수적 사항이므로, 위 사항에 동의하셔야만 (금융)거래관계의 설정 및 유지가 가능합니다.
+													</td>
+												</tr>
+											</tbody>
+										</table>
+									</div>
+
+									<dl class="agree_dl">
+										<dt>제공 항목</dt>
+										<dd>
+											<div class="tbl_01 mt10">
+												<table>
+													<colgroup>
+														<col style="width:30%">
+														<col style="*">
+													</colgroup>
+													<tbody>
+														<tr>
+															<th scope="row">고유식별정보</th>
+															<td class="ta_l" style="padding:5px 10px;border-right:none;">
+																<span class="font_bold">주민등록번호 , 외국인등록번호, 여권번호, 운전면허번호</span>
+																<p class="cont">
+																	위 <span class="agree_txt"><em class="font_bold">고유식별정보</em> 제공</span>에 동의하십니까?
+																	<p class="agree_cont inline">동의하지 않음 <span class="neamo"></span></p>
+																	<p class="agree_cont inline">동의함 <span class="neamo"></span></p>
+																</p>
+															</td>
+														</tr>
+														<tr>
+															<th scope="row">개인(신용)정보</th>
+															<td class="ta_l" style="padding:5px 10px;border-right:none;">
+																■ 일반개인정보<br>
+																국내거소신고번호, 성명
+																<p class="cont">
+																	위 개인(신용)정보 <span class="agree_txt"><em>제공</em></span>에 동의하십니까?
+																	<p class="agree_cont inline">동의하지 않음 <span class="neamo"></span></p>
+																	<p class="agree_cont inline">동의함 <span class="neamo"></span></p>
+																</p>
+															</td>
+														</tr>
+													</tbody>
+												</table>
+											</div>
+										</dd>
+									</dl>
+								</div>
+							</div>
+
+							<div class="agree_wrap">
+								<div class="agree_box">
+									<p class="tit">3. 조회에 관한 사항</p>
+									<div class="tbl_01 mt10">
+										<table>
+											<colgroup>
+												<col style="width:30%">
+												<col style="*">
+											</colgroup>
+											<tbody>
+												<tr>
+													<th scope="row">조회 대상 기관</th>
+													<td class="ta_l" style="padding:5px 10px;border-right:none;">
+														<span class="font_bold">제공받는 자와 동일</span>
+													</td>
+												</tr>
+												<tr>
+													<th scope="row">제공받는 자의 이용 목적</th>
+													<td class="ta_l" style="padding:5px 10px;border-right:none;">
+														<span class="font_bold">(금융)거래와 관련한 개인(신용)정보의 조회</span>
+													</td>
+												</tr>
+												<tr>
+													<th scope="row">조회 동의의 효력기간</th>
+													<td class="ta_l" style="padding:5px 10px;border-right:none;"> 
+														당행의 조회 결과 귀하와의 (금융)거래가 개시되는 경우 해당 (금융)거래종료일까지 제공·조회 동의의 효력이 지속됩니다. 다만, 당행의 조회 결과 귀하가 신청한 (금융)거래의 설정이 거절된 경우에는 그 시점부터 동의의 효력은 소멸합니다.<br><br>
+														* 위 보유 기간에서의 (금융)거래 종료일이란 “당 행과 거래중인 모든 계약(여·수신, 내·외국환, 카드 및 제3자 담보 제공 등) 해지 및 서비스(대여금고, 보호예수, 외국환거래지정, 인터넷뱅킹 포함 전자금융거래 등)가 종료된 날”을 말합니다.<br>
+														* 여신거래계약의 종료일 후에는 금융사고 조사, 분쟁 해결, 민원처리, 법령상 의무이행만을 위하여 보유·이용됩니다.
+													</td>
+												</tr>
+												<tr>
+													<th scope="row">거부 권리 및 불이익</th>
+													<td class="ta_l" style="padding:5px 10px;border-right:none;">
+														귀하는 동의를 거부하실 수 있습니다. 다만, 위 개인(신용)정보 조회에 관한 동의는 “(금융)거래계약의 체결 및 이행을 위한” 필수적 사항이므로, 위 사항에 동의하셔야만 (금융)거래관계의 설정 및 유지가 가능합니다.
+													</td>
+												</tr>
+											</tbody>
+										</table>
+									</div>
+
+									<dl class="agree_dl">
+										<dt>조회 항목</dt>
+										<dd>
+											<div class="tbl_01 mt10">
+												<table>
+													<colgroup>
+														<col style="width:30%">
+														<col style="*">
+													</colgroup>
+													<tbody>
+														<tr>
+															<th scope="row">고유식별정보</th>
+															<td class="ta_l" style="padding:5px 10px;border-right:none;">
+																<span class="font_bold">주민등록번호, 외국인등록번호, 여권번호, 운전면허번호</span>
+																<p class="cont">
+																	위 <span class="agree_txt"><em class="font_bold">고유식별정보</em> 조회</span>에 동의하십니까?
+																	<p class="agree_cont inline">동의하지 않음 <span class="neamo"></span></p>
+																	<p class="agree_cont inline">동의함 <span class="neamo"></span></p>
+																</p>
+															</td>
+														</tr>
+														<tr>
+															<th scope="row">개인(신용)정보</th>
+															<td class="ta_l" style="padding:5px 10px;border-right:none;">
+																■ 일반개인정보<br>
+																국내거소신고번호, 성명, 주소, 전자우편 주소, 휴대전화번호, 자택·직장번호, 국적, 직업<br>
+																■ 신용거래정보<br>
+																대출(현금서비스 포함), 채무보증, 신용카드(체크카드 포함), 당좌(가계당좌)예금 개설 내역 등<br>
+																■ 신용도판단정보<br>
+																연체정보, 대위변제·대지급정보 등<br>
+																■ 신용능력정보<br>
+																재산·채무·소득의 총액, 납세실적 등<br>
+																■ 공공정보 등<br>
+																<span class="font_bold">법원의 심판 및 결정정보, 체납정보, 신용회복지원정보, 기술신용정보 등</span>
+																<p class="cont">
+																	위 개인(신용)정보 <span class="agree_txt"><em>조회</em></span>에 동의하십니까?
+																	<p class="agree_cont inline">동의하지 않음 <span class="neamo"></span></p>
+																	<p class="agree_cont inline">동의함 <span class="neamo"></span></p>
+																</p>
+															</td>
+														</tr>
+													</tbody>
+												</table>
+											</div>
+										</dd>
+									</dl>
+								</div>
+								<p class="cont mt20">
+									※ 당행이 신용정보회사를 통하여 귀하의 개인(신용)정보를 조회한 기록은 타 금융기관 등에 제공될 수 있으며, 이에 따라 귀하의 신용점수가 하락할 수 있음을 알려드립니다.<br>
+									※ 본 동의 이후 동일한 목적 또는 이용범위 내에서 개인(신용)정보의 정확성, 최신성을 유지하기 위해 조회·제공하는 경우 별도의 추가 동의가 필요하지 않습니다.
+								</p>
+								<p class="agree_cont mt20"> <span class="date"> 년</span> <span class="date"> 월</span> <span class="date"> 일</span></p>
+								<p class="agree_cont">본인:   <span class="name">서명 또는 (인)</span></p>
+								<p class="agree_cont">대리인:  <span class="name">서명 또는 (인)</span></p>
+								<p class="cont">5-06-0548 (2022.01 개정)</p>
+								<p class="cont mt0">(보존년한:완제일로부터 10년)</p>
+							</div>											
+						</div>
+						<div class="agreeTop">
+							<div class="agree_wrap">
+								<p class="tit">[필수] 개인(신용)정보 수집·이용·제공 동의서[가계여신 금융거래]</p>
+								<p class="cont">
+									<strong class="font_bold">(주)하나은행</strong> 귀중<br>
+									귀 행과의 여신 등 (금융)거래와 관련하여 귀 행이 본인의 개인(신용)정보를 수집·이용 및 제공하고자 하는 경우에는 「신용정보의 이용 및 보호에 관한 법률」, 「개인정보보호법」등 관계 법령에 따라 본인의 동의가 필요합니다.<br>
+									여신 등 (금융)거래라 함은 은행업무(여신), 겸영업무(신용카드 등), 부수업무(보증, 팩토링 등)와 관련된 거래를 의미합니다.
+								</p>
+							</div>
+							<div class="agree_wrap">
+								<div class="agree_box">
+									<p class="tit">1. 수집&middot;이용에 관한 사항</p>
+									<div class="tbl_01 mt10">
+										<table>
+											<colgroup>
+												<col style="width:30%">
+												<col style="*">
+											</colgroup>
+											<tbody>
+												<tr>
+													<th scope="row">수집·이용 목적</th>
+													<td class="ta_l" style="padding:5px 10px;border-right:none;">
+														- (금융)거래관계의 설정·유지·이행·관리<br>
+														- 금융사고 조사, 분쟁 해결, 민원 처리
+													</td>
+												</tr>
+												<tr>
+													<th scope="row">보유 및 이용기간</th>
+													<td class="ta_l" style="padding:5px 10px;border-right:none;">
+														<span class="font_bold">(금융)거래 종료일로부터 5년까지 보유·이용됩니다.</span>
+														* 위 보유 기간에서의 (금융)거래 종료일이란 “당행과 거래중인 모든 계약(여·수신, 내·외국환, 카드 및 제3자 담보 제공 등) 해지 및 서비스(대여금고, 보호예수, 외국환거래지정, 인터넷뱅킹 포함 전자금융거래 등)가 종료된 날”을 말합니다.<br>
+														* (금융)거래 종료일 후에는 금융사고 조사, 분쟁 해결, 민원처리, 법령상 의무이행을 위해서만 보유·이용됩니다.
+													</td>
+												</tr>
+												<tr>
+													<th scope="row">거부 권리 및 불이익</th>
+													<td class="ta_l" style="padding:5px 10px;border-right:none;">
+														귀하는 동의를 거부하실 수 있습니다. 다만, 위 개인(신용)정보 수집·이용에 관한 동의는 “(금융)거래 계약의 체결 및 이행을 위한” 필수적 사항이므로, 위 사항에 동의하셔야만 (금융)거래관계의 설정 및 유지가 가능합니다.
+													</td><!-- 210129 임민지 - 문구 추가 -->
+												</tr>
+											</tbody>
+										</table>
+									</div>
+
+									<dl class="agree_dl">
+										<dt>수집·이용 항목</dt>
+										<dd>
+											<div class="tbl_01 mt10">
+												<table>
+													<colgroup>
+														<col style="width:30%">
+														<col style="*">
+													</colgroup>
+													<tbody>
+														<tr>
+															<th scope="row">고유식별정보</th>
+															<td class="ta_l" style="padding:5px 10px;border-right:none;">
+																<span class="font_bold">주민등록번호, 여권번호, 운전면허번호, 외국인등록번호</span>
+																<p class="cont">
+																	위 <span class="agree_txt"><em class="font_bold">고유식별정보</em> 수집·이용</span>에 동의하십니까?
+																	<p class="agree_cont inline">동의하지 않음 <span class="neamo"></span></p>
+																	<p class="agree_cont inline">동의함 <span class="neamo"></span></p>
+																</p>
+															</td>
+														</tr>
+														<tr>
+															<th scope="row">개인(신용)정보</th>
+															<td class="ta_l" style="padding:5px 10px;border-right:none;">
+																■ 일반개인정보<br>
+																<span class="font_bold">성명, 국내거소신고번호, 주소, 전화번호, 전자우편주소, 국적, 직업(직장)정보, 주택소유구분, 주거형태, 부동산 전자계약번호, 배우자 등 여신관련인 정보</span><br>
+																■ 신용거래정보<br>
+																<span class="font_bold">상품종류, 거래조건(이자율, 만기 등), 거래일시, 금액 등의 거래설정 내역정보 등 거래 내용을 판단할 수 있는 정보</span><br>
+																■ 신용도판단정보<br>
+																<span class="font_bold">연체, 부도, 대위변제, 기타 신용질서 문란행위 관련 금액, 발생·해소시기 등 신용도를 판단할 수 있는 정보</span><br>
+																■ 신용능력정보<br>
+																<span class="font_bold">재산, 채무, 지출, 소득(연소득 또는 추정자료 포함)의 총액 및 납세실적</span><br>
+																■ 공공정보 등<br>
+																<span class="font_bold">담보현황, 법원의 심판 및 결정정보, 체납정보, 신용회복지원정보, 기술신용정보 등 위와 유사한 신용정보</span>
+																<p class="cont">
+																	위 개인(신용)정보 <span class="agree_txt"><em>수집·이용</em></span>에 동의하십니까?
+																	<p class="agree_cont inline">동의하지 않음 <span class="neamo"></span></p>
+																	<p class="agree_cont inline">동의함 <span class="neamo"></span></p>
+																</p>
+															</td>
+														</tr>
+													</tbody>
+												</table>
+											</div>
+										</dd>
+									</dl>
+								</div>
+							</div>
+
+							<div class="agree_wrap">
+								<div class="agree_box">
+									<p class="tit">2. 제공에 관한 사항</p>
+									<div class="tbl_01 mt10">
+										<table>
+											<colgroup>
+												<col style="width:30%">
+												<col style="*">
+											</colgroup>
+											<tbody>
+												<tr>
+													<th scope="row">제공받는 자</th>
+													<td class="ta_l" style="padding:5px 10px;border-right:none;">
+														<span class="font_bold">■ 신용정보집중기관<br>(사)한국신용정보원</span><br>
+														<span class="font_bold">■ 신용조회회사<br>SCI평가정보(주), 코리아크레딧뷰로(주), NICE평가정보㈜, 한국기업데이터(주), 나이스디앤비(주), 이크레더블(주) 등</span>
+													</td>
+												</tr>
+												<tr>
+													<th scope="row">제공받는자의 이용목적</th>
+													<td class="ta_l" style="padding:5px 10px;border-right:none;">
+														<span class="font_bold">
+															- 신용정보의 집중관리 및 활용 등 법령에서 정한 종합 신용정보집중기관의 업무수행<br>
+															- 본인의 신용 판단 및 본인확인 등 법령에서 정한 신용정보회사의 업무수행
+														</span>
+													</td>
+												</tr>
+												<tr>
+													<th scope="row">거부 권리 및 불이익</th>
+													<td class="ta_l" style="padding:5px 10px;border-right:none;">
+														귀하는 동의를 거부하실 수 있습니다. 다만, 위 개인(신용)정보 제공에 관한 동의는 “(금융)거래 계약의 체결 및 이행을 위한” 필수적 사항이므로, 위 사항에 동의하셔야만 (금융)거래관계의 설정 및 유지가 가능합니다.
+													</td><!-- 210129 임민지 - 문구 추가 -->
+												</tr>
+											</tbody>
+										</table>
+									</div>
+
+									<dl class="agree_dl">
+										<dt>제공 항목</dt>
+										<dd>
+											<div class="tbl_01 mt10">
+												<table>
+													<colgroup>
+														<col style="width:30%">
+														<col style="*">
+													</colgroup>
+													<tbody>
+														<tr>
+															<th scope="row">고유식별정보</th>
+															<td class="ta_l" style="padding:5px 10px;border-right:none;">
+																<span class="font_bold">주민등록번호, 여권번호, 운전면허번호, 외국인등록번호</span>
+																<p class="cont">
+																	위 <span class="agree_txt"><em class="font_bold">고유식별정보</em> 제공</span>에 동의하십니까?
+																	<p class="agree_cont inline">동의하지 않음 <span class="neamo"></span></p>
+																	<p class="agree_cont inline">동의함 <span class="neamo"></span></p>
+																</p>
+															</td>
+														</tr>
+														<tr>
+															<th scope="row">개인(신용)정보</th>
+															<td class="ta_l" style="padding:5px 10px;border-right:none;">
+																■ 일반개인정보<br>
+																<span class="font_bold">성명, 국내거소신고번호</span><br>
+																■ 신용거래정보<br>
+																<span class="font_bold">상품종류, 거래조건(이자율, 만기 등), 거래일시, 금액 등의 거래설정 내역정보 등 거래 내용을 판단할 수 있는 정보</span><br>
+																■ 신용도판단정보<br>
+																<span class="font_bold">연체, 부도, 대위변제, 기타 신용질서 문란행위 관련 금액, 발생·해소시기 등 신용도를 판단할 수 있는 정보</span><br>
+																■ 신용능력정보<br>
+																<span class="font_bold">재산, 채무, 지출, 소득(연소득 또는 추정자료 포함)의 총액 및 납세실적 등 신용거래 능력을 판단할 수 있는 정보</span><br>
+																■ 공공정보 등<br>
+																<span class="font_bold">담보현황, 법원의 심판 및 결정정보, 체납정보, 신용회복지원정보, 기술신용정보 등 위와 유사한 신용정보</span>
+																<p class="cont">
+																	위 개인(신용)정보 <span class="agree_txt"><em>제공</em></span>에 동의하십니까?
+																	<p class="agree_cont inline">동의하지 않음 <span class="neamo"></span></p>
+																	<p class="agree_cont inline">동의함 <span class="neamo"></span></p>
+																</p>
+															</td>
+														</tr>
+													</tbody>
+												</table>
+											</div>
+										</dd>
+									</dl>
+								</div>
+								<p class="cont mt20">
+									※ 본 동의 이전에 발생한 개인(신용)정보도 포함됩니다.<br>
+									※ 은행의 고의 또는 과실 등 귀책사유로 인한 개인정보 유출로 고객님에게 발생한 손해에 대해 관계 법령 등에 따라 보상 받으실 수 있습니다.<br>
+									※ 본 동의 이후 동일한 목적 또는 이용범위 내에서 개인(신용)정보의 정확성, 최신성을 유지하기 위해 제공하는 경우에는 별도의 추가 동의가 필요하지 않습니다.
+								</p>
+								<p class="agree_cont mt20"> <span class="date"> 년</span> <span class="date"> 월</span> <span class="date"> 일</span></p>
+								<p class="agree_cont">본인:   <span class="name">서명 또는 (인)</span></p>
+								<p class="agree_cont">대리인:  <span class="name">서명 또는 (인)</span></p>
+								<p class="cont">5-16-0179 (2021.09 개정)</p><!-- 210128 임민지 - 수정 -->
+								<p class="cont mt0">(보존년한:완제일로부터 10년)</p>
+							</div>	
+						</div>
+						<div class="agreeTop">
+							<div class="agree_wrap">
+								<p class="tit">&#91;필수&#93; 개인(신용)정보 조회&middot;수집&middot;이용 동의서&#91;대안정보&#93;</p>
+								<p class="cont">
+									<strong class="font_bold screening_num">(주)하나은행</strong> 귀중<br>
+									* 귀 행과의 (금융)거래와 관련하여 귀 행이 본인의 개인(신용)정보를 조회·수집·이용 하고자 하는 경우에는 「신용정보의 이용 및 보호에 관한 법률」, 「개인정보보호법」등 관계 법령에 따라 본인의 동의가 필요합니다.
+								</p>
+							</div>
+							<div class="agree_wrap">
+								<div class="agree_box">
+									<p class="tit">1. 수집&middot;이용에 관한 사항</p>
+									<div class="tbl_01 mt10">
+										<table>
+											<colgroup>
+												<col style="width:30%">
+												<col style="*">
+											</colgroup>
+											<tbody>
+												<tr>
+													<th scope="row">수집&middot;이용 목적</th>
+													<td class="ta_l" style="padding:5px 10px;border-right:none;">(금융)거래관계의 설정·유지·이행·관리를 위한 대안정보 관련 개인(신용)정보의 조회 및 금융사고 조사, 분쟁 해결, 민원 처리</td>
+												</tr>
+												<tr>
+													<th scope="row">보유 및 이용기간</th>
+													<td class="ta_l" style="padding:5px 10px;border-right:none;">
+														<span class="font_bold">(금융)거래 종료일로부터 5년까지 보유·이용</span><br> 
+														위 보유 기간에서의 (금융)거래 종료일이란 “당 행과 거래중인 모든 계약(여·수신, 내·외국환, 카드 및 제3자 담보 제공 등) 해지 및 서비스(대여금고, 보호예수, 외국환거래지정, 인터넷뱅킹 포함 전자금융거래 등)가 종료된 날”을 말합니다.<br>
+														(금융)거래 종료일 후에는 금융사고 조사, 분쟁 해결, 민원 처리, 법령상 의무이행을 위한 목적으로만 보유·이용됩니다.
+													</td>
+												</tr>
+												<tr>
+													<th scope="row">거부 권리 및 불이익</th>
+													<td class="ta_l" style="padding:5px 10px;border-right:none;">
+														귀하는 동의를 거부하실 수 있습니다. 다만, 위 개인(신용)정보 수집·이용에 관한 동의는 “(금융)거래 계약의 체결 및 이행을 위한” 필수적 사항이므로, 위 사항에 동의하셔야만 (금융)거래관계의 설정 및 유지가 가능합니다.
+													</td>
+												</tr>
+											</tbody>
+										</table>
+									</div>
+
+									<dl class="agree_dl">
+										<dt>수집&middot;이용 항목</dt>
+										<dd>
+											<div class="tbl_01 mt10">
+												<table>
+													<colgroup>
+														<col style="width:30%">
+														<col style="*">
+													</colgroup>
+													<tbody>
+														<tr>
+															<th scope="row">고유식별정보</th>
+															<td class="ta_l" style="padding:5px 10px;border-right:none;">
+																<span class="font_bold">주민등록번호, 외국인등록번호, 여권번호, 운전면허번호</span>
+																<p class="cont">
+																	위 <em class="l_txt"><span class="font_bold">고유식별정보</span> 수집&middot;이용</em>에 동의하십니까?
+																	</p><p class="agree_cont inline">동의하지 않음 <span class="neamo"></span></p>
+																	<p class="agree_cont inline">동의함 <span class="neamo"></span></p>
+															</td>
+														</tr>
+														<tr>
+															<th scope="row">개인(신용)정보</th>
+															<td class="ta_l" style="padding:5px 10px;border-right:none;">
+																■ 일반개인정보<br>
+																성명, 국내거소신고번호, 조립실명번호, 주소, 연락처(전화번호, 핸드폰번호 등)<br>
+																■ 신용거래정보<br>
+																대안정보(자동이체, 상거래, 휴대폰 소액결제, 중소기업중앙회 상품 가입정보 등)
+																<p class="cont">
+																	위 개인(신용)정보 <em class="l_txt">수집·이용</em>에 동의하십니까?
+																</p>
+																<p class="agree_cont inline">동의하지 않음 <span class="neamo"></span></p>
+																<p class="agree_cont inline">동의함 <span class="neamo"></span></p>
+															</td>
+														</tr>
+													</tbody>
+												</table>
+											</div>
+										</dd>
+									</dl>
+								</div>
+							</div>
+							<div class="agree_wrap">
+								<div class="agree_box">
+									<p class="tit">2. 제공에 관한 사항</p>
+									<div class="tbl_01 mt10">
+										<table>
+											<colgroup>
+												<col style="width:30%">
+												<col style="*">
+											</colgroup>
+											<tbody>
+												<tr>
+													<th scope="row">제공받는 자</th>
+													<td class="ta_l" style="padding:5px 10px;border-right:none;">
+														<span class="font_bold">신용정보회사 : 코리아크레딧뷰로(주), NICE평가정보(주)</span>
+													</td>
+												</tr>
+												<tr>
+													<th scope="row">제공받는 자의 이용목적</th>
+													<td class="ta_l" style="padding:5px 10px;border-right:none;">
+														<span class="font_bold">(금융)거래와 관련한 대안정보 관련 개인(신용)정보의 조회</span>
+													</td>
+												</tr>
+												<tr>
+													<th scope="row">거부 권리 및 불이익</th>
+													<td class="ta_l" style="padding:5px 10px;border-right:none;">
+														귀하는 동의를 거부하실 수 있습니다. 다만, 위 개인(신용)정보 제공에 관한 동의는 “(금융)거래 계약의 체결 및 이행을 위한” 필수적 사항이므로, 위 사항에 동의하셔야만 (금융)거래관계의 설정 및 유지가 가능합니다.
+													</td>
+												</tr>
+											</tbody>
+										</table>
+									</div>
+
+									<dl class="agree_dl">
+										<dt>제공 항목</dt>
+										<dd>
+											<div class="tbl_01 mt10">
+												<table>
+													<colgroup>
+														<col style="width:30%">
+														<col style="*">
+													</colgroup>
+													<tbody>
+														<tr>
+															<th scope="row">고유식별정보</th>
+															<td class="ta_l" style="padding:5px 10px;border-right:none;">
+																<span class="font_bold">주민등록번호, 외국인등록번호</span>
+																<p class="cont">
+																	위 <em class="l_txt"><span class="font_bold">고유식별정보</span> 제공</em>에 동의하십니까?
+																	</p><p class="agree_cont inline">동의하지 않음 <span class="neamo"></span></p>
+																	<p class="agree_cont inline">동의함 <span class="neamo"></span></p>
+															</td>
+														</tr>
+														<tr>
+															<th scope="row">개인(신용)정보</th>
+															<td class="ta_l" style="padding:5px 10px;border-right:none;">
+																■ 일반개인정보<br>
+																국내거소신고번호, 성명
+																<p class="cont">
+																	위 개인(신용)정보 <em class="l_txt">제공</em>에 동의하십니까?
+																	</p><p class="agree_cont inline">동의하지 않음 <span class="neamo"></span></p>
+																	<p class="agree_cont inline">동의함 <span class="neamo"></span></p>
+															</td>
+														</tr>
+													</tbody>
+												</table>
+											</div>
+										</dd>
+									</dl>
+								</div>
+							</div>
+							<div class="agree_wrap" style="border-bottom:0;">
+								<div class="agree_box">
+									<p class="tit">3. 조회에 관한 사항</p>
+									<div class="tbl_01 mt10">
+										<table>
+											<colgroup>
+												<col style="width:30%">
+												<col style="*">
+											</colgroup>
+											<tbody>
+												<tr>
+													<th scope="row">조회 대상 기관</th>
+													<td class="ta_l" style="padding:5px 10px;border-right:none;">
+														<span class="font_bold">제공받는 자와 동일</span>
+													</td>
+												</tr>
+												<tr>
+													<th scope="row">조회 목적</th>
+													<td class="ta_l" style="padding:5px 10px;border-right:none;">
+														<span class="font_bold">(금융)거래관계의설정·유지·이행·관리</span>
+													</td>
+												</tr>
+												<tr>
+													<th scope="row">조회 동의의 효력기간</th>
+													<td class="ta_l" style="padding:5px 10px;border-right:none;"> 
+														당행의 조회 결과 귀하와의 (금융)거래가 개시되는 경우에는 해당 (금융)거래종료일까지 제공·조회 동의의 효력이 지속됩니다. 다만, 당행의 조회 결과 귀하가 신청한 (금융)거래의 설정이 거절된 경우에는 그 시점부터 동의의 효력은 소멸합니다.<br>
+														위 효력 기간에서의 (금융)거래 종료일이란 “당 행과 거래중인 모든 계약(여·수신, 내·외국환, 카드 및 제3자 담보 제공 등) 해지 및 서비스(대여금고, 보호예수, 외국환거래지정, 인터넷뱅킹 포함 전자금융거래 등)가 종료된 날”을 말합니다.
+													</td>
+												</tr>
+												<tr>
+													<th scope="row">거부 권리 및 불이익</th>
+													<td class="ta_l" style="padding:5px 10px;border-right:none;">
+														귀하는 동의를 거부하실 수 있습니다. 다만, 위 개인(신용)정보 조회에 관한 동의는 “(금융)거래계약의 체결 및 이행을 위한” 필수적 사항이므로, 위 사항에 동의하셔야만 (금융)거래관계의 설정 및 유지가 가 능합니다.
+													</td>
+												</tr>
+											</tbody>
+										</table>
+									</div>
+
+									<dl class="agree_dl">
+										<dt>조회 항목</dt>
+										<dd>
+											<div class="tbl_01 mt10">
+												<table>
+													<colgroup>
+														<col style="width:30%">
+														<col style="*">
+													</colgroup>
+													<tbody>
+														<tr>
+															<th scope="row">고유식별정보</th>
+															<td class="ta_l" style="padding:5px 10px;border-right:none;">
+																<span class="font_bold">주민등록번호, 외국인등록번호</span>
+																<p class="cont">
+																	위 <em class="l_txt"><span class="font_bold">고유식별정보</span> 조회</em>에 동의하십니까?
+																	</p><p class="agree_cont inline">동의하지 않음 <span class="neamo"></span></p>
+																	<p class="agree_cont inline">동의함 <span class="neamo"></span></p>
+															</td>
+														</tr>
+														<tr>
+															<th scope="row">개인(신용)정보</th>
+															<td class="ta_l" style="padding:5px 10px;border-right:none;">
+																■ 일반개인정보<br>
+																국내거소신고번호, 성명<br>
+																■ 신용거래정보<br>
+																대안정보(자동이체, 상거래, 휴대폰 소액결제, 중소기업중앙회 상품 가입정보 등)
+																<p class="cont">
+																	위 개인(신용)정보 <em class="l_txt">조회</em>에 동의하십니까?
+																</p>
+																<p class="agree_cont inline">동의하지 않음 <span class="neamo"></span></p>
+																<p class="agree_cont inline">동의함 <span class="neamo"></span></p>
+															</td>
+														</tr>
+													</tbody>
+												</table>
+											</div>
+										</dd>
+									</dl>
+								</div>
+								<p class="cont mt20">
+									※ 당행이 신용정보회사를 통하여 귀하의 개인(신용)정보를 조회한 기록은 타 금융기관 등에 제공될 수 있으며, 이에 따라 귀하의 신용점수가 하락할 수 있음을 알려드립니다.<br>
+									※ 본 동의 이후 동일한 목적 또는 이용범위 내에서 개인(신용)정보의 정확성, 최신성을 유지하기 위해 조회·제공하는 경우 별도의 추가 동의가 필요하지 않습니다.
+								</p>
+								<p class="agree_cont mt20"> <span class="date"> 년</span> <span class="date"> 월</span> <span class="date"> 일</span></p>
+								<p class="agree_cont">본인 성명: <span class="name">(서명)</span></p>
+								<p class="agree_cont">대리인 성명:  <span class="name">(서명)</span></p>
+							</div>
+
+							<div class="agree_wrap">
+								<div class="agree_box">
+									<p class="tit">&lt; 개인(신용)정보 제3자 제공 동의&#91;대안정보&#93; &#62;</p>
+									<div class="cont">
+										<p class="tit">금융결제원, (주)다날, 롯데멤버스(주), 중소기업중앙회 귀중</p>
+										<p class="tit">	&lt; 개인(신용)정보의 제공에 관한 사항 &#62;</p>
+										<p class="fs_12">
+											귀사가 본인의 개인(신용)정보를 제3자에게 제공할 경우에는 「개인정보보호법」 제15조 제1항, 제17조 제1항, 「신용정보의 이용 및 보호에 관한 법률」 제15조 제2항, 제32조 제1항에 따라 정보주체의 동의를 받습니다.<br>
+											이에 본인은 귀사가 본인의 개인(신용)정보를 아래와 같이 제 3자에게 제공하는데 동의합니다.
+										</p>
+									</div>
+									<div class="tbl_01 mt10">
+										<table>
+											<colgroup>
+												<col style="width:30%">
+												<col style="*">
+											</colgroup>
+											<tbody>
+												<tr>
+													<th scope="row">제공받는 자</th>
+													<td class="ta_l" style="padding:5px 10px;border-right:none;">
+														<span class="font_bold"><span style="font-size:2.5rem; line-height:19px; vertical-align:top;"></span>■금융결제원 → 신용정보회사: 코리아크레딧뷰로(주)<br>
+															<span style="font-size:2.5rem; line-height:19px; vertical-align:top;"></span>■(주)다날, 롯데멤버스(주), 중소기업중앙회 → 신용정보회사: NICE평가정보(주)
+														</span>
+													</td>
+												</tr>
+												<tr>
+													<th scope="row">제공받는 자의 이용목적</th>
+													<td class="ta_l" style="padding:5px 10px;border-right:none;">
+														<span class="font_bold">
+															- 금융결제원 : 본인의 신용평가, 신용정보 제공 및 본인확인 등 법령에서 정한 신용정보회사의 업무 수행 등<br>
+															- (주)다날, 롯데멤버스(주): 개인(신용)정보 제공을 위한 식별업무, 금융서비스 우대를 위한 소액결제 및 커머스 관련 정보 활용 및 신용평가, 신용관련 모형개발 등 신용정보회사의 업무<br>
+															- 중소기업중앙회: 중소기업중앙회 회원의 금융 거래 시 서비스별 이용실적 분석 등 신용정보회사의 업무
+														</span>
+													</td>
+												</tr>
+												<tr>
+													<th scope="row">보유 및 이용기간</th>
+													<td class="ta_l" style="padding:5px 10px;border-right:none;"> 
+														<span class="font_bold">
+															- 금융결제원 : 목적 달성 시 까지. 다만, 서비스 관련 분쟁이 있을 경우 해결 시까지 보유하며, 법령에 별도 규정이 있는 경우 그 기간을 따릅니다.<br>
+															- (주)다날, 롯데멤버스(주): 제공된 날부터 동의 철회 시 또는 개인(신용)정보를 제공받는 자의 목적을 달성할 때까지(다만, 관련법규에 별도규정이 있는 경우 그 기간을 따릅니다.)<br>
+															- 중소기업중앙회: 「신용정보의 이용 및 보호에 관한 법률」 및 관련 규약에 근거한 기간까지 보유&middot;이용(단, 서비스 관련 분쟁이 있을 경우 해결 시까지 보유)
+														</span>
+													</td>
+												</tr>
+												<tr>
+													<th scope="row">제공할 개인(신용)정보의 내용</th>
+													<td class="ta_l" style="padding:5px 10px;border-right:none;">
+														▷ 금융결제원: 개인식별정보(주민번호), 자동이체요약 정보(자동이체금액, 자동이체기관, 자동이체실적, 자동이체기간 등)를 이용하여 생성된 정보<br>
+														▷ (주)다날 : 개인식별정보(DI), 신용거래정보(최근 3개월/6개월/12개월 소액결제 사용개월수/건수/금액/회선수, 취소건수/취소금액/결제 차단건수, 최근 3개월/6개월/12개월 인증별 결제금액/결제건수, 최근 3개월/6개월/12개월 카테고리별 결제금액/결제건수),
+														신용도판단정보(최근 3개월/6개월/12개월 연체 건수/연체건 결제금액/연체회차)<br>
+														▷ 롯데멤버스(주) : CI(암호화된 동일인 식별정보), 고객정보, 활동정보, L.Point적립/이용정보, 포괄구매정보, 제휴사별구매정보, 카테고리별구매정보, 결제수단정보 등<br>
+														▷ 중소기업중앙회 : 일반개인정보(주민번호, 사업자등록번호), 신용거래정보(중소기업중앙회 상품 가입정보, 가입자 기본 정보, 공제 대출 관련 정보)등
+													</td>
+												</tr>
+												<tr>
+													<th scope="row">거부 권리 및 불이익</th>
+													<td class="ta_l" style="padding:5px 10px;border-right:none;">
+														귀하는 동의를 거부하실 수 있으며, 동의를 거부할 경우에도 금융결제원, (주)다날, 롯데멤버스(주), 중소기업중앙회에서 제공하는 서비스와 관련된 불이익은 없습니다.
+														다만, 동의하지 않는 경우 이를 활용한 신용평가 등 서비스가 불가능 할 수 있음을 알려드립니다.
+													</td>
+												</tr>
+												<tr>
+													<th scope="row"></th>
+													<td class="ta_l" style="padding:5px 10px;border-right:none;">
+														<p class="cont mt0">
+															위 기재된 바에 따라 귀사가 개인(신용)정보를 신용정보회사에 제공하는데 동의하십니까?
+														</p>
+														<p class="agree_cont inline">동의하지 않음 <span class="neamo"></span></p>
+														<p class="agree_cont inline">동의함 <span class="neamo"></span></p>
+													</td>
+												</tr>
+											</tbody>
+										</table>
+									</div>
+								</div>
+								
+								<p class="agree_cont mt20"> <span class="date"> 년</span> <span class="date"> 월</span> <span class="date"> 일</span></p>
+								<p class="agree_cont">본인 성명:    <span class="name">(서명)</span></p>
+								<p class="agree_cont">대리인 성명:  <span class="name">(서명)</span></p>
+								<p class="cont">5-06-1029 (2023.03 제정)</p>
+								<p class="cont mt0">(보존년한 : 완제일로부터 10년)</p>
+							</div>
+						</div>
+						<div class="agreeTop">
+							<div class="agree_wrap">
+								<p class="tit">&#91;필수&#93; 개인(신용)정보 수집 이용 동의서[적합성적정성판단용_대출성상품]</p>
+								<p class="cont">(주)<strong class="font_bold">하나은행</strong> 귀중<br>
+									귀 행과의 여신거래와 관련하여 귀 행이 본인의 개인(신용)정보를 수집·이용하고자 하는 경우에는 「신용정보의 이용 및 보호에 관한 법률」, 「개인정보보호법」 등 관계 법령에 따라 본인의 동의가 필요합니다.
+								</p> 
+							</div>
+							<div class="agree_wrap">
+								<div class="agree_box">
+									<dl class="agree_dl">
+										<dt>수집&middot;이용 항목</dt>
+										<dd>「금융소비자 보호에 관한 법률」 제 17조 및 18조에 따른 적합성&middot;적정성 판단</dd>
+										<dt>보유 및 이용 기간</dt>
+										<dd>
+											<strong class="font_bold">(금융)거래 종료일로부터 5년까지 보유&middot;이용</strong><br>
+											위 보유 기간에서의 (금융)거래 종료일이란 “당 행과 거래중인 모든 계약(여·수신, 내·외국환, 카드 및 제3자 담보 제공 등) 해지 및 서비스(대여금고, 보호예수, 외국환거래지정, 인터넷뱅킹 포함 전자금융거래 등)가 종료된 날”을 말합니다.<br>
+											(금융)거래 종료일 후에는 금융사고 조사, 분쟁 해결, 민원 처리, 법령상 의무이행을 위한 목적으로만 보유&middot;이용됩니다.
+										</dd>
+										<dt>거부할 권리 및 불이익</dt>
+										<dd>귀하는 동의를 거부하실 수 있습니다. 다만, 위 개인(신용)정보 수집·이용에 관한 동의는 “금융소비자 보호에 관한 법률 제 17조 및 18조에 따른 적합성·적정성 판단”에 필수적 사항이므로, 위 사항에 동의하셔야만 (금융)거래관계의 설정 및 유지가 가능합니다.</dd>
+										<p class="mt20"><strong class="font_bold">수집&middot;이용 항목</strong></p>
+										<dt>고유식별정보 제공 항목</dt>
+										<dd><strong class="font_bold">주민등록번호, 외국인등록번호, 여권번호, 운전면허번호</strong><dd>
+										<dt>고유식별정보 동의여부</dt>
+										<dd>
+											위 <strong class="font_bold">고유식별정보</strong> 수집&middot;이용에 동의하십니까?
+											<p class="agree_cont">동의하지 않음 <span class="neamo"></span> 동의함 <span class="neamo"></span></p>
+										</dd>
+										<dt>개인(신용)정보 제공 항목</dt>
+										<dd>
+											<ul class="list_dot_01">
+												<li>일반개인정보 : 성명, 국내거소신고번호, 전화번호, 전자우편주소</li>
+												<li>신용도판단정보 : 연체정보</li>
+												<li>신용능력정보 : 총자산규모, 연소득, 재산, 채무총액</li>
+												<li>공공정보 등 : 신용점수, 대출용도, 담보제공계획, 변제계획</li>
+											</ul>
+										</dd>	
+										<dt>개인(신용)정보 제공 동의여부</dt>
+										<dd>
+											위 개인(신용)정보 수집&middot;이용에 동의하십니까?
+											<p class="agree_cont">동의하지 않음 <span class="neamo"></span> 동의함 <span class="neamo"></span></p>
+										</dd>
+										<p class="agree_cont mt20"> <span class="date"> 년</span> <span class="date"> 월</span> <span class="date"> 일</span></p>
+										<p class="agree_cont">본인 성명:  <span class="name mr5">(인)</span> </p>
+										<p class="agree_cont">대리인 성명:  <span class="name mr5">(인)</span> </p>
+										<p class="cont mt20 ta_c">3-06-0151(1-1) (2021.06 제정)<br>(보존년한 : 작성일로부터 10년)</p>
+									</dl>
+								</div>
+							</div>							
+						</div>
+						<!-- 개인(신용)정보 제3자 제공동의서 - 한화오션 -->
+						<div class="agreeTop">
+							<div class="agree_wrap">
+								<p class="tit">[필수] 개인(신용)정보 제3자 제공동의서</p>
+								<p class="cont">[한화오션㈜ 임직원 우리사주대출용]<br>(주)<strong class="font_bold">하나은행</strong> 귀중<br> <!-- 2023-09-21 문구 수정 -->
+									귀 행과의 (금융)거래와 관련하여 귀 행이 본인의 개인(신용)정보를 제공하고자 하는 경우에는 『신용정보의 이용 및 보호에 관한 법률』 , 『개인정보보호법』등 관계 법령에 따라 본인의 동의가 필요합니다.
+								</p>
+							</div>
+							<div class="agree_wrap">
+								<div class="agree_box">
+									<dl class="agree_dl">
+										<dt>제공받는 자</dt>
+										<dd>
+											<ul class="list_dash">
+												<!-- 2023-09-21 문구 수정 -->
+												<li><strong class="font_bold">한화오션㈜</strong></li> 
+												<li><strong class="font_bold">한화오션㈜ 우리사주조합</strong></li> 
+												<!-- // 2023-09-21 문구 수정 -->
+											</ul>
+										</dd>
+										<dt>제공받는 자의 이용 목적</dt>
+										<dd>
+											<strong class="font_bold">한화오션㈜ 임직원 우리사주대출에 대한 이자 대납</strong> <!-- 2023-09-21 문구 수정 -->
+										</dd>
+										<dt>보유 및 이용 기간</dt>
+										<dd>
+											<p class="cont"><strong class="font_bold">우리사주대출 거래종료(일)로부터 3개월까지 보유&middot;이용</strong></p>
+											<ul class="list_dot_01">
+												<li>위 보유 기간에서의 거래 종료일이란 <strong class="font_bold">“우리사주대출약정 계약기간의 만료, 해지권·해제권·취소권의 행사, 소멸시효의 완성, 변제 등으로 인한 채권의 소멸, 그밖의 사유로 종료된</strong> 날”을 말합니다.</li>
+												<li>거래종료 후에는 이용 목적과 관련된 금융사고 조사, 분쟁 해결, 민원처리, 법령상 의무이행을 위하여 필요한 범위내에서만 보유·이용됩니다.</li>
+											</ul>
+										</dd>
+										<dt>거부할 권리 및 불이익</dt>
+										<dd>귀하는 동의를 거부하실 수 있습니다. 다만, 위 개인(신용)정보 제공에 관한 동의는 “우리 사주대출약정의 체결 및 이행을 위한” 필수적 사항이므로, 위 사항에 동의하셔야만 (금융) 거래관계의 설정 및 유지가 가능합니다.</dd>
+										<p class="mt20"><strong class="font_bold">제공항목</strong></p>
+										<dt>개인(신용)정보</dt>
+										<dd>
+											<ul class="list_ko">
+												<li>일반개인정보 : 성명, 생년월일, 주소, 부서명, 휴대전화번호, 전화번호</li>
+												<li>신용거래정보 : 상품명, 대출계좌번호, 신규일자, 만기일자, 대출금액, 이자율, 원(리)금납부액 등 대출정보</li>
+											</ul>
+										</dd>
+										<dd>
+											<p class="cont mt10">위 <span class="textUnderline"><em class="bold">개인(신용)정보</em> 제공</span>에 동의하십니까?</p> 
+											<!-- 2023-09-27 동의 체크박스 수정 -->
+											<p class="agree_cont">동의하지 않음 <span class="neamo"></span> 동의함 <span class="neamo lst"></span></p>
+											<!-- // 2023-09-27 동의 체크박스 수정 -->
+										</dd>
+										<p class="agree_cont ta_l">※ 은행의 고의 또는 과실 등 귀책사유로 인한 개인정보 유출로 고객님에게 발생한 손해에 대해 관계 법령 등에 따라 보상 받으실 수 있습니다.</p>
+										<p class="agree_cont mt20"> <span class="date"> 년</span> <span class="date"> 월</span> <span class="date"> 일</span></p>
+										<p class="agree_cont">본인 성명:  <span class="name mr5">(인)</span> </p>
+										<p class="agree_cont">대리인 성명:  <span class="name mr5">(인)</span> </p>
+									</dl>
+									<p class="agree_cont ta_c mt20">
+										5-06-0998(1-1) (2021.09 제정)<br>
+										(보존년한 : 완제일로부터 5년)
+									</p>
+								</div>
+							</div>
+						</div>
+						<!-- // 개인(신용)정보 제3자 제공동의서 - 한화오션 -->
+						<div class="agreeTop">
+							<div class="agree_wrap">
+								<p class="tit">손님 정보 등록/변경 동의</p>
+								<div class="agree_box">
+									<p class="cont">대출신청을 위해 신청인 본인이 입력한 (스크래핑한) 개인정보가 하나은행의 손님 정보로 등록/변경되는데 동의 합니다.</p>
+									<p class="cont">- 휴대폰 번호 정보는 자동 변경되지 않습니다.<br>
+										- 대출 상품별 일부 정보(직장주소 및 직장 연락처등)는 등록/변경 되지 않을 수 있습니다.<br>
+										- 자동 등록/변경 되지 않는 정보는 개인정보변경 메뉴에서 별도 변경 할 수 있습니다.</p>
+									<p class="agree_cont">동의함 <span class="neamo"></span></p>
+									<p class="agree_cont mt20"><span class="date"> 년</span> <span class="date"> 월</span> <span class="date"> 일</span></p>
+									<p class="agree_cont">신청인:  <span class="name mr5">(인)</span> </p>
+									<p class="cont">5-06-0983(1-1) (2021.06 제정)</p>
+									<p class="cont mt0">(보존년한 : 완제일로부터 5년)</p>
+								</div>
+							</div>
+						</div>
+						<div class="agreeTop">
+							<div class="agree_wrap">
+								<p class="tit">대출 승인 및 실행(약정) 관련 문자메세지 통지 동의</p>
+								<div class="agree_box">
+									<p class="cont">본인은 본 신청 대출의 승인 및 실행(약정) 완료시 등록된 휴대폰 번호로 문자메세지 통지됨에 동의합니다.</p>
+									<p class="agree_cont">동의함 <span class="neamo"></span></p>
+									<p class="agree_cont mt20"><span class="date"> 년</span> <span class="date"> 월</span> <span class="date"> 일</span></p>
+									<p class="agree_cont">신청인:  <span class="name mr5">(인)</span> </p>
+									<p class="cont mt20 ta_c">5-06-0982(1-1) (2021.09 개정)<br>(보존년한 : 완제일로부터 10년)</p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				
+				<!-- 신용정보제공 동의 및 조회하기 - 선택항목 S --> 
+				<div class="chk_wrap mt20 termsChkTy choice2" id="optAgreeAll" name="termsChk5">
+					<p class="st-02"><span>선택 동의</span></p>
+					<a class="btn_chk"></a>
+				</div>
+				<div class="content_box_gruop on">
+					<p class="mt20 f_sym fs_15">더 특별한 재테크정보, 상품정보, 이벤트 정보를 받고 싶으면 아래에 동의해 주세요</p>
+					<ul class="list_dot_01">
+						<li>
+							<a href="javascript:moveContent_opt(1);">
+								<span class="agree_txt">
+									<em>개인정보 수집 &middot; 이용 동의</em>
+								</span>
+							</a>
+							<span class="risk-level__item level-1">안심</span>
+						</li>	
+						<li class="list_off mt5">
+							<ul class="cont_tab tab_2 tab">
+								<li><a href="javascript:void(0);">동의안함</a></li>
+								<li class="info_way"><a href="javascript:void(0);">동의함</a></li>
+							</ul>
+						</li>
+						<li class="mt10">
+							<a href="javascript:moveContent_opt(2);">
+								<span class="agree_txt">
+                                    <em>광고성 정보 수신 동의</em>
+								</span>
+							</a>
+						</li>
+						<li class="list_off mt5">
+							<ul class="cont_tab tab_2 tab">
+								<li><a href="#none">동의안함</a></li>
+								<li class="info_way"><a href="javascript:void(0);">동의함</a></li>
+							</ul>
+						</li>
+						<li class="list_off mt5 info_4way">
+							<ul class="cont_tab tab_2_1">
+								<li><label>
+									<input type="checkbox">
+									<span>문자메세지(SMS,LMS등)</span>
+								</label></li>
+								<li><label>
+									<input type="checkbox">
+									<span>전화</span>
+								</label></li>
+								<li><label>
+									<input type="checkbox">
+									<span>이메일</span>
+								</label></li>
+								<li><label>
+									<input type="checkbox">
+									<span>우편, 택배 등</span>
+								</label></li>
+							</ul>
+						</li>
+						<li class="mt10">
+							<a href="javascript:moveContent_opt(3);">
+								<span class="agree_txt">
+									<em>개인(신용)정보 &middot; 제공 동의</em>
+								</span>
+							</a>
+							<span class="risk-level__item level-1">안심</span>
+						</li>
+						<li class="list_off mt5">
+							<ul class="cont_tab tab_2 tab">
+								<li><a href="javascript:void(0);">동의안함</a></li>
+								<li id="code_360"><a href="javascript:void(0);">동의함</a></li>
+							</ul>
+						</li>
+						<li class="mt10">
+							<a href="javascript:moveContent_opt(4);">
+								<span class="agree_txt">
+									<em>고객 권리 안내문 확인</em>
+								</span>
+							</a>
+						</li>
+						<li class="list_off mt5">
+							<ul class="cont_tab tab_2 tab chk_si">
+								<li><a href="javascript:void(0);">동의안함</a></li>
+								<li><a href="javascript:void(0);">동의함</a></li>
+							</ul>
+						</li>
+						<li class="agree list_none mt10 pl0">
+							<div class="agree_wrap">
+								<p class="tit">&#91;선택&#93; 개인(신용)정보 수집 &middot; 이용 및 제공 동의서(상품서비스 안내 등)</p>
+								<p class="cont">(주)<strong class="font_bold">하나은행</strong> 귀중<br>
+								* 귀 행이 상품서비스 안내 등을 위하여 본인의 개인(신용)정보를 수집 · 이용하거나 제3자에게 제공하고자 하는 경우에는 「신용정보의 이용 및 보호에 관한 법률」, 「개인정보보호법」 등 관계 법령에 따라 본인의 동의가 필요합니다.<br>
+								* 아래에서 (금융)거래라 함은 은행업무(여신, 수신, 외국환), 겸영업무(신탁, 펀드, 방카슈랑스, 신용카드 등), 부수업무(보증, 팩토링, 대여금고, 보호예수 등)와 관련된 거래를 의미합니다.</p>
+							</div>
+							<div class="agree_wrap">
+								<p class="tit">1. 수집 &middot; 이용에 관한 사항</p>
+								<img src="../../../../../resource/mybranch/images/img_level_graph.png" alt="등급 그래프 이미지" class="mt10"/>
+								<p class="cont">
+									<strong class="f_notom va_t">※ 위 등급</strong>은 사생활 침해 위험, 혜택, 명확성 등을 종합적으로 고려하여 동의내용의 평가등급을 제공하는 제도입니다.
+								</p>
+								<div class="tbl_01 mt5">
+									<table>
+										<colgroup>
+											<col style="width:30%;">
+											<col>
+										</colgroup>
+										<tbody>
+											<tr>
+												<th scope="row">수집&middot;이용 목적</th>
+												<td class="ta_l">
+													<strong class="font_bold">&middot; 하나은행 및 하나금융그룹 계열사의 상품 또는 서비스의 안내 및 이용권유, 경품지급, 고객관리, 마케팅 조사</strong>
+												</td>
+											</tr>
+											<tr>
+												<th scope="row">보유 및 이용기간</th>
+												<td class="ta_l">
+													<strong class="font_bold">- (금융)거래 종료일 또는 동의 철회 시까지 보유 &middot; 이용</strong><br>
+													위 보유 기간에서의 (금융)거래 종료일이란 “당 행과 거래중인 모든 계약(여 &middot; 수신, 내 &middot; 외국환, 카드 및 제3자 담보 제공 등)
+													해지 및 서비스(대여금고, 보호예수, 외국환거래지정, 인터넷뱅킹 포함 전자금융거래 등)가 종료된 날”을 말합니다.
+												</td>
+											</tr>
+											<tr>
+												<th scope="row">거부 권리 및 불이익</th>
+												<td class="ta_l">
+													위 개인(신용)정보 수집 &middot; 이용에 관한 동의는 거부하실 수 있으며, “상품서비스의 홍보 및 권유를 위한” 선택적 사항이므로 동의하지 않더라도 (금융)거래 계약의 체결 및 이행에는 제한이 없습니다.
+													다만, 동의하지 않으시는 경우 “상품서비스 안내 및 이용권유, 경품지급, 고객관리 등”의 혜택을 받지 못할 수 있습니다.
+												</td>
+											</tr>
+										</tbody>
+									</table>
+								</div>
+								<p class="tit mt10">수집 &middot; 이용 항목</p>
+								<p class="tit mt5">개인(신용)정보</p>
+								<div class="tbl_01 mt5">
+									<table>
+										<colgroup>
+											<col style="width:30%;">
+											<col>
+										</colgroup>
+										<tbody>
+											<tr>
+												<th scope="row">일반개인정보</th>
+												<td class="ta_l">
+													성명, 생년월일, 성별, 주소, 직장정보, 국적, 전자우편주소, 전화번호, 휴대폰번호, CI, 온라인기기 광고식별자(ADID, IDFA등)
+												</td>
+											</tr>
+											<tr>
+												<th scope="row">신용거래정보</th>
+												<td class="ta_l">
+													&middot; 상품종류, 거래조건, 거래일시, 금액, 거래설정정보, 거래내역
+												</td>
+											</tr>
+											<tr id="content_opt1">
+												<th scope="row">수집&middot;이용 동의여부</th>
+												<td class="ta_l">
+													위 <strong class="font_bold">개인(신용)정보 수집 &middot; 이용에 동의하십니까?</strong>
+													<p class="agree_cont">동의하지 않음<span class="neamo"></span> 동의함 <span class="neamo"></span></p>
+												</td>
+											</tr>
+											<tr id="content_opt2">
+												<th scope="row">상품서비스 안내</th>
+												<td class="ta_l">
+													전자적 전송매체를 통한 광고성 정보의 수신을 동의 하시겠습니까?
+													<p class="agree_cont">동의하지 않음<span class="neamo"></span> 동의함 <span class="neamo"></span></p>
+												</td>
+											</tr>
+											<tr>
+												<th scope="row">안내 수단 선택</th>
+												<td class="ta_l">
+													<p class="agree_cont pt0 ta_l mt10">아래 ① ~ ④ 전체<span class="neamo"></span></p>
+													<ul class="contract1_content2 mt10">
+														<li><p class="agree_cont pt0 ta_l">문자메시지(SMS, LMS, 모바일메시지 등)<span class="neamo"></span></p></li>
+														<li><p class="agree_cont pt0 ta_l">전화<span class="neamo"></span></p></li>
+														<li><p class="agree_cont pt0 ta_l">전자우편(이메일)<span class="neamo"></span></p></li>
+														<li><p class="agree_cont pt0 ta_l">우편, 택배 등<span class="neamo"></span></p></li>
+													</ul>
+													※ &#91;귀 행&#93;은 상품서비스 안내 등 수집 &middot; 이용 목적을 달성하기 위하여 위의 동의한 안내수단으로 본인에게 연락할 수 있습니다.
+												</td>
+											</tr>
+											<tr>
+												<th scope="row">개인정보처리 위탁에 대한 안내</th>
+												<td class="ta_l">
+													&middot; 우편, 택배 등에 의한 사은품, 경품 및 홍보물 등 배송업무 수행하는 두레시닝㈜, ㈜국민지에스, 외향산업㈜, ㈜다올커머스, ㈜아워홈 등 업무 수탁자에게 제공합니다.<br>
+													&middot; 문자메시지 방식의 사은품, 경품 및 홍보물 등 전송 업무 수행하는 ㈜케이티, (주)쿠프마케팅, ㈜LG유플러스, ㈜엠티에스컴퍼니 등 문자메시지 서비스 업무 수탁자에게 제공합니다.<br>
+													&middot; 상품 또는 서비스 홍보 및 구매권유, 마케팅 조사(고객 만족도 조사 등)를 아이비커리어㈜, ㈜한국고용정보, 외향산업㈜등 고객센터 업무 수탁자에게 제공합니다.
+												</td>
+											</tr>
+										</tbody>
+									</table>
+								</div>
+								<!-- //200723 -->
+							</div>
+							<div class="agree_wrap">
+								<p class="tit">2. 제공에 관한 사항</p>
+								<img src="../../../../../resource/mybranch/images/img_level_graph.png" alt="등급 그래프 이미지" class="mt10"/>
+								<p class="cont">
+									<strong class="f_notom va_t">※ 위 등급</strong>은 사생활 침해 위험, 혜택, 명확성 등을 종합적으로 고려하여 동의내용의 평가등급을 제공하는 제도입니다.
+								</p>
+								<div class="tbl_01 mt5">
+									<table>
+										<colgroup>
+											<col style="width:30%;">
+											<col>
+										</colgroup>
+										<tbody>
+											<tr>
+												<th scope="row">제공받는 자</th>
+												<td class="ta_l">
+													<strong class="font_bold">- 하나금융그룹계열사 :</strong><br>
+													<strong class="font_bold">- 하나금융투자㈜, 하나카드㈜, 하나캐피탈㈜, 하나생명보험㈜, 하나손해보험㈜, ㈜하나저축은행, ㈜핀크, ㈜하나자산신탁 등</strong>
+												</td>
+											</tr>
+											<tr>
+												<th scope="row">제공받는 자의 이용 목적</th>
+												<td class="ta_l">
+													<strong class="font_bold">- 하나은행에서 발생한 하나금융그룹 계열사등의 상품 또는 서비스의 홍보비용 정산</strong>
+												</td>
+											</tr>
+											<tr>
+												<th scope="row">보유 및 이용기간</th>
+												<td class="ta_l">
+													<strong class="font_bold">- 개인(신용)정보 동의일로부터 2년 또는 동의철회 시까지 보유 &middot; 이용</strong><br>
+													* 제공목적 달성 이후에는 관련된 사고조사, 분쟁해결, 민원처리, 법령상 의무이행을 위하여 필요한 범위 내에서만 보유 &middot; 이용됩니다.
+												</td>
+											</tr>
+											<tr>
+												<th scope="row">거부 권리 및 불이익</th>
+												<td class="ta_l">
+														위 개인(신용)정보 제공에 관한 동의는 거부하실 수 있으며, “상품서비스의 홍보 및 권유를 위한” 선택적 사항이므로 동의하지 않더라도
+														(금융)거래 계약의 체결 및 이행에는 제한이 없습니다. 다만, 동의하지 않으시는 경우 “상품서비스 홍보 및 권유”를 받으실 수 없습니다.
+												</td>
+											</tr>
+										</tbody>
+									</table>
+								</div>
+								<p class="tit mt10">제공 항목</p>
+								<p class="tit mt5">개인(신용)정보</p>
+								<div class="tbl_01">
+									<table>
+										<colgroup>
+											<col style="width:30%;">
+											<col>
+										</colgroup>
+										<tbody>
+											<tr>
+												<th scope="row">일반개인정보</th>
+												<td class="ta_l">
+													성명, 생년월일
+												</td>
+											</tr>
+											<tr id="content_opt3">
+												<th scope="row">수집&middot;이용 동의여부</th>
+												<td class="ta_l">
+													위 <strong class="font_bold">개인(신용)정보 제공에 동의하십니까?</strong>
+													<p class="agree_cont">동의하지 않음<span class="neamo"></span> 동의함 <span class="neamo"></span></p>
+												</td>
+											</tr>
+										</tbody>
+									</table>
+								</div>
+								<!-- //200723 -->
+								<p class="cont mt20">※ 본인은 본 동의서의 내용을 이해하였으며, 개인(신용)정보 수집 · 이용 · 제공에 관한 고객 권리안내문에 관하여 자세히 설명을 듣고 수령하였습니다.</p>
+								<p class="cont mt10">※ 은행의 고의 또는 과실 등 귀책사유로 인한 개인정보 유출로 손님에게 손해가 발생할 경우 관계 법령 등에 따라 보상받으실 수 있습니다.</p>
+								<p class="cont mt10">※ 본 동의 이전에 발생한 개인(신용)정보도 수집 &middot; 이용 &middot; 제공 대상에 포함됩니다.</p>
+								<p class="agree_cont mt20"> <span class="date"> 년</span> <span class="date"> 월</span> <span class="date"> 일</span></p>
+								<p class="agree_cont">성명:  <span class="name">서명 또는 (인)</span> </p>
+								<p class="agree_cont">생년월일: <span class="name" style="padding-left:111px"></span></p>
+								<p class="cont mt20">(미성년자 법정대리인 동의) 법정대리인 부 :<span class="name"></span>, 모 :<span class="name"></span> 는 위 본인의 법정대리인으로 위 본인의 개인(신용)정보 수집&middot;
+										이용 및 제공 하는 것에 동의 합니다.</p>
+								<p class="agree_cont mt20">법정대리인:  <span class="name">(부,모) 서명 또는 (인)</span> </p>
+								<!-- 200723 -->
+								<!-- <p class="cont">3-08-1295(2-2) (2017.09 개정)</p>
+								<p class="cont mt0">(보존년한 : 완제일로부터 5년)</p> -->
+								<p class="cont mt10">※ 만 14세 미만 미성년자의 경우 반드시 법정대리인의 동의를 받아야합니다.</p>
+								<p class="cont mt10">3-08-1295(2-2) (2021.09 개정)</p>
+								<p class="cont mt10">(보존년한 : 금융거래 종료일)</p>
+								<!-- //200723 -->
+							</div>
+							<!-- //2021-05-25 : 마케팅 목적 이용제공동의 버튼추가 및 내용 변경 -->
+
+							<!-- 200723 개인(신용)정보 수집&middot;이용 및 제공 관련 고객 권리 안내문 -->
+							<div class="agree_wrap" id="content_opt4">
+								<p class="tit">개인(신용)정보 수집&middot;이용 및 제공 관련 고객 권리 안내문</p>
+								<p class="tit mt20">1. 금융서비스 이용 범위</p>
+								<p class="cont">고객의 개인(신용)정보는 고객이 동의한 목적을 위하여만 수집&middot;이용 및 제공됩니다. 필수적 정보에 대한 수집&middot;이용 및 제공은 계약의 체결 및 이행 을 위하여 필수적이므로, 위 사항에 동의하셔야만 (금융)거래 관계의 설정 및 유지가 가능합니다. 반면 선택적 정보에 대한 수집&middot;이용 및 제공에 대하 여는 거부하실 수 있으며, 다만 동의하지 않으실 경우 (금융)거래 조건 등에 불이익을 받으실 수 있습니다.</p>
+								<p class="tit mt20">2. 고객 개인(신용)정보의 제공 및 마케팅 활용 중단 신청</p>
+								<ol class="list_ko">
+									<li><span>가.</span>고객은 가입 신청 시 동의한 본인 개인(신용)정보의 제3자 제공 또는 귀사의 [금융상품(서비스)] 소개 등 영업목적의 사용에 대하여 전체 또는 사안별로 당행에 제공&middot;활용을 중단시킬 수 있습니다(개인정보 보호법 제37조, 신용정보의 이용 및 보호에 관한 법률 제37조).다만, ① 법률에 특별한 규정*이 있거나 법령상 의무를 준수하기 위하여 불가피한 경우, ② 다른 사람의 생명&middot;신체를 해할 우려가 있거나 다른 사람의 재산과 그 밖의 이익을 부당하게 침해할 우려가 있는 경우, ③ 개인(신용)정보를 처리하지 아니하면 정보주체와 약정한 서비스를 제공하지 못하는 등 계약의 이행이 곤란한 경우로서 정보주체가 그 계약의 해지 의사를 명확하게 밝히지 아니한 경우에는 제공&middot;활용 중단 신청이 거절될 수 있습니다.<br>* 신용조회회사 또는 신용정보집중기관에 제공하여 개인의 신용도를 평가하기 위한 목적으로 행한 신용정보의 제공 동의는 철회할 수 없습니다(신용정보의 이용 및 보호에 관한 법률 제37조 제1항 단서).</li>
+									<li><span>나.</span>본인 개인(신용)정보의 제공&middot;활용 중단을 원하시는 고객은 아래의 매체를 통하여 신청하여 주시기 바랍니다.
+										<ul class="list_st_01">
+											<li class="cont">※ 인터넷접수 : 당행 홈페이지(www.hanabank.com)</li>
+											<li class="cont">※ 전화접수 : 당행 콜센터 ☎ 1599-1111, 080-892-1111</li>
+											<li class="cont">※ 서면접수 : 당행 전 영업점</li>
+										</ul>
+									</li>
+									<li><span>다.</span>위의 신청과 관련하여 불편함을 느끼시거나 애로가 있으신 경우 당행의 신용정보관리&middot;보호인/개인정보 보호책임자 또는 한국신용정보원(민원서비스팀), 금융감독원(금융민원실) 앞으로 연락하여 주시기 바랍니다.
+										<ul class="list_st_01">
+											<li class="cont">※ 당행 신용정보 관리&middot;보호인/개인정보보호 책임자: (02) 729-0715, 729-0735, 729-0742, 서울 중구 을지로 66</li>
+											<li class="cont">※ 한국신용정보원 민원서비스팀: 1544-1040, 서울시 중구 명동11길 20(명동 1가)</li>
+											<li class="cont">※ 금융감독원 금융민원실 : 1332, 서울시 영등포구 여의대로 38</li>
+										</ul>
+									</li>
+								</ol>
+								<p class="tit mt20">3. 고객 개인(신용)정보의 자기정보결정권</p>
+								<ol class="list_ko">
+									<li><span>가.</span>고객은 신용정보의 이용 및 보호에 관한 법률, 개인정보 보호법 및 신용정보업감독규정 등에 따라 아래의 권리가 부여되어 있습니다. 동 권리의 세부내용에 대해서는 당행 홈페이지(www.hanabank.com) 또는 금융감독원 홈페이지(www.fss.or.kr)에 게시되어 있습니다. 동 권리를 행사하고자 하는 고객은 연락중지청구권의 경우 두낫콜 홈페이지(www.donotcall.or.kr)에서, 그 밖의 권리는 당행 인터넷홈페이지 또는 각 영업점 앞으로 신청하여 주시기 바랍니다.
+										<ul class="list_st_01">
+											<li class="cont">※ 개인신용정보 이용 및 제공 사실 조회 요청권(신용정보의 이용 및 보호에 관한 법률 제35조)<br>금융회사가 내부경영관리의 목적으로 이용하거나 반복적인 업무위탁을 위해 제공하는 경우 등을 제외하고 개인신용정보를 이용하거나 제공중인 현황을 확인할 수 있는 권리</li>
+											<li class="cont">※ 연락중지 청구권(신용정보의 이용 및 보호에 관한 법률 제37조 제2항)<br>원치 않는 마케팅 목적의 연락(휴대폰 전화 또는 문자메세지)을 거부할 수 있는 권리</li>
+											<li class="cont">※ 개인(신용)정보 열람 및 정정&middot;삭제 요구권(개인정보 보호법 제35조&middot;제36조, 신용정보의 이용 및 보호에 관한 법률 제38조)<br>당행에 본인의 개인(신용)정보에 대한 열람을 요구할 수 있는 권리 및 자신의 개인(신용)정보를 열람한 후 사실과 다르거나 확인할 수 없는 개인(신용)정보에 대하여 정정 또는 삭제를 요구할 수 있는 권리</li>
+											<li class="cont">※ 개인신용정보 이용&middot;제공 사실 통보 요구권(신용정보의 이용 및 보호에 관한 법률 제35조)<br>신용정보회사 등이 본인에 관한 신용정보를 이용&middot;제공한 경우 매 1년마다 이용&middot;제공현황을 통보해줄 것을 요구할 수 있는 권리(단, 신용정보 이용&middot;제공사실 통보에 대한 수수료가 발생할 수 있습니다)</li>
+											<li class="cont">※ 개인신용정보 삭제요구권(신용정보의 이용 및 보호에 관한 법률 제38조의3)<br>당행과의 금융거래 종료 후 법령에서 정한 기간이 경과 시 당행이 보유한 본인 정보의 파기를 요구할 수 있는 권리</li>
+										</ul>
+									</li>
+									<li><span>나.</span>고객은 본인 개인(신용)정보를 개인신용평가회사(마이크레딧, 크레딧뱅크, 사이렌24, 올크레딧 등)를 통하여 연간 일정 범위 내에서 확인할 수 있습니다. 자세한 사항은 각 개인신용평가회사에 문의하시기 바랍니다.
+										<p class="cont">※ 마이크레딧 : 02) 1588-2486 / www.mycredit.co.kr</p>
+										<p class="cont">※ 크레딧뱅크 : 02) 3771-1004 / www.creditbank.co.kr</p>
+										<p class="cont">※ 사이렌24 : 02) 1577-1006 / www.siren24.com</p>
+										<p class="cont">※ 올크레딧 : 02) 708-1000 / www.allcredit.co.kr</p>
+									</li>
+								</ol>
+								<p class="tit mt20">4. 개인(신용)정보 유출시 피해보상</p>
+								<p class="cont">당행의 고의 또는 과실 등 귀책사유로 인한 개인(신용)정보 유출로 고객님에게 발생한 손해에 대해 관계 법령 등에 따라 보상받으실 수 있습니다.</p>
+							</div>
+							<!-- //개인(신용)정보 수집&middot;이용 및 제공 관련 고객 권리 안내문 -->
+						</li>
+					</ul>
+				</div>
+				<!-- 신용정보제공 동의 및 조회하기 - 선택항목 E -->
+				<div class="txt_box mt10">
+					<p>본인은 위의 내용을 충분히 이해하고 확인하였으며, 신용정보법에 의거 개인신용정보의 <span class="f_point">조회, 제공 및 활용, 이용 등에</span> 대한 동의를 위해 ARS 동의 절차로 이동합니다</p>
+				</div>
+
+				<!-- Button -->
+				<div class="btn_area btn_2">
+					<p><a href="" class="btn st02">취소</a></p>
+					<p><a href="" class="btn st01">확인</a></p>
+				</div>
+				<!-- //Button -->
+
+				<!-- [S]2019-05-23 삭제 -->
+				<!-- Layer_Popup -->
+				<!-- <div class="layer_popup">
+					<div class="dimm"></div>
+					<div class="pop_container">
+						<div class="pop_wrap">
+							<div class="pop_header">
+								<a href="#" class="pop_btn_close">닫기</a>
+								<span class="pop_tit">ARS 멘트 미리보기</span>
+							</div>
+							<div class="pop_cont_wrap">
+								<div class="pop_cont p-scroll">
+									<p>KEB하나은행입니다. 손님께서는 현재 대출 신청을 위해 신용정보법 등에 의거 개인신용정보의 조회, 제공 및 활용, 이용 등에 대한 동의를 하려고 합니다.</p>
+									<p>동의하시면 화면에서 확인하신 개인비밀번호 두 자리를 눌러주시기 바랍니다.</p>
+								</div>
+							</div>
+							Button
+							<div class="btn_area">
+								<a href="#" class="btn st01">확인</a>
+							</div>
+							//Button
+						</div>
+					</div>
+				</div> -->
+				<!-- //Layer_Popup -->
+				<!-- [S]2019-05-23 삭제 -->
+
+				<!-- 200723 동의서 처리결과 &middot; 동의/변경(B 경우 외) Layer Popoup -->
+				<div class="layer_popup" style="display:none">
+					<div class="dimm"></div>
+					<div class="pop_container">
+						<div class="pop_wrap">
+							<div class="pop_header">
+								<a href="#" class="pop_btn_close">닫기</a>
+								<span class="pop_tit fs_17">‘개인정보 수집&middot;이용&middot;제공 동의’ 처리 안내</span>
+							</div>
+							<div class="pop_cont_wrap p-scroll">
+								<div class="pop_cont2">
+									<ul class="list_dot_01">
+										<li>동의 여부 : 동의</li>
+										<li>동의 일자 : 2020.07.22</li>
+										<li>안내 수단 : 문자메시지, 전화, 이메일, 우편/택배</li>
+									</ul>
+								</div>
+							</div>
+							<!-- Button -->
+							<div class="btn_area">
+								<a href="#" class="btn st01">확인</a>
+							</div>
+							<!-- //Button -->
+						</div>
+					</div>
+				</div>
+				<!-- //200723 동의서 처리결과 &middot; 동의/변경(B 경우 외) Layer Popoup -->
+
+				<!-- 200723 동의서 처리결과 &middot; 동의철회(전체 동의안함 경우) Layer Popoup -->
+				<div class="layer_popup" style="display:none">
+					<div class="dimm"></div>
+					<div class="pop_container">
+						<div class="pop_wrap">
+							<div class="pop_header">
+								<a href="#" class="pop_btn_close">닫기</a>
+								<span class="pop_tit fs_17">‘개인정보 수집&middot;이용&middot;제공 동의’ 처리 안내</span>
+							</div>
+							<div class="pop_cont_wrap p-scroll">
+								<div class="pop_cont2">
+									<ul class="list_dot_01">
+										<li>동의 여부 : 미동의(동의철회)</li>
+										<li>동의 일자 : 2020.07.22</li>
+									</ul>
+								</div>
+							</div>
+							<!-- Button -->
+							<div class="btn_area">
+								<a href="#" class="btn st01">확인</a>
+							</div>
+							<!-- //Button -->
+						</div>
+					</div>
+				</div>
+				<!-- //200723 동의서 처리결과 &middot; 동의철회(전체 동의안함 경우) Layer Popoup -->
+			</div>
+			<!-- //Content -->
+		</div>
+		<!-- Footer -->
+		<script>include.footer()</script>
+		<!-- //Footer -->
+
+	</div>
+</body>
+</html>
