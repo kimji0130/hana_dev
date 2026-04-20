@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="ko">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+	<meta name="format-detection" content="telephone=no address=no, email=no">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>모바일 브랜치</title>
+	<link rel="stylesheet" type="text/css" href="../../../../../resource/mybranch/css/mybranch.css">
+
+	<script type="text/javascript" src="../js/jquery-1.8.0.min.js"></script>
+	<!-- <script type="text/javascript" src="../js/jquery-3.7.1.min.js"></script> -->
+	<script type="text/javascript" src="../js/common_ui.js"></script>
+	<script type="text/javascript" src="../include/inc.js"></script>
+
+	<script type="text/javascript" src="../../../../../resource/mybranch/js/aos/aos.min.js"></script>
+	<script type="text/javascript" src="../../../../../resource/mybranch/js/myb-ui-pub.js"></script>
+
+	<link rel="stylesheet" type="text/css" href="../../../../../resource/mybranch/css/base.css">
+	<link rel="stylesheet" type="text/css" href="../../../../../resource/mybranch/css/ui.css">
+	<link rel="stylesheet" type="text/css" href="../../../../../resource/mybranch/css/swiper.css">
+	<link rel="stylesheet" type="text/css" href="../../../../../resource/mybranch/css/aos.css">
+	<link rel="stylesheet" type="text/css" href="../../../../../resource/mybranch/css/product.css">
+
+  <script>
+    $(document).ready(function(){
+      $(window).on("load", function(){
+        var lists = $('a.agree_txt').lenth //class 갯수
+        var listsTop = $('.agreeTop').lenth //class 갯수
+        var sum = 0; // 높이 값 합계 변수
+        var total = [0]; //배율로 합계 정렬 0은 첫번째 높이
+        for(var i = 0; i < listsTop; i++){
+          var tops = $('.agreeTop').eq(i).outerHeight(); // .agreeTop 높이 값
+          sum = sum + tops; // past agreeTop + present agreeTop
+          total.push(sum); // 배열 추가
+        }
+
+        var noActionMarkeing = $('#optAgreeAll').next('.content_box_group').find('.agree_txt'); // 마케팅 종의 영역 셀렉터
+        $('a.agrr_txt').not(noActionMarketing).click(function(e){
+          var agreeNum = $('a.agree_txt').index(this) //클릭한 인덱스 값
+          $('.agree.sec01').scrollTop(total[agreeNum]);
+          return false;
+        });
+      });
+    });
+  </script>
+</head>
+<body>
+  <div class="wrap">
+
+  </div>
+</body>
