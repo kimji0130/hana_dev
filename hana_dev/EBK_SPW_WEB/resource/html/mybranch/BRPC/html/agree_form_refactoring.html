@@ -1,4 +1,4 @@
-<!doctype html>
+a<!doctype html>
 <html lang="ko">
 <head>
 	<meta charset="utf-8">
@@ -35,8 +35,8 @@
           total.push(sum); // 배열 추가
         }
 
-        var noActionMarkeing = $('#optAgreeAll').next('.content_box_group').find('.agree_txt'); // 마케팅 종의 영역 셀렉터
-        $('a.agrr_txt').not(noActionMarketing).click(function(e){
+        var noActionMarketing = $('#optAgreeAll').next('.content_box_group').find('.agree_txt'); // 마케팅 종의 영역 셀렉터
+        $('a.agree_txt').not(noActionMarketing).click(function(e){
           var agreeNum = $('a.agree_txt').index(this) //클릭한 인덱스 값
           $('.agree.sec01').scrollTop(total[agreeNum]);
           return false;
@@ -47,6 +47,167 @@
 </head>
 <body>
   <div class="wrap">
+    <!-- Header -->
+    <script>include.header("모바일 브랜치")</script>
+    <!-- // Header -->
 
+    <!-- <div clss="header"> 
+      <h1 class="logo"><a href="#">로고</a></h1>
+      <h2>모바일 브랜치</h2>
+      <a href="#" class="btn_sideMn">전체메뉴</a>
+    </div> -->
+    <div class="contents">
+      <div class="cont_header">
+        <div class="h3_area">대출 실행하기</div>
+      </div>
+
+      <!-- content -->
+      <div class="content_box1 clauseZone">
+        <h1>약관동의 및 약정서 작성</h1>
+        <!-- <div class="chk_wrap allAgreebtn">
+            <p class="st-02"><span>전체동의하기</span></p>
+            <a href="#" class="btn_chk"></a>
+        </div> 2021-09-13 주석처리  -->
+        
+        <ul class="clauseList mt20">
+          <li class="keyFirst_class">
+            <div class="clauseTit">
+              <span>은행 여신거래 기본약관(가계용)</span>
+              <button type="button">내용보기</button>
+              <label for="clauseCheck_001"><input type="checkbox" id="clauseCheck_001"><span>동의하기</span></label>
+              <!-- <div id="toolTipCon" style="display:none;"> -->
+              <div id="toolTipCon">
+                <p><strong>동의하기</strong> 누르세요!</p>
+              </div>
+            </div>
+            <div class="clauseCon">
+              <div class="contract1">
+                <div class="contract1_header">
+                  <p>이 은행여신거래 기본약관 (이하 "약관"이라합니다.)은 xx은행 (이하 "은행"이라 합니다.)과 거래처 (이하 "채무자"라합니다.)와의 상호신뢰를 바탕으로 여신거래의 원활하고 공정한 처리를 위하여 만들어진 것입니다.</p>
+                </div>
+                <ul class="contract1_content1 defaultCon mt10">
+                  <li>
+                    <h4>제1조</h4>
+                  </li>
+                  <li>
+                    <h4>제2조</h4>
+                    <ul class="contract1_content2">
+                      <li>-
+                        <ul class="contract1_content3">
+                          <li><span class="textUnderline">밑줄 / Text Underline</span>-</li>
+                          <li>-</li>
+                          <li>-</li>
+                        </ul>
+                      </li>
+                    </ul>
+                  </li>
+                  <li>
+                    <h4>제3조</h4>
+                  </li>
+                  <li>
+                    <h4>제4조</h4>
+                  </li>
+                  <li>
+                    <h4>제5조</h4>
+                    <ul class="contract1_content2">
+                      <li>-
+                        <ul class="contract1_content3">
+                          <li>-</li>
+                          <li>-</li>
+                          <li>-</li>
+                        </ul>
+                      </li>
+                    </ul>
+                  </li>
+                </ul>
+                <p class="screening_num">
+                  3-06-xxxx (2026.04 개정)<br>
+                  (보존년한 : 완제일로부터 10년)
+                  준법감시인 심사필 제 2026-약관-xxx호(2026.xx.xx)
+                </p>
+              </div>
+            </div>
+          </li>
+    
+        </ul>
+      </div>
+      <!-- // content -->
+    </div>
   </div>
+  <!-- Footer -->
+  <script>include.footer()</script>
+  <!-- //Footer -->
+   <script type="text/javascript">
+    $(document).ready(function(){
+      //변수 설정
+      var clause_this,
+          conPos,
+          con_open,
+          con_close,
+          conDefault_height = 250,
+          keyFirst_on = 0;
+          
+      // 화면 scrollTop animate
+      function clause_scrollTop(clause_this_v){
+
+        conPos = clause_this_v.offset().top - 110;
+        $('html, body').animate({scrollTop:conPos}, '100');
+        //'htm, body로 변경해서 작업해야 html과 body가 둘다 확인됨.'
+        console.log(clause_this_v);
+      };
+
+      //약관 열고 닫기 animate
+        function clauseCon_ani(con_open_v, con_close_v, clause_this_v){
+        
+          con_close_v.animate({height: '0'}, '100', function(){
+            clause_scrollTop(clause_this_v);
+            //마지막 탭이 열릴 수 있도록 수정
+          });
+          con_open_v.animate({height:'250px'}, '100').css('overflow', 'scroll');
+        };
+
+      //버튼 선택 열고 닫기
+      $('.clauseTit button').on('click', function(){
+        // console.log('버튼 선택 열고 닫기');
+      
+        //tootip show $ hide 
+        $('#toolTipCon').hide();
+        
+        if(keyFirst_on === 0){
+          $('#toolTipCon').show();
+          keyFirst_on = 1;
+        }
+
+        clause_this = $(this).parents().parents();
+        con_open = $(this).parents().next();
+        con_close = $(this).parents().parents().siblings().children('.clauseCon');
+
+        $(this).parents().parents().siblings().removeClass('on check');
+        $(this).parents().parents().addClass('check');        
+        
+        clauseCon_ani(con_open, con_close, clause_this);
+
+      });
+
+      //checked 확인
+      $('.clauseTit input').change(function(){
+        if($(this).is(':checked')){
+          clause_this = $(this).parents('li').next();
+          con_open = $(this).parents('li').next().children('.clauseCon');
+          con_close = $(this).parents('li').children('.clauseCon');
+
+          $(this).next().text('동의함');
+          $(this).parents('li').removeClass('on check').addClass('checkOn');
+          $(this).parents('li').next().addClass('check');
+
+          clauseCon_ani(con_open, con_close, clause_this);
+
+        }
+        else{
+          $(this).next().text('동의하기');
+          $(this).parents('li').removeClass('checkOn');
+        }
+      }); 
+    });
+   </script>
 </body>

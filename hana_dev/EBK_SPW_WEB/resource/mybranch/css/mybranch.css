@@ -1940,6 +1940,7 @@ h4.auto_1Q {color:#444;font-family:'notokrM';text-align:center;padding-bottom:10
 .clauseList li.on .clauseTit {border-top:1px solid #008c8c;z-index:100;}
 .clauseList li.check .clauseTit{border:1px solid #008c8c;}
 .clauseList li.check .claus3Tit {border-top:1px solid #008c8c;z-index:100;}
+/* .clauseList li.check .clauseTit {border-top:1px solid #008c8c;z-index:100;} */
 .clauseList li.check button, .clauseList li.checkOn button {display: none}
 .clauseList li.check label, .clauseList li.checkOn label {display: block;}
 .clauseList li .clauseTit {width: 100%;border-top:1px solid #d9d9d9;z-index:1;position:relative;}
