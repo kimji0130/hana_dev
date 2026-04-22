@@ -1,4 +1,4 @@
-a<!doctype html>
+<!doctype html>
 <html lang="ko">
 <head>
 	<meta charset="utf-8">
@@ -8,8 +8,8 @@ a<!doctype html>
 	<title>모바일 브랜치</title>
 	<link rel="stylesheet" type="text/css" href="../../../../../resource/mybranch/css/mybranch.css">
 
-	<script type="text/javascript" src="../js/jquery-1.8.0.min.js"></script>
-	<!-- <script type="text/javascript" src="../js/jquery-3.7.1.min.js"></script> -->
+  <script type="text/javascript" src="../js/jquery-1.8.0.min.js"></script>
+	<!-- <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script> -->
 	<script type="text/javascript" src="../js/common_ui.js"></script>
 	<script type="text/javascript" src="../include/inc.js"></script>
 
@@ -146,21 +146,36 @@ a<!doctype html>
           con_close,
           conDefault_height = 250,
           keyFirst_on = 0;
-          
+      
+
       // 화면 scrollTop animate
       function clause_scrollTop(clause_this_v){
 
         conPos = clause_this_v.offset().top - 110;
         $('html, body').animate({scrollTop:conPos}, '100');
         //'htm, body로 변경해서 작업해야 html과 body가 둘다 확인됨.'
-        console.log(clause_this_v);
+        
       };
+      //화면 offset 확인
+      function clause_scrollTop($target){
+        console.log('타겟:', $target);
 
+        const offset = $target.offset();
+        console.log('offset:',offset);
+
+        const conPos = offset ? offset.top : '없음';
+        console.log('top값:', conPos);
+
+        $('html,body').animate({
+          scrollTop: conPos -110
+        }, 200);
+      };
+            
       //약관 열고 닫기 animate
         function clauseCon_ani(con_open_v, con_close_v, clause_this_v){
         
           con_close_v.animate({height: '0'}, '100', function(){
-            clause_scrollTop(clause_this_v);
+            // clause_scrollTop(clause_this_v);
             //마지막 탭이 열릴 수 있도록 수정
           });
           con_open_v.animate({height:'250px'}, '100').css('overflow', 'scroll');

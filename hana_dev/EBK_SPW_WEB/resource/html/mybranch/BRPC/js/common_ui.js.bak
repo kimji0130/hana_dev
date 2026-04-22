@@ -22,13 +22,13 @@ $(document).ready(function(){
 	};
 
 	// Tab (tab class)
-	$('.tab li').click(function() {
+	$('.tab li').on('click', function() {
 		$(this).addClass('on').siblings('li').removeClass('on');
 		return false;
 	});
 
 	// Tab_st02 (��������)
-	$('.box_tab li').click(function() {
+	$('.box_tab li').on('click', function() {
 		if (!$(this).hasClass('on')) {
 			$(this).addClass('on');
 		}else{
@@ -39,7 +39,7 @@ $(document).ready(function(){
 	
 	/* 2018-04-09 �߰� */
 	// Tab_st03 (�� ���� ���� ���� )
-	$('.toggle_tab li').click(function() {
+	$('.toggle_tab li').on('click', function() {
 		if (!$(this).hasClass('on')) {
 			$(this).addClass('on').siblings().removeClass('on');
 		}else{
@@ -54,7 +54,7 @@ $(document).ready(function(){
 	$('.tab_cont').hide(); 
 	$('.tabs li:first').addClass('on').show();
 	$('.tab_cont:first').show();
-	$('.tabs li').click(function() {
+	$('.tabs li').on('click', function() {
 		$('.tabs li').removeClass('on');
 		$(this).addClass('on');
 		$('.tab_cont').hide(); 
@@ -65,18 +65,18 @@ $(document).ready(function(){
 
 
 	// Layer_Popup
-	$('.layer_open').click(function(){
+	$('.layer_open').on('click', function(){
 		$(this).next('.layer_popup').show();
 		return false;
 	});
 
-	$('.layer_popup .pop_btn_close').click(function(){
+	$('.layer_popup .pop_btn_close').on('click', function(){
 		$(this).closest('.layer_popup').hide(); //2018-07-05 ����
 	});
 
 	// ��ǰList Toggle
 	$('.product_detail').hide(); 
-	$('.product_list > li > a').click(function() {
+	$('.product_list > li > a').on('click', function() {
 		if (!$(this).hasClass('on'))
 		{
 			$(this).addClass('on').siblings('.product_detail').slideDown(150);
@@ -87,7 +87,7 @@ $(document).ready(function(){
 	});
 
 	// 2018-12-28 대출신청하기 수정
-	$('.list_st04.radio dt').click(function(){
+	$('.list_st04.radio dt').on('click', function(){
 		if($(this).children().children('input[type=checkbox]').is(':checked')){
 			$(this).prev().removeClass('on');
 			$(this).next().removeClass('on');			
