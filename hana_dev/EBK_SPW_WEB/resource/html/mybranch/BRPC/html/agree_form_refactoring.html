@@ -76,7 +76,64 @@
               <button type="button">내용보기</button>
               <label for="clauseCheck_001"><input type="checkbox" id="clauseCheck_001"><span>동의하기</span></label>
               <!-- <div id="toolTipCon" style="display:none;"> -->
-              <div id="toolTipCon">
+              <div class="toolTipCon" style="display:none;"><!-- 각각의 영역에 tooltip이 반응해서 버튼 누를떄마다 사용할 수 있도록 class로 변경-->
+                <p><strong>동의하기</strong> 누르세요!</p>
+              </div>
+            </div>
+            <div class="clauseCon">
+              <div class="contract1">
+                <div class="contract1_header">
+                  <p>이 은행여신거래 기본약관 (이하 "약관"이라합니다.)은 xx은행 (이하 "은행"이라 합니다.)과 거래처 (이하 "채무자"라합니다.)와의 상호신뢰를 바탕으로 여신거래의 원활하고 공정한 처리를 위하여 만들어진 것입니다.</p>
+                </div>
+                <ul class="contract1_content1 defaultCon mt10">
+                  <li>
+                    <h4>제1조</h4>
+                  </li>
+                  <li>
+                    <h4>제2조</h4>
+                    <ul class="contract1_content2">
+                      <li>-
+                        <ul class="contract1_content3">
+                          <li><span class="textUnderline">밑줄 / Text Underline</span>-</li>
+                          <li>-</li>
+                          <li>-</li>
+                        </ul>
+                      </li>
+                    </ul>
+                  </li>
+                  <li>
+                    <h4>제3조</h4>
+                  </li>
+                  <li>
+                    <h4>제4조</h4>
+                  </li>
+                  <li>
+                    <h4>제5조</h4>
+                    <ul class="contract1_content2">
+                      <li>-
+                        <ul class="contract1_content3">
+                          <li>-</li>
+                          <li>-</li>
+                          <li>-</li>
+                        </ul>
+                      </li>
+                    </ul>
+                  </li>
+                </ul>
+                <p class="screening_num">
+                  3-06-xxxx (2026.04 개정)<br>
+                  (보존년한 : 완제일로부터 10년)
+                  준법감시인 심사필 제 2026-약관-xxx호(2026.xx.xx)
+                </p>
+              </div>
+            </div>
+          </li>
+          <li class="keyFirst_class">
+            <div class="clauseTit" id="agree02D0">
+              <span>대출거래약정서(가계용)</span>
+              <button type="button">내용보기</button>
+              <label for="clauseCheck_002"><input type="checkbox" id="clauseCheck_002"><span>동의하기</span></label>
+              <div class="toolTipCon" style="display:none;">
                 <p><strong>동의하기</strong> 누르세요!</p>
               </div>
             </div>
@@ -157,7 +214,7 @@
         
       };
       //화면 offset 확인
-      function clause_scrollTop($target){
+      function clause_scrollTop($target){ //뒤에 있는 함수 clause_scrollTop 이 두번 반복되어 앞에껄 덮어써서 함수 호출 안되어 offset이 안보일 수 있음...
         console.log('타겟:', $target);
 
         const offset = $target.offset();
@@ -186,10 +243,10 @@
         // console.log('버튼 선택 열고 닫기');
       
         //tootip show $ hide 
-        $('#toolTipCon').hide();
-        
+        $('.toolTipCon').hide();
+        console.log('버튼 열림')
         if(keyFirst_on === 0){
-          $('#toolTipCon').show();
+          $('.toolTipCon').show();
           keyFirst_on = 1;
         }
 
