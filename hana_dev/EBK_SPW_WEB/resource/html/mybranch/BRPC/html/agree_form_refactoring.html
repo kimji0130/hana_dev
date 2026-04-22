@@ -76,12 +76,19 @@
               <button type="button">내용보기</button>
               <label for="clauseCheck_001"><input type="checkbox" id="clauseCheck_001"><span>동의하기</span></label>
               <!-- <div id="toolTipCon" style="display:none;"> -->
-              <div class="toolTipCon" style="display:none;"><!-- 각각의 영역에 tooltip이 반응해서 버튼 누를떄마다 사용할 수 있도록 class로 변경-->
+              <div class="toolTipCon" id="toolTipCon" style="display:none;"><!-- 각각의 영역에 tooltip이 반응해서 버튼 누를떄마다 사용할 수 있도록 class로 변경-->
                 <p><strong>동의하기</strong> 누르세요!</p>
               </div>
             </div>
             <div class="clauseCon">
               <div class="contract1">
+                <style>
+                  .chk_Chk_box[type="checkbox"]:disabled{display:inline-block; top: unset !important; left:unset !important; appearance:none; -webkit-appearance:none; -webkit-border-radius:0; opacity:unset !important;}
+                  .chk_Chk_box[type="checkbox"]{position:relative !important; width:10px; height:10px; border:1px solid #a3a3a3; accent-color:#efefef; background:#efefef; opacity:unset;}
+                  .chk_Chk_box[type="checkbox"]:checked{position:relative; display:inline-block; width:10px; height:10px; border:1px solid #239496; accent-color:#fff; background:#fff;}
+                  .chk_Chk_box[type="checkbox"]:checked::after{content:''; position:absolute; display:inline-block; width:3px; height:6px; top:-1px; left:3px; border-right:1px solid #444; border-bottom:1px solid #444; transform:rotate(45deg);}
+                  .chk_Chk_box[type="checkbox"]:not(:disabled){position:relative; display:inline-block; width:10px; height:10px; border:1px solie #239496; accent-color:#fff; background:#fff; opacity:unset !important;}
+                </style>
                 <div class="contract1_header">
                   <p>이 은행여신거래 기본약관 (이하 "약관"이라합니다.)은 xx은행 (이하 "은행"이라 합니다.)과 거래처 (이하 "채무자"라합니다.)와의 상호신뢰를 바탕으로 여신거래의 원활하고 공정한 처리를 위하여 만들어진 것입니다.</p>
                 </div>
@@ -133,15 +140,51 @@
               <span>대출거래약정서(가계용)</span>
               <button type="button">내용보기</button>
               <label for="clauseCheck_002"><input type="checkbox" id="clauseCheck_002"><span>동의하기</span></label>
-              <div class="toolTipCon" style="display:none;">
+              <!-- <div class="toolTipCon" style="display:none;">
                 <p><strong>동의하기</strong> 누르세요!</p>
-              </div>
+              </div> -->
             </div>
             <div class="clauseCon">
               <div class="contract1">
-                <div class="contract1_header">
-                  <p>이 은행여신거래 기본약관 (이하 "약관"이라합니다.)은 xx은행 (이하 "은행"이라 합니다.)과 거래처 (이하 "채무자"라합니다.)와의 상호신뢰를 바탕으로 여신거래의 원활하고 공정한 처리를 위하여 만들어진 것입니다.</p>
+                <div style="margin:0; padding:0; color:#333; word-spacing:0; letter-spacing:-1px; line-height:20px; font-family:'notokrDL', 'Malgun Gothic', '맑은고딕', 'dotum', sans-serif;">
+                  <h3 style="font-size:15px; font-weight:normal; margin:0; padding:0;">주식회사<strong style="font-size:18px; margin:0 1px 0 3px; padding:0; vertical-align:text-top; font-family:'notokrM';">xx은행</strong>앞</h3>
+                  <p style="font-size:15px; margin:10px 0 0 0; padding:0;">은행은 본인에게 이 약정서상의 중요한 내용을 설명하여야 하며, 은행여신거래기본약관(가계용) 및 이 약정서의 사본을 교부하여야 합니다.</p>
                 </div>
+                <div class="contract1_header">
+                  <ul style="margin:0; padding:0 0 0 10px;">
+                    <li style="margin:0; padding:0; list-style:decimal; font-size:15px;">본인은 주식회사 xx은행(이하 "은행"이라합니다.)과 아래의 조건에 따라 대출거래를 함에 있어 은행여신거래기본약관(가계용), 예금거래기본약관 및 입출금이 자유로운 예금약관(통장대출의 경우)이 적용됨을 승인하고, 다음 각 조항을 확약합니다.</li>
+                    <li style="margin:10px 0 0 0; padding:0; list-style:decimal; font-size:15px;">본인은 은행여신거래기본약관(가계용)과 이 약정서 사본을 확실히 수령하고, 주요 내용에 대하여 충분한 설명을 듣고 이해하였습니다.</li>
+                    <li style="margin:10px 0 0 0; padding:0; list-style:decimal; font-size:15px;">변동금리대출은 대출상호한을 완료할 때까지 대출이자율이 인상될 수 있으며, 대출이자율 인상시에는 재무적 부담이 증가될 수 있다는 내용에 대하여 충분한 설명을 듣고 이해하였습니다.</li>
+                  </ul>
+                </div>
+
+                <div style="margin:10px 0 0 0; padding:0;">
+                  <table style="border-collapse:collapse; border-spacing:0; width:100%; border:1px solid #b7b7b7; color:#333;">
+                    <caption style="visibility:hidden; font-size:0; text-indent:-20000px; width:1px; height:1px;">통장대출 상환 방법 선택</caption>
+                    <colgroup>
+                      <col style="width:30%">
+                      <col style="width:70%">
+                    </colgroup>
+                    <tbody>
+                      <tr>
+                        <th scope="row" style="background:#f6f6f6; text-align:center; padding:15px 5px; border-bottom:1px solid #b7b7b7; font-size:15px; font-weight:normal; color:#777;">본인</th>
+                        <td style="padding:15px 10px 15px 15px; font-size:15px; text-align:center; border-bottom:1px solid #b7b7b7; border-left:1px solid #b7b7b7;">
+                          <span style="vertical-align:middle; text-align:center;">홍길동</span>
+                          <span style="margin:0 0 0 5px; padding:0;">
+                            <span style="float:right; width:30px; height:30px; line-height:10px; padding:4px; margin-top:-6px; border:1px solid #c82222; border-radius:50%; font-size:10px; color:#c82222; text-align:center; transform:scale(0.8);">전자<br>서명</span>
+                          </span>
+                          
+                        </td>
+                      </tr>
+                      <tr>
+                        <th scope="row" style="background:#f6f6f6; text-align:center; padding:15px 5px; font-size:15px; font-weight:normal; color:#777;">주소</th>
+                        <td style="border-left:1px solid #b7b7b7; padding:15px 10px 15px 15px; font-size:15px;">주소주소주소주소</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+
+
                 <ul class="contract1_content1 defaultCon mt10">
                   <li>
                     <h4>제1조</h4>
@@ -215,6 +258,8 @@
       };
       //화면 offset 확인
       function clause_scrollTop($target){ //뒤에 있는 함수 clause_scrollTop 이 두번 반복되어 앞에껄 덮어써서 함수 호출 안되어 offset이 안보일 수 있음...
+        console.log('scroll 함수 실행됨');
+
         console.log('타겟:', $target);
 
         const offset = $target.offset();
@@ -223,9 +268,9 @@
         const conPos = offset ? offset.top : '없음';
         console.log('top값:', conPos);
 
-        $('html,body').animate({
-          scrollTop: conPos -110
-        }, 200);
+        // $('html,body').animate({
+        //   scrollTop: conPos -110
+        // }, 200);
       };
             
       //약관 열고 닫기 animate
@@ -243,10 +288,10 @@
         // console.log('버튼 선택 열고 닫기');
       
         //tootip show $ hide 
-        $('.toolTipCon').hide();
+        $('#toolTipCon').hide();
         console.log('버튼 열림')
         if(keyFirst_on === 0){
-          $('.toolTipCon').show();
+          $('#toolTipCon').show();
           keyFirst_on = 1;
         }
 
