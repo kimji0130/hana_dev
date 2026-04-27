@@ -8,8 +8,8 @@
 	<title>모바일 브랜치</title>
 	<link rel="stylesheet" type="text/css" href="../../../../../resource/mybranch/css/mybranch.css">
 
-  <script type="text/javascript" src="../js/jquery-1.8.0.min.js"></script>
-	<!-- <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script> -->
+  <!-- <script type="text/javascript" src="../js/jquery-1.8.0.min.js"></script> -->
+	<script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
 	<script type="text/javascript" src="../js/common_ui.js"></script>
 	<script type="text/javascript" src="../include/inc.js"></script>
 
@@ -293,14 +293,45 @@
       };
 
       //약관 열고 닫기 animate
-        function clauseCon_ani(con_open_v, con_close_v, clause_this_v){
+        // function clauseCon_ani(con_open_v, con_close_v, clause_this_v){
         
-          con_close_v.animate({height: '0'}, '100', function(){
-            // clause_scrollTop(clause_this_v);
-            //마지막 탭이 열릴 수 있도록 수정
-          });
-          con_open_v.animate({height:'250px'}, '100').css('overflow', 'scroll');
-        };
+        //   con_close_v.animate({height: '0'}, '100', function(){ 
+        //     // clause_scrollTop(clause_this_v);
+        //     //마지막 탭이 열릴 수 있도록 수정
+        //   });
+        //   con_open_v.animate({height:'250px'}, '100').css('overflow', 'scroll');
+        // };
+
+        //@@ 약관열고 닫기 animate 수정_1
+        // //@@ jQuery는 auto->0 animation잘 못함.. .clauseCon : 원래 height:auto; 상태임.
+        // function clauseCon_ani(con_open_v, con_close_v, clause_this_v){
+          //   con_close_v.stop(true,true).slideUp(100);
+          //   con_open_v.stop(true,true).slideDown(100); 
+          // }
+          //@@ slideDown 안되는이유 찾음!!! clauseCon {css}에 height:0px; 로 되어있어서 안되는거~!!! display:none; 으로 바꿔줘야됨!!
+          //@@ react에서는 거의 slideUp/Down 사용 안하므로 height+class/ scrollHeight 를 사용한다.
+          
+        //@@ 약관열고 닫기 animate 수정_2 -> 닫힘 안되고 fadein slide가 너무 끊김.
+        // function clauseCon_ani(con_open_v, con_close_v, clause_this_v){
+          
+        //   con_close_v.each(function(){
+          //     this.style.height = '0px';
+          //   });
+          
+          //   con_open_v.each(function(){
+            //     this.style.height = this.scrollHeight + 'px';
+            //   });
+            // };
+            
+        //@@ 약관열고 닫기 animate 수정_ 3
+        function clauseCon_ani(con_open_v,con_close_v,clause_this_v){
+          if(con_open_v.height() > 0){
+            con_open_v.stop(true,true);
+
+        }
+      }
+
+
 
         // @@ 버튼 클릭용 script, 체크박스 change용 script가 따로 있어서 툴팁이 버튼 기준으로만 제어되므로 '체크시 툴팁'이라는 요구가 충족이 안되는 상태임.
         // @@ #toolTipCon을 id로 쓰고 있어서 여러 개가 있을 때 전부 같은 요소처럼 동작하니까 100% 버그 생김... 그리고 check > change 로직 안에 툴팁 제어가 아예 없음..
@@ -316,9 +347,16 @@
           const tooltip = currentLi.find('.toolTipCon');
           console.log(tooltip.length);
 
-          $('.toolTipCon').stop(true, true).hide();
+          //@@ handleTooltip 안의 실제 내용은??
+          //$('.toolTipCon').hide();
+          // if(isShow){
+          // tooltip.show();
+          // }
+
+          $('.toolTipCon').stop(true, true).hide();  //첫번째 true: 현재 애니메이션 즉시 멈춤. , 두번째 true: 큐에 쌓이 애니메이션까지 제거 =>빠르게 클릭할때 툴팁 버벅임, 여러개 겹쳐서 이상하게 뜨므로 잡아주기
+          console.log('fadein되나?')
           if(isShow){
-            tooltip.stop(true, true).fadein(100);
+            tooltip.stop(true,true).fadeIn(100);  // true : 보여줌 , false: 아무것도 안함(*이미 위에서 다닫았으니까.)
           }
         }
 
@@ -330,7 +368,7 @@
 
           const next_clause = clause_this.next(); //.next() ->다음 요소
 
-          const con_open = next_clause.children('.clauseCon');
+          const con_open = next_clause.find('.clauseCon');
           const con_close = clause_this.children('.clauseCon');
 
           const tooltip = clause_this.find('.toolTipCon'); //.find(); -> 내부 요소
@@ -352,7 +390,9 @@
             // contents animation
             //clauseCon_ani(con_open, con_close, clause_this);
 
-            clause_this.addClass('checkOn');
+            clause_this.removeClass('on check').addClass('checkOn');
+            next_clause.addClass('check');
+            clauseCon_ani(con_open, con_close, clause_this);
 
             //tooltip 핵심 로직(전역 -> 로컬 구조로 제어 : 이렇게 안짜면 다른 탭 눌렀을때 안꺼지고, 여러개 동시에 뜰수 있음)
             //$('.toolTipCon').hide(); //전체 닫고
@@ -361,20 +401,22 @@
             // <!!오류!!> ======================================================
             // 이 경우 체크를 해서 동의함으로 text변경이 이루어져도 툴팁이 사라지지 않음 
             // =================================================================
-
-            handleTooltip(clause_this, false); // 숨김
+            
+            
+            // 툴팁!!
+            handleTooltip(clause_this, true); // 숨김
             // tooltip.show(); check해제 하고 다시 체크되어도 툴팁이 뜸..
           } else{
             console.log('check해제 -> 보여야함');
 
             $(this).next().text('동의하기');
-            clause_this.removeClaSS('checkOn');
+            clause_this.removeClass('checkOn');
 
             //tooltip 닫기
             //tooltip.hide(); 체크 후 동의함으로 내용 변경이 이루어져도 툴팁이 사라지지않음.
 
             // 체크 안된 상태일 때만 보여줄지 선택
-            handleTooltip(clause_this, true); //필요시 유지
+            handleTooltip(clause_this, false); //필요시 유지
             
           }
         })
@@ -423,11 +465,16 @@
       //button 로직도 같은 기준으로 맞춰줘야함.
       $('.clauseTit button').on('click',function(){
 
-        const clause_this = $(this).closest('li');
-        const next_clause = clasue_this.next();
+        console.log('click');
+        
+        const clause_this = $(this).closest('li');  //closest(); -> 가장 가까운 li하나만 정확히 잡음.
+        const next_clause = clause_this.next();
 
-        const con_open = $(this).parent().next();
+        const con_open =  clause_this.find('.clauseCon');
+        console.log('열 대상:', con_open);
+
         const con_close = clause_this.siblings().find('.clauseCon'); //.siblings(); => 형제 요소
+        console.log('닫을대상:', con_close);
 
         const tooltip = clause_this.find('.toolTipCon');
 
@@ -441,8 +488,9 @@
 
         //tooltip
         $('.toolTipCon').hide(); //전체 리셋
-        tooltip.toogle();
-        
+        // tooltip.toggle();
+        tooltip.show(); //현재만 활성화
+
       });
     });
    </script>
