@@ -273,225 +273,89 @@
   </div>
   <!-- //Footer -->
    <script type="text/javascript">
-    $(document).ready(function(){
-      //변수 설정
-      var clause_this,
-          conPos,
-          con_open,
-          con_close,
-          conDefault_height = 250,
-          keyFirst_on = 0;
-      
 
-      // 화면 scrollTop animate
-      function clause_scrollTop(clause_this_v){
+    // 상태(checkbox)/ UI(토글) / 효과(SCROLL)분리하면 안꼬임..
+    $(function(){
+      const Scroll_Offset = 110;
 
-        conPos = clause_this_v.offset().top - 110;
-        $('html, body').animate({scrollTop:conPos}, '100');
-        //'htm, body로 변경해서 작업해야 html과 body가 둘다 확인됨.'
-        
-      };
-
-      //약관 열고 닫기 animate
-        // function clauseCon_ani(con_open_v, con_close_v, clause_this_v){
-        
-        //   con_close_v.animate({height: '0'}, '100', function(){ 
-        //     // clause_scrollTop(clause_this_v);
-        //     //마지막 탭이 열릴 수 있도록 수정
-        //   });
-        //   con_open_v.animate({height:'250px'}, '100').css('overflow', 'scroll');
-        // };
-
-        //@@ 약관열고 닫기 animate 수정_1
-        // //@@ jQuery는 auto->0 animation잘 못함.. .clauseCon : 원래 height:auto; 상태임.
-        // function clauseCon_ani(con_open_v, con_close_v, clause_this_v){
-          //   con_close_v.stop(true,true).slideUp(100);
-          //   con_open_v.stop(true,true).slideDown(100); 
-          // }
-          //@@ slideDown 안되는이유 찾음!!! clauseCon {css}에 height:0px; 로 되어있어서 안되는거~!!! display:none; 으로 바꿔줘야됨!!
-          //@@ react에서는 거의 slideUp/Down 사용 안하므로 height+class/ scrollHeight 를 사용한다.
-          
-        //@@ 약관열고 닫기 animate 수정_2 -> 닫힘 안되고 fadein slide가 너무 끊김.
-        // function clauseCon_ani(con_open_v, con_close_v, clause_this_v){
-          
-        //   con_close_v.each(function(){
-          //     this.style.height = '0px';
-          //   });
-          
-          //   con_open_v.each(function(){
-            //     this.style.height = this.scrollHeight + 'px';
-            //   });
-            // };
-            
-        //@@ 약관열고 닫기 animate 수정_ 3
-        function clauseCon_ani(con_open_v,con_close_v,clause_this_v){
-          if(con_open_v.height() > 0){
-            con_open_v.stop(true,true);
-
-        }
+      //공통 : 스크롤 이동
+      function scrollToTarget($el){  
+        const top = $el.offset().top - Scroll_Offset;  //undefined문제 방지
+        $('html, body').stop().animate({scrollTop : top}, 200);
       }
 
+      // 공통 : 토글 열기 / 닫기
+      function openClause($li){
+        const $con = $li.find('.clauseCon');
 
+        //다른 애들 닫기
+        $('.clauseCon').not($con).stop(true, true).animate({height:0}, 150);
 
-        // @@ 버튼 클릭용 script, 체크박스 change용 script가 따로 있어서 툴팁이 버튼 기준으로만 제어되므로 '체크시 툴팁'이라는 요구가 충족이 안되는 상태임.
-        // @@ #toolTipCon을 id로 쓰고 있어서 여러 개가 있을 때 전부 같은 요소처럼 동작하니까 100% 버그 생김... 그리고 check > change 로직 안에 툴팁 제어가 아예 없음..
-        // @@ 핵심은 DOM 범위(scope) 제대로 잡아야함.. 1. 버튼 누르면 -> 해당 툴팁 토글 2. 체크하면 -> 무조건 툴팁 뜸 3. 다른거 부르면 -> 이전 건 닫힘. 4. 체크 해제하면 -> 툴팁 사라짐.
+        //현재 열기
+        $con.stop(true, true)
+          .animate({height:250}, 150)
+          .css('overflow','scroll');
+      }
 
-        // @@ 변수명 통일
-        // @@ clause_this : 현재 기준 li
-        // @@ con_open : 열릴 컨텐츠
-        // @@ con_close : 닫힐 컨텐츠
+      function closeClause($li){
+        $li.find('.clauseCon')
+          .stop(true, true) // 없으면 버벅, 꼬임 발생
+          .animate({height:0}, 150);
+      }
 
-        //  handleTooltip 정의하기
-        function handleTooltip(currentLi, isShow){
-          const tooltip = currentLi.find('.toolTipCon');
-          console.log(tooltip.length);
+      // 공통 : 툴팁
+      function showTooltip($li){
+        $('.toolTipCon').hide(); //중복 표시 방지
+        $li.find('.toolTipCon').fadeIn(150);
+      }
 
-          //@@ handleTooltip 안의 실제 내용은??
-          //$('.toolTipCon').hide();
-          // if(isShow){
-          // tooltip.show();
-          // }
+      function hideTooltip($li){
+        $li.find('.toolTipCon').hide()
+      }
 
-          $('.toolTipCon').stop(true, true).hide();  //첫번째 true: 현재 애니메이션 즉시 멈춤. , 두번째 true: 큐에 쌓이 애니메이션까지 제거 =>빠르게 클릭할때 툴팁 버벅임, 여러개 겹쳐서 이상하게 뜨므로 잡아주기
-          console.log('fadein되나?')
-          if(isShow){
-            tooltip.stop(true,true).fadeIn(100);  // true : 보여줌 , false: 아무것도 안함(*이미 위에서 다닫았으니까.)
-          }
+      // ==========================
+      // 체크박스 이벤트
+      // ==========================
+      $('.clauseTit input[type="checkbox"]').on('change', function(){ // 체크박스 -> 상태변경, 버튼 -> 토글제어 역할 완전 나눔
+
+        const $li = $(this).closest('li');
+        const isChecked = this.checked;
+
+        if(isChecked){
+          // 텍스트 변경
+          $(this).next().text('동의함');
+
+          // 툴팁 숨김
+          hideTooltip($li);
+
+          // 토글 닫기
+          closeClause($li);
+
+          // 스크롤 이동
+          scrollToTarget($li);
+
+        }else{
+          // 텍스트 변경
+          $(this).next().text('동의하기');
+          
+          // 툴팁 다시 표시
+          showTooltip($li);
+
+          // 토글열기
+          openClause($li);
         }
-
-        $('.clauseTit input[type="checkbox"]').on('change', function(){
-          console.log('change:', this.checked);
-          const clause_this = $(this).closest('li');
-          // $(this).parents('li') : 위에 있는 li 전부를 다 찾아 불안정함.
-          // $(this).closest('li') : 가장 가까운 li 하나만 정확히 잡으므로 UI 구조 바뀌어도 안깨짐.
-
-          const next_clause = clause_this.next(); //.next() ->다음 요소
-
-          const con_open = next_clause.find('.clauseCon');
-          const con_close = clause_this.children('.clauseCon');
-
-          const tooltip = clause_this.find('.toolTipCon'); //.find(); -> 내부 요소
-
-          console.log('checked:', $(this).is(':checked'));
-
-          // if($(this).is(':checked'){
-          if(this.checked){
-            console.log('체크됨 -> 숨김');
-            
-            //text 변경
-            // console.log(this,'확인'); //<input type="checkbox" id="clauseCheck_001"> --> this 의미
-
-            $(this).next().text('동의함');
-
-            // class처리 체크 후 동의함으로 내용 변경이 이루어져도 툴팁이 사라지지 않음.
-            // clause_this.removeClass('on check').addClass('checkOn');
-            // next_clause.addClass('check');
-            // contents animation
-            //clauseCon_ani(con_open, con_close, clause_this);
-
-            clause_this.removeClass('on check').addClass('checkOn');
-            next_clause.addClass('check');
-            clauseCon_ani(con_open, con_close, clause_this);
-
-            //tooltip 핵심 로직(전역 -> 로컬 구조로 제어 : 이렇게 안짜면 다른 탭 눌렀을때 안꺼지고, 여러개 동시에 뜰수 있음)
-            //$('.toolTipCon').hide(); //전체 닫고
-            //toolTipCon.show(); //현재만 열기
-
-            // <!!오류!!> ======================================================
-            // 이 경우 체크를 해서 동의함으로 text변경이 이루어져도 툴팁이 사라지지 않음 
-            // =================================================================
-            
-            
-            // 툴팁!!
-            handleTooltip(clause_this, true); // 숨김
-            // tooltip.show(); check해제 하고 다시 체크되어도 툴팁이 뜸..
-          } else{
-            console.log('check해제 -> 보여야함');
-
-            $(this).next().text('동의하기');
-            clause_this.removeClass('checkOn');
-
-            //tooltip 닫기
-            //tooltip.hide(); 체크 후 동의함으로 내용 변경이 이루어져도 툴팁이 사라지지않음.
-
-            // 체크 안된 상태일 때만 보여줄지 선택
-            handleTooltip(clause_this, false); //필요시 유지
-            
-          }
-        })
-
-      //버튼 선택 열고 닫기
-      // $('.clauseTit button').on('click', function(){
-        
-        //tootip show $ hide 
-        // $('.toolTipCon').hide();
-        // if(keyFirst_on === 0){
-        //   $('.toolTipCon').show();
-        //   keyFirst_on = 1;
-        // }
-
-      //   clause_this = $(this).parents().parents();
-      //   con_open = $(this).parents().next();
-      //   con_close = $(this).parents().parents().siblings().children('.clauseCon');
-
-      //   $(this).parents().parents().siblings().removeClass('on check');
-      //   $(this).parents().parents().addClass('check');        
-        
-      //   clauseCon_ani(con_open, con_close, clause_this);
-
-      // });
-
-      //checked 확인
-      // $('.clauseTit input').change(function(){
-      //   if($(this).is(':checked')){
-      //     clause_this = $(this).parents('li').next();
-      //     con_open = $(this).parents('li').next().children('.clauseCon');
-      //     con_close = $(this).parents('li').children('.clauseCon');
-
-      //     $(this).next().text('동의함');
-      //     $(this).parents('li').removeClass('on check').addClass('checkOn');
-      //     $(this).parents('li').next().addClass('check');
-
-      //     clauseCon_ani(con_open, con_close, clause_this);
-
-      //   }
-      //   else{
-      //     $(this).next().text('동의하기');
-      //     $(this).parents('li').removeClass('checkOn');
-      //   }
-      // });
-      
-      //button 로직도 같은 기준으로 맞춰줘야함.
-      $('.clauseTit button').on('click',function(){
-
-        console.log('click');
-        
-        const clause_this = $(this).closest('li');  //closest(); -> 가장 가까운 li하나만 정확히 잡음.
-        const next_clause = clause_this.next();
-
-        const con_open =  clause_this.find('.clauseCon');
-        console.log('열 대상:', con_open);
-
-        const con_close = clause_this.siblings().find('.clauseCon'); //.siblings(); => 형제 요소
-        console.log('닫을대상:', con_close);
-
-        const tooltip = clause_this.find('.toolTipCon');
-
-        //다른 항목 정리
-        clause_this.siblings().removeClass('on check');
-
-        //현재 활성화
-        clause_this.addClass('check');
-
-        clauseCon_ani(con_open, con_close, clause_this);
-
-        //tooltip
-        $('.toolTipCon').hide(); //전체 리셋
-        // tooltip.toggle();
-        tooltip.show(); //현재만 활성화
-
       });
+
+      //============================
+      // 버튼 클릭(토글 열기)
+      //============================
+      $('.clauseTit button').on('click', function(){ // 체크박스 -> 상태변경, 버튼 -> 토글제어 역할 완전 나눔
+        const $li = $(this).closest('li');
+
+        openClause($li);
+        scrollToTarget($li);
+      });
+
     });
    </script>
 </body>
