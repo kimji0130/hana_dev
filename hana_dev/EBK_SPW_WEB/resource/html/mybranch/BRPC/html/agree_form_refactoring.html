@@ -83,6 +83,7 @@
                 <p><strong>동의하기</strong> 누르세요!</p>
               </div>
             </div>
+            <!-- <div class="clauseCon" style="height:250px; overflow:scroll;"> -->
             <div class="clauseCon">
               <div class="contract1">
                 <style>
@@ -273,91 +274,53 @@
   </div>
   <!-- //Footer -->
    <script type="text/javascript">
+    const conDefalut_height =250,
+          keyFirst_on = 0;
+          
+    const clause_this = document.querySelector('.clauseCon');
 
-    document.addEventListener('DOMContentLoaded', function(){
+    // console.log(clause_this.offsetWidth, clause_this.offsetHeight);
+    //clauseCon 의 높이값 구하기 : width(443) height(0)
 
-      const OFFSET = 110;
-      const items = document.querySelectorAll('li.keyFirst_class');
+   const clauseTitBtn = document.querySelector('.clauseTit button');
+   const moveEtc = (target) => {
+    const targetEl = document.querySelector('.clauseCon');
+    if(targetEl){
+      let start;
+      const targetPosition = targetEl.getBoundingClientRect().top; //파라미터로 받아온 clauseCon 위치값 구하기
+      const startposition = window.scrollY; // 애니메이션 이벤트 발생시 현재 위치값 
+      const distance =targetPosition;
 
-      function scrollToEl(el){
-        const top = el.getBoundingClientRect().top + window.pageYOffset - OFFSET;
-        window.scrollTo({ top, behavior: 'smooth' });
-      }
 
-      function closeAll(){
-        document.querySelectorAll('.clauseCon').forEach(con => {
-          con.style.display = 'none';
-        });
-      }
+      const conPos = clause_this.getBoundingClientRect().top + window.scrollY - 110;
+      window.scrollTo(0, conPos);
 
-      function hideAllTooltip(){
-        document.querySelectorAll('.toolTipCon').forEach(t => {
-          t.style.display = 'none';
-        });
-      }
+      document.querySelector('html, body').addEventListener('scroll',function(){
+        if(window.scrollY >= conPos){
+          targetEl.style.height = '250px';
+          targetEl.style.overflow = 'scroll';
+        }else{
+          targetEl.style.height= '0';
+        };
+      })
+    };
+    clauseTitBtn.addEventListener('click',moveEtc);
+   }; 
+   
 
-      items.forEach(li => {
 
-        const button = li.querySelector('.clauseTit button');
-        const checkbox = li.querySelector('input[type="checkbox"]');
-        const labelText = li.querySelector('label span');
-        const clauseCon = li.querySelector('.clauseCon');
-        const tooltip = li.querySelector('.toolTipCon');
+// if(this.checked){
+//     clause_this.closest('li').text('동의함');
+//     clause_this.removeClass('checkOn');
+//     clause_this.addClass('checkOn');
+// }
+//     function clauseCon_ani(con_open,con_close,clause_this){
+//       con_close.animate({height: '0'}, '100', function(){
+//         clauseCon_ani(clause_this);
+//       })
+//       con_open.animate({height: '250px'}, '100').css('overflow','scroll');
+//     };
+    // clause_this.removeClass('.checkOn');
 
-        // ======================
-        // 버튼 클릭
-        // ======================
-        button.addEventListener('click', function(){
-
-          const isOpen = clauseCon.style.display === 'block';
-
-          if(isOpen){
-            clauseCon.style.display = 'none';
-          } else {
-            closeAll();
-            clauseCon.style.display = 'block';
-            scrollToEl(li);
-          }
-
-        });
-
-        // ======================
-        // 체크박스
-        // ======================
-        checkbox.addEventListener('change', function(){
-
-          if(this.checked){
-
-            // 텍스트 변경
-            labelText.textContent = '동의함';
-
-            // tooltip 숨김
-            if(tooltip) tooltip.style.display = 'none';
-
-            // 토글 닫기
-            clauseCon.style.display = 'none';
-
-            // 스크롤 이동
-            scrollToEl(li);
-
-          } else {
-
-            // 텍스트 변경
-            labelText.textContent = '동의하기';
-
-            // tooltip 다시 표시
-            hideAllTooltip();
-            if(tooltip) tooltip.style.display = 'block';
-
-            // 토글 다시 열기
-            closeAll();
-            clauseCon.style.display = 'block';
-          }
-
-        });
-
-      });
-
-    });
    </script>
 </body>
