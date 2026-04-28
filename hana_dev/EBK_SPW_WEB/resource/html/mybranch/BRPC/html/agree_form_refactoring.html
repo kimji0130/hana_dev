@@ -277,14 +277,11 @@
     document.addEventListener('DOMContentLoaded', function(){
 
       const OFFSET = 110;
-      const items = document.querySelectorAll('li');
+      const items = document.querySelectorAll('li.keyFirst_class');
 
       function scrollToEl(el){
         const top = el.getBoundingClientRect().top + window.pageYOffset - OFFSET;
-        window.scrollTo({
-          top: top,
-          behavior: 'smooth'
-        });
+        window.scrollTo({ top, behavior: 'smooth' });
       }
 
       function closeAll(){
@@ -293,21 +290,10 @@
         });
       }
 
-      function openOne(li){
-        closeAll();
-        const con = li.querySelector('.clauseCon');
-        if(con) con.style.display = 'block';
-      }
-
-      function showTooltip(li){
-        document.querySelectorAll('.toolTipCon').forEach(t => t.style.display = 'none');
-        const tooltip = li.querySelector('.toolTipCon');
-        if(tooltip) tooltip.style.display = 'block';
-      }
-
-      function hideTooltip(li){
-        const tooltip = li.querySelector('.toolTipCon');
-        if(tooltip) tooltip.style.display = 'none';
+      function hideAllTooltip(){
+        document.querySelectorAll('.toolTipCon').forEach(t => {
+          t.style.display = 'none';
+        });
       }
 
       items.forEach(li => {
@@ -316,60 +302,59 @@
         const checkbox = li.querySelector('input[type="checkbox"]');
         const labelText = li.querySelector('label span');
         const clauseCon = li.querySelector('.clauseCon');
+        const tooltip = li.querySelector('.toolTipCon');
 
         // ======================
-        // 버튼 클릭 (토글)
+        // 버튼 클릭
         // ======================
-        if(button){
-          button.addEventListener('click', function(){
+        button.addEventListener('click', function(){
 
-            const isOpen = clauseCon.style.display === 'block';
+          const isOpen = clauseCon.style.display === 'block';
 
-            if(isOpen){
-              clauseCon.style.display = 'none';
-            }else{
-              openOne(li);
-              scrollToEl(li);
-            }
+          if(isOpen){
+            clauseCon.style.display = 'none';
+          } else {
+            closeAll();
+            clauseCon.style.display = 'block';
+            scrollToEl(li);
+          }
 
-          });
-        }
+        });
 
         // ======================
         // 체크박스
         // ======================
-        if(checkbox){
-          checkbox.addEventListener('change', function(){
+        checkbox.addEventListener('change', function(){
 
-            if(this.checked){
+          if(this.checked){
 
-              // 텍스트 변경
-              if(labelText) labelText.textContent = '동의함';
+            // 텍스트 변경
+            labelText.textContent = '동의함';
 
-              // tooltip 숨김
-              hideTooltip(li);
+            // tooltip 숨김
+            if(tooltip) tooltip.style.display = 'none';
 
-              // 토글 닫기
-              if(clauseCon) clauseCon.style.display = 'none';
+            // 토글 닫기
+            clauseCon.style.display = 'none';
 
-              // 스크롤 이동
-              scrollToEl(li);
+            // 스크롤 이동
+            scrollToEl(li);
 
-            }else{
+          } else {
 
-              // 텍스트 변경
-              if(labelText) labelText.textContent = '동의하기';
+            // 텍스트 변경
+            labelText.textContent = '동의하기';
 
-              // tooltip 표시
-              showTooltip(li);
+            // tooltip 다시 표시
+            hideAllTooltip();
+            if(tooltip) tooltip.style.display = 'block';
 
-              // 토글 다시 열기
-              openOne(li);
+            // 토글 다시 열기
+            closeAll();
+            clauseCon.style.display = 'block';
+          }
 
-            }
-
-          });
-        }
+        });
 
       });
 
