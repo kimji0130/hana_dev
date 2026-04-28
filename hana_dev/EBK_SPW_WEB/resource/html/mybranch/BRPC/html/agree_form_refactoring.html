@@ -8,8 +8,7 @@
 	<title>모바일 브랜치</title>
 	<link rel="stylesheet" type="text/css" href="../../../../../resource/mybranch/css/mybranch.css">
 
-  <!-- <script type="text/javascript" src="../js/jquery-1.8.0.min.js"></script> -->
-	<script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+  <script type="text/javascript" src="../js/jquery-1.8.0.min.js"></script>
 	<script type="text/javascript" src="../js/common_ui.js"></script>
 	<script type="text/javascript" src="../include/inc.js"></script>
 
@@ -273,54 +272,39 @@
     <script>include.footer()</script>
   </div>
   <!-- //Footer -->
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
    <script type="text/javascript">
-    const conDefalut_height =250,
-          keyFirst_on = 0;
-          
-    const clause_this = document.querySelector('.clauseCon');
+    console.log(document.querySelectorAll('.clauseTit button').length);
+    window.onload = function(){
 
-    // console.log(clause_this.offsetWidth, clause_this.offsetHeight);
-    //clauseCon 의 높이값 구하기 : width(443) height(0)
+      document.querySelectorAll('.clauseTit button').forEach(button => {
 
-   const clauseTitBtn = document.querySelector('.clauseTit button');
-   const moveEtc = (target) => {
-    const targetEl = document.querySelector('.clauseCon');
-    if(targetEl){
-      let start;
-      const targetPosition = targetEl.getBoundingClientRect().top; //파라미터로 받아온 clauseCon 위치값 구하기
-      const startposition = window.scrollY; // 애니메이션 이벤트 발생시 현재 위치값 
-      const distance =targetPosition;
+        button.addEventListener('click', function(){
 
+        const li = button.closest('li');
+        const con = li.querySelector('.clauseCon');
 
-      const conPos = clause_this.getBoundingClientRect().top + window.scrollY - 110;
-      window.scrollTo(0, conPos);
+        document.querySelectorAll('.clauseCon').forEach(c => {
+          c.style.display = 'none';
+          c.style.height = '0';
+        });
 
-      document.querySelector('html, body').addEventListener('scroll',function(){
-        if(window.scrollY >= conPos){
-          targetEl.style.height = '250px';
-          targetEl.style.overflow = 'scroll';
-        }else{
-          targetEl.style.height= '0';
-        };
-      })
+        con.style.display = 'block';
+        con.style.height = '250px';   // 👈 핵심 @@ 현재 css에 '.clauseCon'은 {height:0; overflow:hidden;}으로 display가 아니라 height로 닫아둔 구조라서 보이지 않음..
+        con.style.overflow = 'auto';  // 👈 핵심
+
+        const top = li.getBoundingClientRect().top + window.scrollY - 110;
+
+        window.scrollTo({
+          top: top,
+          behavior: 'smooth'
+        });
+
+      });
+
+      });
+
     };
-    clauseTitBtn.addEventListener('click',moveEtc);
-   }; 
-   
-
-
-// if(this.checked){
-//     clause_this.closest('li').text('동의함');
-//     clause_this.removeClass('checkOn');
-//     clause_this.addClass('checkOn');
-// }
-//     function clauseCon_ani(con_open,con_close,clause_this){
-//       con_close.animate({height: '0'}, '100', function(){
-//         clauseCon_ani(clause_this);
-//       })
-//       con_open.animate({height: '250px'}, '100').css('overflow','scroll');
-//     };
-    // clause_this.removeClass('.checkOn');
-
-   </script>
+</script>
 </body>
+</html>
