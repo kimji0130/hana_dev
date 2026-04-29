@@ -288,10 +288,13 @@
           c.style.display = 'none';
           c.style.height = '0';
         });
-
+        //css로 .clauseCon{height:0; overflow:hidden; transition:height 0.3;}.clauseCon.open{height:250px;} 잡아놨으면
+        //c.style~ 삭제하고, c.classList.remove('open')
+        
         con.style.display = 'block';
         con.style.height = '250px';   // 👈 핵심 @@ 현재 css에 '.clauseCon'은 {height:0; overflow:hidden;}으로 display가 아니라 height로 닫아둔 구조라서 보이지 않음..
         con.style.overflow = 'auto';  // 👈 핵심
+        //con.style~ 삭제하고, con.classList.add('open') 사용하면 됨.
 
         const top = li.getBoundingClientRect().top + window.scrollY - 110;
 
