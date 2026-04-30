@@ -284,6 +284,14 @@
         const li = button.closest('li');
         const con = li.querySelector('.clauseCon');
 
+         if(querySelector('.clauseTit button').is(':checked')){
+          con.next().text('동의함');
+          con.addClass('checkOn');
+        }else{
+          con.next().text('동의하기');
+          con.removeClass('checkOn');
+        };
+
         document.querySelectorAll('.clauseCon').forEach(c => {
           c.style.display = 'none';
           c.style.height = '0';
@@ -304,12 +312,7 @@
         });
 
       });
-
-      document.querySelectorAll('.clauseTit button', function(){
-      c.classList.remove('close');
-      con.classList.add('close');
-      });
-      });
+    });
     };
 </script>
 </body>
