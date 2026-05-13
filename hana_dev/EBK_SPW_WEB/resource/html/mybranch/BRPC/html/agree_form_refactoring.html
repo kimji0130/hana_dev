@@ -281,16 +281,17 @@
 
         button.addEventListener('click', function(){
 
-          console.log('클릭됨');
-
           const li = button.closest('li');
           const con = li.querySelector('.clauseCon');
 
           document.querySelectorAll('.clauseCon').forEach(c => {
             c.style.display = 'none';
+            c.style.height = '0';
           });
 
           con.style.display = 'block';
+          con.style.height = '250px';   // 👈 핵심
+          con.style.overflow = 'auto';  // 👈 핵심
 
           const top = li.getBoundingClientRect().top + window.scrollY - 110;
 
