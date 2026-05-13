@@ -274,115 +274,37 @@
   <!-- //Footer -->
   <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
   <script type="text/javascript">
-    // console.log(document.querySelectorAll('.clauseTit button').length);
-   document.addEventListener('DOMContentLoaded', function(){
-    
-    const OFFSET =110;
-    const items = document.querySelectorAll('li.keyFirst_class');
-    console.log('li 개수: ',items.length); // @@ console.log('li.keyFirst_class'.length)=>0 이었는데, 지금은 li 개수는 2개가 나옴!!
+    console.log(document.querySelectorAll('.clauseTit button').length);
+    window.onload = function(){
 
-    function scrollToEl(el){
-      const top = el.getBoundingClientRect().top + window.pageYOffset - OFFSET;
-      window.scrollTo({top, behavior:'smooth'});
-    }
-//** clauseCon-> 반드시 기본값 diplay:none; 필요
-//** toolTipCon -> 이미 inline으로 처리 했으니 ok
-//** but, style.display는 'inline style'만 본다!
-//** result, 현재 clauseCon에 css 'display:none'이 없는 상태로 시작하면, 실제 상태가 display:block(기본값)/But, style.display === '' (빈값)으로 표현됨.
-//** clauseCon.style.display === 'block' //false  열려있는데도 '닫혀있다'고 판단해서 로직이 꼬임. => css에 사용하거나 inline으로 작성하면 좋지만
-//   js에 적어서 안전하게 유지하자! const isOpen = clauseCon.classList.contains('open');
+      document.querySelectorAll('.clauseTit button').forEach(button => {
 
-function closeAll(){
-  document.querySelectorAll('.clauseCon').forEach(con => {
-    con.style.display = 'none';
-  });
-}
+        button.addEventListener('click', function(){
 
-    function hideAllTooltip(){
-      document.querySelectorAll('.toolTipCon').forEach(t => {
-        t.style.display = 'none';
-      });
-    }
+          console.log('클릭됨');
 
-    items.forEach(li => {
+          const li = button.closest('li');
+          const con = li.querySelector('.clauseCon');
 
-      const button = li.querySelector('.clauseTit button');
-      const checkbox = li.querySelector('input[type="checkbox"]');
-      const labelText = li.querySelector('label span');
-      const clauseCon = li.querySelector('.clauseCon');
-      const tooltip = li.querySelector('.toolTipCon');
-      
-      console.log('button:', button);
-      console.log('checkbox:', checkbox);
-      
-      // 방어코드 추가!!
-      if(!button || !checkbox || !clauseCon){
-        console.warn('구조 안맞는 li 스킵: ', li);
-        return;
-      }
+          document.querySelectorAll('.clauseCon').forEach(c => {
+            c.style.display = 'none';
+          });
 
-      button.addEventListener('click',function(){
-        console.log('버튼 클릭됨');      
-      });
-      
+          con.style.display = 'block';
 
+          const top = li.getBoundingClientRect().top + window.scrollY - 110;
 
-      // ============================
-      //   button click
-      // ============================
+          window.scrollTo({
+            top: top,
+            behavior: 'smooth'
+          });
 
-      
-      button.addEventListener('click', function(){  //@@ button이 null인데 addEventListener 붙이려고해서 문제 생김 ...
-        // console.log('li:', li);
-        // console.log('button:', button);
-        // console.log('버튼 click');
+        });
 
-        // const isOpen = clauseCon.style.display === 'block';  //clauseCon이 display:none을 인식 못하므로 수정하여 작업
-        const isOpen = clauseCon.classList.contains('open'); 
-
-        if(isOpen){
-          clauseCon.style.display = 'none';
-        }else{
-          closeAll();
-          clauseCon.style.display = 'block';
-          scrollToEl(li);
-        }
       });
 
-      // ========================
-      // CHECK BOX
-      // ========================
-      checkbox.addEventListener('change', function(){
-        if(this.checked){
+    };
 
-          //text 변경
-          labelText.textContent = '동의함';
-
-          // tooltip 숨김
-          if(tooltip) tooltip.style.display = 'none';
-          
-          // toggle 닫기
-          clauseCon.style.display = 'none';
-
-          // scroll 이동
-          scrollToEl(li);
-        }else{
-          // text 변경
-          labelText.textContent = '동의하기';
-
-          // tooltip 다시 표시
-          hideAllTooltip();
-          if(tooltip) tooltip.style.display = 'block';
-
-          //toggle 다시 닫기
-          closeAll();
-          clauseCon.style.display = 'block';
-        }
-      });
-    });
-
-
-   }); //document.addEventListener('DOMContentLoaded')
   </script>
 </body>
 </html>
