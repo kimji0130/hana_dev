@@ -303,16 +303,18 @@
       const button = li.querySelector('.clauseTit button');
       const checkbox = li.querySelector('input[type="checkbox"]');
       
-      if(!button || !checkbox){
-        console.warn('구조 안맞는 li 스킵:', li);
+      console.log('button:', button);
+      console.log('checkbox:', checkbox);
+
+      
+      if(!button){
+        console.error('X 버튼 없음:', li); // @@ 버튼 없음 null!!
         return;
       }
       
       button.addEventListener('click',function(){
         console.log('버튼 클릭됨');      
       });
-      
-      console.log(items.length);
       
 
       const labelText = li.querySelector('label span');
