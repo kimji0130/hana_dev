@@ -279,7 +279,7 @@
     
     const OFFSET =110;
     const items = document.querySelectorAll('li.keyFirst_class');
-    console.log('li.keyFirst_class',length); // @@ 콘솔에서 li.keyFirst_class 0 나옴 => html/class 구조 문제!!!!
+    console.log('li 개수: ',items.length); // @@ console.log('li.keyFirst_class'.length)=>0 이었는데, 지금은 li 개수는 2개가 나옴!!
 
     function scrollToEl(el){
       const top = el.getBoundingClientRect().top + window.pageYOffset - OFFSET;
@@ -300,7 +300,6 @@
 
     items.forEach(li => {
 
-      
       const button = li.querySelector('.clauseTit button');
       const checkbox = li.querySelector('input[type="checkbox"]');
       
