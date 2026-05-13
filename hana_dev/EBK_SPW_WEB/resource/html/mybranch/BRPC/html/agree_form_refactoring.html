@@ -285,12 +285,15 @@
       const top = el.getBoundingClientRect().top + window.pageYOffset - OFFSET;
       window.scrollTo({top, behavior:'smooth'});
     }
+//** clauseCon-> 반드시 기본값 diplay:none; 필요
+//** toolTipCon -> 이미 inline으로 처리 했으니 ok
+//** but, style.display는 'inline style'만 본다!
 
-    function closeAll(){
-      document.querySelectorAll('.clauseCon').forEach(con => {
-        con.style.display = 'none';
-      });
-    }
+function closeAll(){
+  document.querySelectorAll('.clauseCon').forEach(con => {
+    con.style.display = 'none';
+  });
+}
 
     function hideAllTooltip(){
       document.querySelectorAll('.toolTipCon').forEach(t => {
@@ -309,9 +312,9 @@
       console.log('button:', button);
       console.log('checkbox:', checkbox);
       
-      // 방어코드 추가!!  @@ 확인 불가
+      // 방어코드 추가!!
       if(!button || !checkbox || !clauseCon){
-        console.error('구조 문제: ', li);
+        console.warn('구조 안맞는 li 스킵: ', li);
         return;
       }
 
