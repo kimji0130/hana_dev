@@ -288,6 +288,8 @@
 //** clauseCon-> 반드시 기본값 diplay:none; 필요
 //** toolTipCon -> 이미 inline으로 처리 했으니 ok
 //** but, style.display는 'inline style'만 본다!
+//** result, 현재 clauseCon에 css 'display:none'이 없는 상태로 시작하면, 실제 상태가 display:block(기본값)/But, style.display === '' (빈값)으로 표현됨.
+//** clauseCon.style.display === 'block' //false  열려있는데도 '닫혀있다'고 판단해서 로직이 꼬임.
 
 function closeAll(){
   document.querySelectorAll('.clauseCon').forEach(con => {
