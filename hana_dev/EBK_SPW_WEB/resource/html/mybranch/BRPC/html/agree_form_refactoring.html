@@ -289,6 +289,10 @@
             c.style.height = '0';
           });
 
+
+          //display:none유지되지 않고 js가 안먹은게 아니라 다른 css가 덮어쓴거고, display:block 찍히는데 안보이는건 css에 height:0;/overflow:hidden; 때문임..
+          //@@ height:0; overflow:hidden; 이면 display:block; 이어도 공간만 있고 안보임..
+
           con.style.display = 'block';
           con.style.height = '250px';   // 👈 핵심
           con.style.overflow = 'auto';  // 👈 핵심
