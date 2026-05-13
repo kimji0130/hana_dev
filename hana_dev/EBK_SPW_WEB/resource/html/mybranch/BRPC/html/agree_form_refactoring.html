@@ -278,7 +278,7 @@
    document.addEventListener('DOMContentLoaded', function(){
     
     const OFFSET =110;
-    const items = document.querySelectorAll('li');
+    const items = document.querySelectorAll('li.keyFirst_class');
 
     function scrollToEl(el){
       const top = el.getBoundingClientRect().top + window.pageYOffset - OFFSET;
@@ -297,9 +297,24 @@
       });
     }
 
-    item.forEach(li => {
+    items.forEach(li => {
 
       const button = li.querySelector('.clauseTit button');
+
+      if(!button){
+        console.warn('button 없음:', li);
+        return; // 이 li는 스킵
+      }
+      button.addEventListener('click',function(){
+        console.log('버튼 클릭됨');
+        
+      console.log(li.querySelector('.clauseTit'));
+      console.log(li.querySelector('button'));
+      
+      });
+
+
+
       const checkbox = li.querySelector('input[type="checkbox"]');
       const labelText = li.querySelector('label span');
       const clauseCon = li.querySelector('.clauseCon');
@@ -309,7 +324,11 @@
       //   button click
       // ============================
 
-      button.addEventListener('click', function(){
+      
+      button.addEventListener('click', function(){  //@@ button이 null인데 addEventListener 붙이려고해서 문제 생김 ...
+        console.log('li:', li);
+        console.log('button:', button);
+        console.log('버튼 클릭');
 
         const isOpen = clauseCon.style.display === 'block';
 
