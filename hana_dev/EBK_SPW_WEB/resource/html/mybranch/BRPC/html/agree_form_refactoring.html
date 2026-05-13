@@ -260,10 +260,10 @@
             </li>
           </ul>
         </div>
-      </div>
-      <div class="btn_area btn_1-2">
-        <p><a href="" class="btn st02">취소</a></p>
-        <p><a href="" class="btn st01">다음</a></p>
+        <div class="btn_area btn_1-2">
+          <p><a href="" class="btn st02">취소</a></p>
+          <p><a href="" class="btn st01">다음</a></p>
+        </div>
       </div>
       <!-- // content -->
 
@@ -273,12 +273,13 @@
   </div>
   <!-- //Footer -->
   <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
-   <script type="text/javascript">
+  <script type="text/javascript">
     // console.log(document.querySelectorAll('.clauseTit button').length);
    document.addEventListener('DOMContentLoaded', function(){
     
     const OFFSET =110;
     const items = document.querySelectorAll('li.keyFirst_class');
+    console.log('li.keyFirst_class',length); // @@ 콘솔에서 li.keyFirst_class 0 나옴 => html/class 구조 문제!!!!
 
     function scrollToEl(el){
       const top = el.getBoundingClientRect().top + window.pageYOffset - OFFSET;
@@ -299,23 +300,22 @@
 
     items.forEach(li => {
 
-      const button = li.querySelector('.clauseTit button');
-
-      if(!button){
-        console.warn('button 없음:', li);
-        return; // 이 li는 스킵
-      }
-      button.addEventListener('click',function(){
-        console.log('버튼 클릭됨');
-        
-      console.log(li.querySelector('.clauseTit'));
-      console.log(li.querySelector('button'));
       
-      });
-
-
-
+      const button = li.querySelector('.clauseTit button');
       const checkbox = li.querySelector('input[type="checkbox"]');
+      
+      if(!button || !checkbox){
+        console.warn('구조 안맞는 li 스킵:', li);
+        return;
+      }
+      
+      button.addEventListener('click',function(){
+        console.log('버튼 클릭됨');      
+      });
+      
+      console.log(items.length);
+      
+
       const labelText = li.querySelector('label span');
       const clauseCon = li.querySelector('.clauseCon');
       const tooltip = li.querySelector('.toolTipCon');
@@ -375,6 +375,6 @@
 
 
    }); //document.addEventListener('DOMContentLoaded')
-</script>
+  </script>
 </body>
 </html>
