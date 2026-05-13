@@ -274,46 +274,88 @@
   <!-- //Footer -->
   <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
    <script type="text/javascript">
-    console.log(document.querySelectorAll('.clauseTit button').length);
-    window.onload = function(){
+    // console.log(document.querySelectorAll('.clauseTit button').length);
+   document.addEventListener('DOMContentLoaded', function(){
+    
+    const OFFSET =110;
+    const items = document.querySelectorAll('li');
 
-      document.querySelectorAll('.clauseTit button').forEach(button => {
+    function scrollToEl(el){
+      const top = el.getBoundingClientRect().top + window.pageYOffset - OFFSET;
+      window.scrollTo({top, behavior:'smooth'});
+    }
 
-        button.addEventListener('click', function(){
+    function closeAll(){
+      document.querySelectorAll('.clauseCon').forEach(con => {
+        con.style.display = 'none';
+      });
+    }
 
-        const li = button.closest('li');
-        const con = li.querySelector('.clauseCon');
+    function hideAllTooltip(){
+      document.querySelectorAll('.toolTipCon').forEach(t => {
+        t.style.display = 'none';
+      });
+    }
 
-        document.querySelectorAll('.clauseCon').forEach(c => {
-          c.style.display = 'none';
-          c.style.height = '0';
-        });
-        //css로 .clauseCon{height:0; overflow:hidden; transition:height 0.3;}.clauseCon.open{height:250px;} 잡아놨으면
-        //c.style~ 삭제하고, c.classList.remove('open')
-        
-        con.style.display = 'block';
-        con.style.height = '250px';   // 👈 핵심 @@ 현재 css에 '.clauseCon'은 {height:0; overflow:hidden;}으로 display가 아니라 height로 닫아둔 구조라서 보이지 않음..
-        con.style.overflow = 'auto';  // 👈 핵심
-        //con.style~ 삭제하고, 실무에서) con.classList.add('open') 사용하면 됨.
+    item.forEach(li => {
 
-        const top = li.getBoundingClientRect().top + window.scrollY - 110;
+      const button = li.querySelector('.clauseTit button');
+      const checkbox = li.querySelector('input[type="checkbox"]');
+      const labelText = li.querySelector('label span');
+      const clauseCon = li.querySelector('.clauseCon');
+      const tooltip = li.querySelector('.toolTipCon');
 
-        window.scrollTo({
-          top: top,
-          behavior: 'smooth'
-        });
+      // ============================
+      //   button click
+      // ============================
+
+      button.addEventListener('click', function(){
+
+        const isOpen = clauseCon.style.display === 'block';
+
+        if(isOpen){
+          clauseCon.style.display = 'none';
+        }else{
+          closeAll();
+          clauseCon.style.display = 'block';
+          scrollToEl(li);
+        }
+      });
+
+      // ========================
+      // CHECK BOX
+      // ========================
+      checkbox.addEventListener('change', function(){
+        if(this.checked){
+
+          //text 변경
+          labelText.textContent = '동의함';
+
+          // tooltip 숨김
+          if(tooltip) tooltip.style.display = 'none';
+          
+          // toggle 닫기
+          clauseCon.style.display = 'none';
+
+          // scroll 이동
+          scrolltoEl(li);
+        }else{
+          // text 변경
+          labelText.textContent = '동의하기';
+
+          // tooltip 다시 표시
+          hideAllTooltip();
+          if(tooltip) tooltip.style.display = 'block';
+
+          //toggle 다시 닫기
+          closeAll();
+          clauseCon.style.display = 'block';
+        }
       });
     });
 
-    document.querySelectorAll('.clauseTit button').forEach(btn => {
-      btn.addEventListener('click',function(){
-        this.classList.add('on check');
-      });
-      this.closest('li');
 
-    });
-
-    };//window.onload =function(){
+   }); //document.addEventListener('DOMContentLoaded')
 </script>
 </body>
 </html>
