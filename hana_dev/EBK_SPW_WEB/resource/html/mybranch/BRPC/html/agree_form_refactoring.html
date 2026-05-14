@@ -293,7 +293,7 @@
           });
 
           // 열기
-          con.style.height = '250px';
+          con.style.height = con.scrollHeight + 'px'; //고정값 말고 내용 길이에 맞게 자동확장해보자.
 
           const top = li.getBoundingClientRect().top + window.scrollY - 110;
 
