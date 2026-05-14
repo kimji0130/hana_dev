@@ -287,14 +287,13 @@
           const li = button.closest('li');
           const con = li.querySelector('.clauseCon');
 
+          // 전부 닫기
           document.querySelectorAll('.clauseCon').forEach(c => {
-            c.style.display = 'none';
-            c.style.height = '0';
+            c.style.height = '0px';
           });
 
-          con.style.display = 'block';
-          con.style.height = '250px';   // 👈 핵심
-          con.style.overflow = 'auto';  // 👈 핵심
+          // 열기
+          con.style.height = '250px';
 
           const top = li.getBoundingClientRect().top + window.scrollY - 110;
 
