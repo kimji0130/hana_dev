@@ -276,12 +276,13 @@
   <script type="text/javascript">
     console.log(document.querySelectorAll('.clauseTit button').length);
 
-    document.addEventListener('DOMContentLoaded', function(){
+    document.addEventListener('DOMContentLoaded', function(){ //DOM 준비되면 실행   vs  window.onload = function(){//페이지 로딩 끝나면 실행.. 브라우저 기본 기능};
 
       console.log('DOM 준비됨');
       
       document.querySelectorAll('.clauseTit button').forEach(button => {
 
+        
         button.addEventListener('click', function(){
 
           const li = button.closest('li');
