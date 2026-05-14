@@ -276,7 +276,11 @@
   <script type="text/javascript">
     console.log(document.querySelectorAll('.clauseTit button').length);
 
-   document.querySelectorAll('.clauseTit button').forEach(button => {
+    document.addEventListener('DOMContentLoaded', function(){
+
+      console.log('DOM 준비됨');
+      
+      document.querySelectorAll('.clauseTit button').forEach(button => {
 
         button.addEventListener('click', function(){
 
@@ -302,6 +306,8 @@
         });
 
       });
+
+    });
 </script>
 </body>
 </html>
